@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns2="http://www.chinatelecom.com.cn/schema/ctcc/sms/send/v2_1/local"
+  xmlns:ns4="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+  xmlns:ns5="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+  xmlns:ns1="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/send/v2_1/service">
+ <SOAP-ENV:Header>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+  <ns2:sendSmsLogoResponse>
+   <ns2:result></ns2:result>
+  </ns2:sendSmsLogoResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

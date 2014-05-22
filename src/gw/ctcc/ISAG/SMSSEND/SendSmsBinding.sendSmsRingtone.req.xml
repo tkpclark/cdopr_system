@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns2="http://www.chinatelecom.com.cn/schema/ctcc/sms/send/v2_1/local"
+  xmlns:ns4="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+  xmlns:ns5="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+  xmlns:ns1="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/send/v2_1/service">
+ <SOAP-ENV:Header>
+  <ns4:RequestSOAPHeader>
+   <spId></spId>
+   <spPassword></spPassword>
+   <timeStamp></timeStamp>
+   <productId></productId>
+   <SAN></SAN>
+   <transactionId></transactionId>
+   <transEnd>0</transEnd>
+   <linkId></linkId>
+   <OA></OA>
+   <FA></FA>
+   <multicastMessaging>false</multicastMessaging>
+  </ns4:RequestSOAPHeader>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <ns2:sendSmsRingtone>
+    <ns2:addresses></ns2:addresses>
+    <ns2:addresses></ns2:addresses>
+    <ns2:senderName></ns2:senderName>
+    <ns2:charging>
+     <description></description>
+     <currency></currency>
+     <amount></amount>
+     <code></code>
+    </ns2:charging>
+    <ns2:ringtone></ns2:ringtone>
+    <ns2:smsFormat>Ems</ns2:smsFormat>
+    <ns2:receiptRequest>
+     <endpoint></endpoint>
+     <interfaceName></interfaceName>
+     <correlator></correlator>
+    </ns2:receiptRequest>
+   </ns2:sendSmsRingtone>
+
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

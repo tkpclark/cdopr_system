@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns1="http://www.chinatelecom.com.cn/wsdl/besttone/sms/send/v2_1/service">
+ <SOAP-ENV:Body>
+   <ns1:in0>
+    <ns1:message></ns1:message>
+    <ns1:receiverAddress>
+     <ns1:item></ns1:item>
+     <ns1:item></ns1:item>
+    </ns1:receiverAddress>
+    <ns1:senderAddress></ns1:senderAddress>
+   </ns1:in0>
+
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns3="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+  xmlns:ns2="http://www.chinatelecom.com.cn/schema/ctcc/sms/notification/v2_1/local"
+  xmlns:ns4="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+  xmlns:ns1="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/notification/v2_1/service">
+ <SOAP-ENV:Header>
+  <ns4:NotifySOAPHeader>
+   <spRevId></spRevId>
+   <spRevpassword></spRevpassword>
+   <spId></spId>
+   <SAN></SAN>
+   <transactionId></transactionId>
+   <linkId></linkId>
+  </ns4:NotifySOAPHeader>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <ns2:notifySmsDeliveryReceipt>
+    <ns2:correlator></ns2:correlator>
+    <ns2:deliveryStatus>
+     <address></address>
+     <deliveryStatus>DeliveredToNetwork</deliveryStatus>
+    </ns2:deliveryStatus>
+   </ns2:notifySmsDeliveryReceipt>
+
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

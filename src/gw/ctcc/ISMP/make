@@ -1,0 +1,10 @@
+gcc -g -o IsmpSpEngine IsmpSpEngine.c soapC.c soapServer.c  \
+/home/app/gsoap-2.8/gsoap/stdsoap2.c \
+../pub/pubfunc.c \
+../pub/mysqllib.c \
+-I../pub/ \
+-I/usr/include/mysql \
+-L/usr/lib64/mysql  \
+-lgsoap -lccl -lmysqlclient -DDEBUG
+cp IsmpSpEngine /home/app/wraith/bin/ -f
+

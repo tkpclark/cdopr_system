@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:impl="http://sp.ismp.chinatelecom.com" xmlns:intf="http://sp.ismp.chinatelecom.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://rsp.sp.ismp.chinatelecom.com" xmlns:tns1="http://req.sp.ismp.chinatelecom.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://sp.ismp.chinatelecom.com">
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://req.sp.ismp.chinatelecom.com" elementFormDefault="qualified">
+			<import namespace="http://rsp.sp.ismp.chinatelecom.com"/>
+			<complexType name="OrderRelationUpdateNotifyReq">
+				<sequence>
+					<element name="OPType" type="xsd:int"/>
+					<element name="packageID" nillable="true" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<element name="oldPackageID" nillable="true" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<element name="productID" nillable="true" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<element name="oldProductID" nillable="true" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+					<element name="userID" nillable="true" type="xsd:string"/>
+					<element name="userIDType" type="xsd:int"/>
+					<element name="VerUserID" nillable="true" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</complexType>
+			<complexType name="SPWithdrawSubscriptionReq">
+				<sequence>
+					<element name="userIDType" type="xsd:int"/>
+					<element name="userID" nillable="true" type="xsd:string"/>
+					<element name="IDType" type="xsd:int"/>
+					<element name="ID" nillable="true" type="xsd:string"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+					<element name="SPID" nillable="true" type="xsd:string"/>
+					<element name="SPAdmin" nillable="true" type="xsd:string"/>
+					<element name="SPAdminPwd" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+			<complexType name="ServiceConsumeNotifyReq">
+				<sequence>
+					<element name="featureStr" nillable="true" type="xsd:string"/>
+					<element name="linkID" nillable="true" type="xsd:string"/>
+					<element name="productID" nillable="true" type="xsd:string"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+					<element name="userID" nillable="true" type="xsd:string"/>
+					<element name="userIDType" type="xsd:int"/>
+				</sequence>
+			</complexType>
+			<complexType name="NotifyManagementInfoReq">
+				<sequence>
+					<element name="ID" nillable="true" type="xsd:string"/>
+					<element name="IDType" type="xsd:int"/>
+					<element name="status" type="xsd:int"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sp.ismp.chinatelecom.com" elementFormDefault="qualified">
+			<import namespace="http://rsp.sp.ismp.chinatelecom.com"/>
+			<import namespace="http://req.sp.ismp.chinatelecom.com"/>
+			<element name="orderRelationUpdateNotifyReq" type="tns1:OrderRelationUpdateNotifyReq"/>
+			<element name="orderRelationUpdateNotifyReturn" type="tns2:Response"/>
+			<element name="spWithdrawSubscriptionReqPara" type="tns1:SPWithdrawSubscriptionReq"/>
+			<element name="spWithdrawSubscriptionReturn" type="tns2:Response"/>
+			<element name="serviceConsumeNotifyReqPara" type="tns1:ServiceConsumeNotifyReq"/>
+			<element name="serviceConsumeNotifyReturn" type="tns2:Response"/>
+			<element name="notifyManagementInfoReq" type="tns1:NotifyManagementInfoReq"/>
+			<element name="notifyManagementInfoReturn" type="tns2:NotifyManagementInfoRsp"/>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://rsp.sp.ismp.chinatelecom.com" elementFormDefault="qualified">
+			<import namespace="http://req.sp.ismp.chinatelecom.com"/>
+			<complexType name="Response">
+				<sequence>
+					<element name="resultCode" type="xsd:int"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+			<complexType name="NotifyManagementInfoRsp">
+				<sequence>
+					<element name="resultCode" type="xsd:int"/>
+					<element name="streamingNo" nillable="true" type="xsd:string"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="serviceConsumeNotifyResponse">
+		<wsdl:part name="serviceConsumeNotifyReturn" element="impl:serviceConsumeNotifyReturn"/>
+	</wsdl:message>
+	<wsdl:message name="spWithdrawSubscriptionResponse">
+		<wsdl:part name="spWithdrawSubscriptionReturn" element="impl:spWithdrawSubscriptionReturn"/>
+	</wsdl:message>
+	<wsdl:message name="orderRelationUpdateNotifyRequest">
+		<wsdl:part name="orderRelationUpdateNotifyReq" element="impl:orderRelationUpdateNotifyReq"/>
+	</wsdl:message>
+	<wsdl:message name="notifyManagementInfoResponse">
+		<wsdl:part name="notifyManagementInfoReturn" element="impl:notifyManagementInfoReturn"/>
+	</wsdl:message>
+	<wsdl:message name="serviceConsumeNotifyRequest">
+		<wsdl:part name="serviceConsumeNotifyReqPara" element="impl:serviceConsumeNotifyReqPara"/>
+	</wsdl:message>
+	<wsdl:message name="spWithdrawSubscriptionRequest">
+		<wsdl:part name="spWithdrawSubscriptionReqPara" element="impl:spWithdrawSubscriptionReqPara"/>
+	</wsdl:message>
+	<wsdl:message name="orderRelationUpdateNotifyResponse">
+		<wsdl:part name="orderRelationUpdateNotifyReturn" element="impl:orderRelationUpdateNotifyReturn"/>
+	</wsdl:message>
+	<wsdl:message name="notifyManagementInfoRequest">
+		<wsdl:part name="notifyManagementInfoReq" element="impl:notifyManagementInfoReq"/>
+	</wsdl:message>
+	<wsdl:portType name="IsmpSpEngine">
+		<wsdl:operation name="orderRelationUpdateNotify" parameterOrder="orderRelationUpdateNotifyReq">
+			<wsdl:input name="orderRelationUpdateNotifyRequest" message="impl:orderRelationUpdateNotifyRequest"/>
+			<wsdl:output name="orderRelationUpdateNotifyResponse" message="impl:orderRelationUpdateNotifyResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="serviceConsumeNotify" parameterOrder="serviceConsumeNotifyReqPara">
+			<wsdl:input name="serviceConsumeNotifyRequest" message="impl:serviceConsumeNotifyRequest"/>
+			<wsdl:output name="serviceConsumeNotifyResponse" message="impl:serviceConsumeNotifyResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="spWithdrawSubscription" parameterOrder="spWithdrawSubscriptionReqPara">
+			<wsdl:input name="spWithdrawSubscriptionRequest" message="impl:spWithdrawSubscriptionRequest"/>
+			<wsdl:output name="spWithdrawSubscriptionResponse" message="impl:spWithdrawSubscriptionResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="notifyManagementInfo" parameterOrder="notifyManagementInfoReq">
+			<wsdl:input name="notifyManagementInfoRequest" message="impl:notifyManagementInfoRequest"/>
+			<wsdl:output name="notifyManagementInfoResponse" message="impl:notifyManagementInfoResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="IsmpSpEngineSoapBinding" type="impl:IsmpSpEngine">
+		<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="orderRelationUpdateNotify">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="spWithdrawSubscription">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="serviceConsumeNotify">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="notifyManagementInfo">
+			<wsdlsoap:operation/>
+			<wsdl:input>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="IsmpSpEngineService">
+		<wsdl:port name="IsmpSpEngine" binding="impl:IsmpSpEngineSoapBinding">
+			<wsdlsoap:address location="http://localhost:8383/WsdlProject/services/IsmpSpEngine"/>
+		</wsdl:port>
+	</wsdl:service>
+	<!--WSDL created by Apache Axis version: 1.3
+Built on Oct 05, 2005 (05:23:37 EDT)-->
+</wsdl:definitions>

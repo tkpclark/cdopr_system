@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- July 14, 2005 -->
+<xsd:schema
+   targetNamespace="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+   xmlns:ctcc_common_xsd="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <xsd:simpleType name="DeliveryConfirmStatus">
+       <xsd:restriction base="xsd:string">
+           <xsd:enumeration value="Success"/>
+           <xsd:enumeration value="Fail"/>
+       </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:simpleType name="EndReason">
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="0"/>
+         <xsd:enumeration value="-1"/>
+         <xsd:enumeration value="1"/>
+         <xsd:enumeration value="2"/>        
+      </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:element name="RequestSOAPHeader" type="ctcc_common_xsd:RequestSOAPHeader"/>
+   <xsd:complexType name="RequestSOAPHeader">
+        <xsd:sequence>
+            <xsd:element name="spId" type="xsd:string"/>
+            <xsd:element name="spPassword" type="xsd:string"/>
+            <xsd:element name="timeStamp" type="xsd:string"/>            
+            <xsd:element name="productId" type="xsd:string"/>    
+            <xsd:element name="SAN" type="xsd:string" minOccurs="0" maxOccurs="1"/>        
+            <xsd:element name="transactionId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="transEnd" type="ctcc_common_xsd:EndReason" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="linkId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="OA" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="FA" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="multicastMessaging" type="xsd:boolean"  minOccurs="0" maxOccurs="1"/>
+         </xsd:sequence>
+    </xsd:complexType>
+    
+   <xsd:element name="NotifySOAPHeader" type="ctcc_common_xsd:NotifySOAPHeader"/>
+   <xsd:complexType name="NotifySOAPHeader">
+        <xsd:sequence>
+            <xsd:element name="spRevId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="spRevpassword" type="xsd:string" minOccurs="0" maxOccurs="1"/>            
+            <xsd:element name="spId" type="xsd:string"/>
+            <xsd:element name="SAN" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="transactionId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="linkId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+   <xsd:complexType name="TimeMetric">
+      <xsd:sequence>
+         <xsd:element name="metric" type="ctcc_common_xsd:TimeMetrics"/>
+         <xsd:element name="units" type="xsd:int"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ChargingInformation">
+      <xsd:sequence>
+         <xsd:element name="description" type="xsd:string"/>
+         <xsd:element name="currency" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+         <xsd:element name="amount" type="xsd:decimal" minOccurs="0" maxOccurs="1"/>
+         <xsd:element name="code" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="SimpleReference">
+      <xsd:sequence>
+         <xsd:element name="endpoint" type="xsd:anyURI"/>
+         <xsd:element name="interfaceName" type="xsd:string"/>
+         <xsd:element name="correlator" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ServiceError">
+      <xsd:sequence>
+         <xsd:element name="messageId" type="xsd:string"/>
+         <xsd:element name="text" type="xsd:string"/>
+         <xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:simpleType name="TimeMetrics">
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="Millisecond"/>
+         <xsd:enumeration value="Second"/>
+         <xsd:enumeration value="Minute"/>
+         <xsd:enumeration value="Hour"/>
+         <xsd:enumeration value="Day"/>
+         <xsd:enumeration value="Week"/>
+         <xsd:enumeration value="Month"/>
+         <xsd:enumeration value="Year"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:element name="ServiceException" type="ctcc_common_xsd:ServiceException"/>
+   <xsd:complexType name="ServiceException">
+      <xsd:sequence>
+         <xsd:element name="messageId" type="xsd:string"/>
+         <xsd:element name="text" type="xsd:string"/>
+         <xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:element name="PolicyException" type="ctcc_common_xsd:PolicyException"/>
+   <xsd:complexType name="PolicyException">
+      <xsd:sequence>
+         <xsd:element name="messageId" type="xsd:string"/>
+         <xsd:element name="text" type="xsd:string"/>
+         <xsd:element name="variables" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

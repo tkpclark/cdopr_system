@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://besttone.nmsccharge.cp.sms.notification" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://besttone.nmsccharge.cp.sms.notification" xmlns:intf="http://besttone.nmsccharge.cp.sms.notification" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://besttone.nmsccharge.cp.sms.notification" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="SmsMessage">
+    <sequence>
+     <element name="message" nillable="true" type="xsd:string"/>
+     <element name="receiverAddress" nillable="true" type="xsd:string"/>
+     <element name="senderAddress" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="DeliveryInformation">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:anyURI"/>
+     <element name="deliveryStatus" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="notifySmsReceptionRequest">
+
+      <wsdl:part name="in0" type="impl:SmsMessage">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="notifySmsDeliveryReceiptResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="notifySmsDeliveryReceiptRequest">
+
+      <wsdl:part name="in0" type="xsd:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="in1" type="impl:DeliveryInformation">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="notifySmsReceptionResponse">
+
+   </wsdl:message>
+
+   <wsdl:portType name="SmsNotificationService">
+
+      <wsdl:operation name="notifySmsReception" parameterOrder="in0">
+
+         <wsdl:input message="impl:notifySmsReceptionRequest" name="notifySmsReceptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:notifySmsReceptionResponse" name="notifySmsReceptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="notifySmsDeliveryReceipt" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:notifySmsDeliveryReceiptRequest" name="notifySmsDeliveryReceiptRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:notifySmsDeliveryReceiptResponse" name="notifySmsDeliveryReceiptResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SmsNotificationServiceSoapBinding" type="impl:SmsNotificationService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="notifySmsReception">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="notifySmsReceptionRequest">
+
+            <wsdlsoap:body namespace="http://besttone.nmsccharge.cp.sms.notification" use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="notifySmsReceptionResponse">
+
+            <wsdlsoap:body namespace="http://besttone.nmsccharge.cp.sms.notification" use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="notifySmsDeliveryReceipt">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="notifySmsDeliveryReceiptRequest">
+
+            <wsdlsoap:body namespace="http://besttone.nmsccharge.cp.sms.notification" use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="notifySmsDeliveryReceiptResponse">
+
+            <wsdlsoap:body namespace="http://besttone.nmsccharge.cp.sms.notification" use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SmsNotificationServiceService">
+
+      <wsdl:port binding="impl:SmsNotificationServiceSoapBinding" name="SmsNotificationService">
+
+         <wsdlsoap:address location="http://localhost:8080/services/com/ceno/bss/besttone/nmsccharge/cp/sms/notification/prototype/SmsNotificationService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
+

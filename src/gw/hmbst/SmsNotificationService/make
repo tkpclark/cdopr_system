@@ -1,0 +1,9 @@
+gcc -g -o SmsNotificationService SmsNotification.c soapC.c soapServer.c  \
+/home/app/gsoap-2.8/gsoap/stdsoap2.c \
+../pub/pubfunc.c \
+../pub/mysqllib.c \
+-I../pub/ \
+-I/usr/include/mysql \
+-L/usr/lib64/mysql  \
+-lgsoap -lccl -lmysqlclient -DDEBUG
+cp SmsNotificationService /home/app/wraith/bin/SmsNotification_hm -f

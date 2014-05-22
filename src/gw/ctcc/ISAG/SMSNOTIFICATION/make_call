@@ -1,0 +1,1 @@
+gcc -g -o SmsNotification_call SmsNotification_call.c soapC.c soapClient.c  /home/app/gsoap-2.8/gsoap/stdsoap2.c  -lgsoap -DDEBUG

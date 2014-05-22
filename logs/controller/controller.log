@@ -1,0 +1,768 @@
+[2014-05-20 21:20:14,579][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:94
+[2014-05-20 21:20:14,579][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:101
+[2014-05-20 21:24:49,745][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:24:49,745][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:26:20,934][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:93
+[2014-05-20 21:26:20,935][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:100
+[2014-05-20 21:27:30,629][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:27:30,629][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:29:13,932][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:29:13,932][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:29:13,933][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=7 - controller.py:43
+[2014-05-20 21:29:13,934][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:29:13,935][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:29:13,935][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=8 - controller.py:43
+[2014-05-20 21:29:13,937][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:93
+[2014-05-20 21:29:13,938][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:100
+[2014-05-20 21:29:13,938][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=9 - controller.py:43
+[2014-05-20 21:31:30,439][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:31:30,439][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:31:30,439][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=3 - controller.py:43
+[2014-05-20 21:31:30,441][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:31:30,442][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:31:30,442][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=4 - controller.py:43
+[2014-05-20 21:31:30,443][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:93
+[2014-05-20 21:31:30,444][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:100
+[2014-05-20 21:31:30,444][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=5 - controller.py:43
+[2014-05-20 21:31:30,446][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:31:30,447][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:31:30,447][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=6 - controller.py:43
+[2014-05-20 21:31:30,448][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:31:30,449][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:31:30,449][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=7 - controller.py:43
+[2014-05-20 21:31:30,450][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:31:30,451][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:31:30,451][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=8 - controller.py:43
+[2014-05-20 21:31:30,453][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:93
+[2014-05-20 21:31:30,454][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:100
+[2014-05-20 21:31:30,454][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=9 - controller.py:43
+[2014-05-20 21:34:59,093][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:34:59,094][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:34:59,094][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=3 - controller.py:43
+[2014-05-20 21:34:59,095][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:34:59,096][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:34:59,096][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=4 - controller.py:43
+[2014-05-20 21:34:59,097][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:93
+[2014-05-20 21:34:59,098][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:100
+[2014-05-20 21:34:59,098][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=5 - controller.py:43
+[2014-05-20 21:34:59,100][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:34:59,100][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:34:59,100][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=6 - controller.py:43
+[2014-05-20 21:34:59,102][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:34:59,102][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:34:59,103][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=7 - controller.py:43
+[2014-05-20 21:34:59,104][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:34:59,105][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:34:59,105][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=8 - controller.py:43
+[2014-05-20 21:34:59,106][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:93
+[2014-05-20 21:34:59,107][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:100
+[2014-05-20 21:34:59,107][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info=linkid异常 where id=9 - controller.py:43
+[2014-05-20 21:35:23,025][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:35:23,026][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:35:23,026][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='3' - controller.py:43
+[2014-05-20 21:35:23,028][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:93
+[2014-05-20 21:35:23,029][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:100
+[2014-05-20 21:35:23,029][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='4' - controller.py:43
+[2014-05-20 21:35:23,030][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:93
+[2014-05-20 21:35:23,031][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:100
+[2014-05-20 21:35:23,031][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='5' - controller.py:43
+[2014-05-20 21:35:23,033][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:35:23,033][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:35:23,033][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='6' - controller.py:43
+[2014-05-20 21:35:23,035][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:35:23,036][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:35:23,036][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='7' - controller.py:43
+[2014-05-20 21:35:23,037][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:93
+[2014-05-20 21:35:23,038][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:100
+[2014-05-20 21:35:23,038][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='8' - controller.py:43
+[2014-05-20 21:35:23,039][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:93
+[2014-05-20 21:35:23,040][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:100
+[2014-05-20 21:35:23,040][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='9' - controller.py:43
+[2014-05-20 21:38:08,976][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:94
+[2014-05-20 21:38:08,976][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:101
+[2014-05-20 21:38:08,976][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='3' - controller.py:43
+[2014-05-20 21:38:08,979][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:94
+[2014-05-20 21:38:08,979][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:101
+[2014-05-20 21:38:08,979][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='4' - controller.py:43
+[2014-05-20 21:38:08,982][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:94
+[2014-05-20 21:38:08,982][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:101
+[2014-05-20 21:38:08,983][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='5' - controller.py:43
+[2014-05-20 21:38:08,985][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:94
+[2014-05-20 21:38:08,985][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:101
+[2014-05-20 21:38:08,985][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='6' - controller.py:43
+[2014-05-20 21:38:08,988][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:94
+[2014-05-20 21:38:08,988][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:101
+[2014-05-20 21:38:08,988][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='7' - controller.py:43
+[2014-05-20 21:38:08,991][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:94
+[2014-05-20 21:38:08,991][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:101
+[2014-05-20 21:38:08,991][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='8' - controller.py:43
+[2014-05-20 21:38:08,994][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:94
+[2014-05-20 21:38:08,994][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:101
+[2014-05-20 21:38:08,994][INFO][1.00]:  dbsql:update wraith_message set msg_status=1, msg_status_info='linkid异常' where id='9' - controller.py:43
+[2014-05-20 22:06:31,299][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:06:31,317][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:08:38,690][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:08:38,710][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:08:38,712][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:102
+[2014-05-20 22:08:38,732][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:114
+[2014-05-20 22:08:38,733][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:38,752][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:38,754][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:38,773][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:38,774][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:38,794][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:38,795][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:102
+[2014-05-20 22:08:38,815][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:114
+[2014-05-20 22:08:43,585][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:08:43,603][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:08:43,604][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:08:43,622][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:08:43,624][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:102
+[2014-05-20 22:08:43,641][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:114
+[2014-05-20 22:08:43,643][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:43,661][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:43,662][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:43,680][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:43,681][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:08:43,699][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:08:43,701][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:102
+[2014-05-20 22:08:43,718][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:114
+[2014-05-20 22:09:28,780][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:09:28,799][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:09:28,801][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:09:28,820][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:09:28,822][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:102
+[2014-05-20 22:09:28,841][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:114
+[2014-05-20 22:09:28,842][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:09:28,861][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:09:28,863][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:09:28,882][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:09:28,884][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:102
+[2014-05-20 22:09:28,903][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 22:09:28,904][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:102
+[2014-05-20 22:09:28,924][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:114
+[2014-05-20 22:12:56,491][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:102
+[2014-05-20 22:12:56,510][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 22:13:39,297][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:104
+[2014-05-20 22:13:39,316][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:116
+[2014-05-20 22:13:39,316][INFO][1.00]:  dbsql:update wraith_message set province='未知'msg_status_info='linkid异常'msg_status='1'area='未知 where id='3' - controller.py:51
+[2014-05-20 22:14:08,905][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:104
+[2014-05-20 22:14:08,927][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:116
+[2014-05-20 22:14:08,927][INFO][1.00]:  dbsql:update wraith_message set province='未知', msg_status_info='linkid异常', msg_status='1', area='未知', where id='3' - controller.py:51
+[2014-05-20 22:14:33,712][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '3', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:104
+[2014-05-20 22:14:33,731][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:116
+[2014-05-20 22:14:33,731][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='3' - controller.py:51
+[2014-05-20 22:14:33,733][INFO][1.00]:  {'phone_number': 'fff', 'linkid': 'fff', 'id': '4', 'mo_message': 'fff', 'sp_number': 'fff'} - controller.py:104
+[2014-05-20 22:14:33,751][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:116
+[2014-05-20 22:14:33,751][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='4' - controller.py:51
+[2014-05-20 22:14:33,753][INFO][1.00]:  {'phone_number': 'eee', 'linkid': 'eee', 'id': '5', 'mo_message': 'eee', 'sp_number': 'eee'} - controller.py:104
+[2014-05-20 22:14:33,771][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:116
+[2014-05-20 22:14:33,771][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='5' - controller.py:51
+[2014-05-20 22:14:33,774][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '6', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:104
+[2014-05-20 22:14:33,792][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:116
+[2014-05-20 22:14:33,792][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='6' - controller.py:51
+[2014-05-20 22:14:33,795][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '7', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:104
+[2014-05-20 22:14:33,812][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:116
+[2014-05-20 22:14:33,812][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='7' - controller.py:51
+[2014-05-20 22:14:33,815][INFO][1.00]:  {'phone_number': 'dsfds', 'linkid': 'sdfds', 'id': '8', 'mo_message': 'fsdfds', 'sp_number': 'sfdsf'} - controller.py:104
+[2014-05-20 22:14:33,833][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:116
+[2014-05-20 22:14:33,833][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='8' - controller.py:51
+[2014-05-20 22:14:33,836][INFO][1.00]:  {'phone_number': 'fdsfds', 'linkid': 'fdsfds', 'id': '9', 'mo_message': 'fdsf', 'sp_number': 'dsfdsfds'} - controller.py:104
+[2014-05-20 22:14:33,854][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:116
+[2014-05-20 22:14:33,854][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='9' - controller.py:51
+[2014-05-20 23:12:28,071][INFO][1.00]:  {'phone_number': '333', 'linkid': '33', 'id': '1', 'mo_message': '33', 'sp_number': '33'} - controller.py:105
+[2014-05-20 23:23:49,064][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-20 23:24:10,702][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:105
+[2014-05-20 23:25:01,939][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:105
+[2014-05-20 23:25:01,957][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:117
+[2014-05-20 23:25:01,957][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='3' - controller.py:51
+[2014-05-20 23:25:01,960][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:105
+[2014-05-20 23:25:01,979][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:117
+[2014-05-20 23:25:01,979][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='4' - controller.py:51
+[2014-05-20 23:25:01,981][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:105
+[2014-05-20 23:25:01,999][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:117
+[2014-05-20 23:25:02,000][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='5' - controller.py:51
+[2014-05-20 23:25:02,002][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:105
+[2014-05-20 23:25:02,021][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:117
+[2014-05-20 23:25:02,022][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='6' - controller.py:51
+[2014-05-20 23:25:02,025][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:105
+[2014-05-20 23:25:02,043][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:117
+[2014-05-20 23:25:02,043][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='7' - controller.py:51
+[2014-05-20 23:25:02,046][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:105
+[2014-05-20 23:25:02,065][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:117
+[2014-05-20 23:25:02,065][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='8' - controller.py:51
+[2014-05-20 23:25:02,068][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:105
+[2014-05-20 23:25:02,086][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:117
+[2014-05-20 23:25:02,087][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='9' - controller.py:51
+[2014-05-20 23:25:02,089][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:105
+[2014-05-20 23:25:02,108][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:117
+[2014-05-20 23:25:02,108][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='1',area='未知' where id='10' - controller.py:51
+[2014-05-20 23:27:55,088][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:28:54,236][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:31:51,519][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:33:05,876][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:33:05,896][CRITICAL][1.00]:  !!! 10 + 33 + 33 not match - controller.py:131
+[2014-05-20 23:36:02,419][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-20 23:36:06,821][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:38:20,529][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:39:21,710][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:39:21,728][INFO][1.00]:  match product: {} - controller.py:135
+[2014-05-20 23:40:02,156][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:40:02,174][CRITICAL][1.00]:  !!! 10 + 33 + 33 not match - controller.py:131
+[2014-05-20 23:40:02,174][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-20 23:40:02,177][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-20 23:40:02,196][CRITICAL][1.00]:  !!! 10 + 66 + 666 not match - controller.py:131
+[2014-05-20 23:40:02,197][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-20 23:40:02,199][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-20 23:40:02,217][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 23:40:02,218][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='3' - controller.py:50
+[2014-05-20 23:40:02,220][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-20 23:40:02,239][INFO][1.00]:  !!!linkid abnormal:fff - controller.py:114
+[2014-05-20 23:40:02,240][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='4' - controller.py:50
+[2014-05-20 23:40:02,242][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-20 23:40:02,260][INFO][1.00]:  !!!linkid abnormal:eee - controller.py:114
+[2014-05-20 23:40:02,261][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='5' - controller.py:50
+[2014-05-20 23:40:02,263][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-20 23:40:02,282][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 23:40:02,282][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='6' - controller.py:50
+[2014-05-20 23:40:02,285][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-20 23:40:02,306][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 23:40:02,307][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='7' - controller.py:50
+[2014-05-20 23:40:02,310][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-20 23:40:02,328][INFO][1.00]:  !!!linkid abnormal:sdfds - controller.py:114
+[2014-05-20 23:40:02,328][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='8' - controller.py:50
+[2014-05-20 23:40:02,331][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-20 23:40:02,348][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:114
+[2014-05-20 23:40:02,349][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='9' - controller.py:50
+[2014-05-20 23:40:02,351][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-20 23:40:02,369][INFO][1.00]:  !!!linkid abnormal:fdsfds - controller.py:114
+[2014-05-20 23:40:02,369][INFO][1.00]:  dbsql:update wraith_message set province='未知',msg_status_info='linkid异常',msg_status='11',area='未知' where id='10' - controller.py:50
+[2014-05-20 23:44:12,472][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:44:12,473][CRITICAL][1.00]:  !!! 10 + 33 + 33 not match - controller.py:111
+[2014-05-20 23:44:12,473][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-20 23:44:12,475][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-20 23:44:12,476][CRITICAL][1.00]:  !!! 10 + 66 + 666 not match - controller.py:111
+[2014-05-20 23:44:12,476][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-20 23:44:12,479][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-20 23:44:12,479][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-20 23:44:12,480][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-20 23:44:12,482][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-20 23:44:12,482][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-20 23:44:12,482][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-20 23:44:12,485][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-20 23:44:12,485][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-20 23:44:12,485][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-20 23:44:12,488][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-20 23:44:12,488][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:12,488][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-20 23:44:12,491][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-20 23:44:12,491][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:12,491][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-20 23:44:12,494][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-20 23:44:12,494][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:12,494][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-20 23:44:12,497][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-20 23:44:12,497][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-20 23:44:12,497][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-20 23:44:12,500][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-20 23:44:12,500][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-20 23:44:12,500][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-20 23:44:20,964][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-20 23:44:20,964][CRITICAL][1.00]:  !!! 10 + 33 + 33 not match - controller.py:111
+[2014-05-20 23:44:20,964][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-20 23:44:20,967][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-20 23:44:20,968][CRITICAL][1.00]:  !!! 10 + 66 + 666 not match - controller.py:111
+[2014-05-20 23:44:20,968][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-20 23:44:20,970][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-20 23:44:20,971][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-20 23:44:20,971][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-20 23:44:20,974][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-20 23:44:20,974][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-20 23:44:20,974][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-20 23:44:20,977][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-20 23:44:20,977][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-20 23:44:20,977][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-20 23:44:20,979][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-20 23:44:20,980][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:20,980][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-20 23:44:20,983][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-20 23:44:20,983][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:20,983][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-20 23:44:20,986][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-20 23:44:20,986][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-20 23:44:20,987][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-20 23:44:20,989][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-20 23:44:20,989][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-20 23:44:20,989][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-20 23:44:20,992][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-20 23:44:20,992][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-20 23:44:20,992][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 07:48:14,701][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '33', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 07:48:14,702][CRITICAL][1.00]:  !!! 10 + 33 + 33 not match - controller.py:111
+[2014-05-21 07:48:14,702][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 07:48:14,705][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '666', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 07:48:14,705][CRITICAL][1.00]:  !!! 10 + 66 + 666 not match - controller.py:111
+[2014-05-21 07:48:14,706][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 07:48:14,708][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 07:48:14,708][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 07:48:14,709][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 07:48:14,711][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 07:48:14,712][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 07:48:14,712][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 07:48:14,715][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 07:48:14,715][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 07:48:14,715][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 07:48:14,718][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 07:48:14,718][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:48:14,718][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 07:48:14,721][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 07:48:14,721][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:48:14,721][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 07:48:14,724][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 07:48:14,724][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:48:14,724][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 07:48:14,727][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 07:48:14,727][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:48:14,727][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 07:48:14,730][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 07:48:14,731][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:48:14,731][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 07:49:49,664][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 07:49:49,665][CRITICAL][1.00]:  !!! 10 + 33 + 1231 not match - controller.py:111
+[2014-05-21 07:49:49,665][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 07:49:49,667][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 07:49:49,669][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 07:49:49,669][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 07:49:49,671][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 07:49:49,672][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 07:49:49,672][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 07:49:49,674][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 07:49:49,675][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 07:49:49,675][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 07:49:49,677][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 07:49:49,678][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 07:49:49,678][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 07:49:49,681][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 07:49:49,681][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:49:49,681][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 07:49:49,684][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 07:49:49,684][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:49:49,684][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 07:49:49,687][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 07:49:49,687][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:49:49,687][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 07:49:49,690][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 07:49:49,690][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:49:49,690][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 07:49:49,693][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 07:49:49,693][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:49:49,693][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 07:50:11,544][INFO][1.00]:  {'phone_number': '333', 'sp_number': '33', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 07:50:11,544][CRITICAL][1.00]:  !!! 10 + 33 + 1231 not match - controller.py:111
+[2014-05-21 07:50:11,544][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 07:50:11,546][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 07:50:11,548][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 07:50:11,548][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 07:50:11,550][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 07:50:11,551][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 07:50:11,551][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 07:50:11,553][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 07:50:11,554][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 07:50:11,554][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 07:50:11,556][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 07:50:11,557][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 07:50:11,557][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 07:50:11,559][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 07:50:11,560][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:50:11,560][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 07:50:11,562][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 07:50:11,563][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:50:11,563][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 07:50:11,566][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 07:50:11,566][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 07:50:11,566][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 07:50:11,569][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 07:50:11,569][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:50:11,570][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 07:50:11,572][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 07:50:11,572][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 07:50:11,572][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 07:51:55,381][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 07:53:14,613][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 07:54:32,166][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:13:06,001][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 08:13:06,002][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 08:13:06,002][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 08:13:06,005][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 08:13:06,006][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 08:13:06,006][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 08:13:06,008][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 08:13:06,009][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 08:13:06,009][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 08:13:06,011][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 08:13:06,012][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 08:13:06,012][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 08:13:06,015][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 08:13:06,015][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:13:06,015][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 08:13:06,018][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 08:13:06,019][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:13:06,019][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 08:13:06,022][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 08:13:06,022][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:13:06,022][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 08:13:06,025][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 08:13:06,026][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:13:06,026][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 08:13:06,028][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 08:13:06,029][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:13:06,029][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 08:28:29,422][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:28:29,422][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 08:28:29,423][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 08:28:29,425][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 08:28:29,425][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 08:28:29,425][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 08:28:29,428][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 08:28:29,428][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 08:28:29,428][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 08:28:29,431][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 08:28:29,431][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 08:28:29,432][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 08:28:29,434][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 08:28:29,434][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 08:28:29,434][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 08:28:29,437][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 08:28:29,437][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:28:29,438][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 08:28:29,440][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 08:28:29,440][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:28:29,440][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 08:28:29,443][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 08:28:29,443][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:28:29,443][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 08:28:29,446][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 08:28:29,446][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:28:29,446][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 08:28:29,449][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 08:28:29,449][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:28:29,449][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 08:29:50,718][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:30:02,882][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:30:02,883][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 08:30:02,883][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 08:30:02,885][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 08:30:02,886][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 08:30:02,887][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 08:30:02,889][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 08:30:02,890][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 08:30:02,890][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 08:30:02,892][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 08:30:02,892][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 08:30:02,893][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 08:30:02,895][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 08:30:02,895][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 08:30:02,896][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 08:30:02,898][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 08:30:02,898][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:30:02,899][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 08:30:02,901][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 08:30:02,902][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:30:02,902][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 08:30:02,905][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 08:30:02,905][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:30:02,906][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 08:30:02,908][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 08:30:02,909][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:30:02,909][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 08:30:02,911][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 08:30:02,911][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:30:02,912][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 08:32:42,164][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:32:42,165][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 08:32:42,165][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 08:32:42,167][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 08:32:42,168][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 08:32:42,168][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 08:32:42,170][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 08:32:42,171][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 08:32:42,171][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 08:32:42,173][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 08:32:42,174][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 08:32:42,174][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 08:32:42,177][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 08:32:42,177][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 08:32:42,178][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 08:32:42,180][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 08:32:42,181][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:32:42,181][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 08:32:42,183][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 08:32:42,183][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:32:42,184][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 08:32:42,186][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 08:32:42,187][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:32:42,187][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 08:32:42,189][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 08:32:42,190][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:32:42,190][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 08:32:42,192][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 08:32:42,193][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:32:42,193][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 08:36:41,028][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:36:41,029][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 08:36:41,029][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 08:36:41,032][INFO][1.00]:  {'phone_number': '666', 'sp_number': '66', 'mo_message': '1233', 'linkid': '666', 'gwid': '10', 'id': '2'} - controller.py:102
+[2014-05-21 08:36:41,033][CRITICAL][1.00]:  !!! 10 + 66 + 1233 not match - controller.py:111
+[2014-05-21 08:36:41,033][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='2' - controller.py:50
+[2014-05-21 08:36:41,035][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '10', 'id': '3'} - controller.py:102
+[2014-05-21 08:36:41,035][CRITICAL][1.00]:  !!! 10 + fff + fff not match - controller.py:111
+[2014-05-21 08:36:41,036][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='3' - controller.py:50
+[2014-05-21 08:36:41,038][INFO][1.00]:  {'phone_number': 'fff', 'sp_number': 'fff', 'mo_message': 'fff', 'linkid': 'fff', 'gwid': '20', 'id': '4'} - controller.py:102
+[2014-05-21 08:36:41,038][CRITICAL][1.00]:  !!! 20 + fff + fff not match - controller.py:111
+[2014-05-21 08:36:41,038][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='4' - controller.py:50
+[2014-05-21 08:36:41,041][INFO][1.00]:  {'phone_number': 'eee', 'sp_number': 'eee', 'mo_message': 'eee', 'linkid': 'eee', 'gwid': '20', 'id': '5'} - controller.py:102
+[2014-05-21 08:36:41,042][CRITICAL][1.00]:  !!! 20 + eee + eee not match - controller.py:111
+[2014-05-21 08:36:41,042][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='5' - controller.py:50
+[2014-05-21 08:36:41,044][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '6'} - controller.py:102
+[2014-05-21 08:36:41,044][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:36:41,044][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='6' - controller.py:50
+[2014-05-21 08:36:41,047][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '20', 'id': '7'} - controller.py:102
+[2014-05-21 08:36:41,047][CRITICAL][1.00]:  !!! 20 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:36:41,048][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='7' - controller.py:50
+[2014-05-21 08:36:41,050][INFO][1.00]:  {'phone_number': 'dsfds', 'sp_number': 'sfdsf', 'mo_message': 'fsdfds', 'linkid': 'sdfds', 'gwid': '30', 'id': '8'} - controller.py:102
+[2014-05-21 08:36:41,051][CRITICAL][1.00]:  !!! 30 + sfdsf + fsdfds not match - controller.py:111
+[2014-05-21 08:36:41,051][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='8' - controller.py:50
+[2014-05-21 08:36:41,054][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '9'} - controller.py:102
+[2014-05-21 08:36:41,054][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:36:41,055][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='9' - controller.py:50
+[2014-05-21 08:36:41,057][INFO][1.00]:  {'phone_number': 'fdsfds', 'sp_number': 'dsfdsfds', 'mo_message': 'fdsf', 'linkid': 'fdsfds', 'gwid': '30', 'id': '10'} - controller.py:102
+[2014-05-21 08:36:41,057][CRITICAL][1.00]:  !!! 30 + dsfdsfds + fdsf not match - controller.py:111
+[2014-05-21 08:36:41,058][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='10' - controller.py:50
+[2014-05-21 08:39:30,466][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 08:39:30,467][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 08:39:30,467][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 20:36:48,452][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1231', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:36:48,453][CRITICAL][1.00]:  !!! 10 + 10669999 + 1231 not match - controller.py:111
+[2014-05-21 20:36:48,453][INFO][1.00]:  dbsql:update wraith_message set msg_status_info='无匹配业务' where id='1' - controller.py:50
+[2014-05-21 20:38:18,463][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:38:18,464][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 20:43:45,273][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:43:45,274][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 20:44:38,700][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:44:38,700][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 20:53:50,603][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:53:50,603][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:54:09,737][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 20:54:09,737][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 20:57:15,103][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 20:57:15,104][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:06:49,249][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:06:49,250][INFO][1.00]:  match product: {'fee': '200', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:39:23,245][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:39:23,245][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:46:22,535][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:46:22,535][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:46:22,556][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 21:46:22,556][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 21:47:41,735][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:47:41,735][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:47:41,755][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 21:47:41,756][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 21:47:53,847][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:47:53,848][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:47:53,867][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 21:47:53,867][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 21:58:17,516][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 21:58:17,517][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 21:58:17,536][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 21:58:17,537][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 22:05:44,453][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 22:05:44,454][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 22:05:44,475][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 22:05:44,475][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 22:07:07,266][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:102
+[2014-05-21 22:07:07,266][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:115
+[2014-05-21 22:07:07,285][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:149
+[2014-05-21 22:07:07,285][INFO][1.00]:  dbsql:update wraith_message set province='未知',fee='200',allow_province='None',name='sp业务1',sp_number='10669999',area='未知',serv_spn='10669999',gwid='10',mo_cmd='1232',forbidden_area='None',serv_mo='123*',appID='1',msgtype='1',mt_message='welcome',msg_status_info='省份未开通',ID='55',feetype='200' where id='1' - controller.py:50
+[2014-05-21 22:15:39,604][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:15:39,605][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:15:39,627][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:152
+[2014-05-21 22:16:30,678][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:16:30,680][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:16:30,700][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:152
+[2014-05-21 22:17:21,640][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:17:21,640][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:17:51,972][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:17:51,972][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:17:51,993][INFO][1.00]:  visit limit! phone_number:333, cmd_id:55, limit flag:1 - controller.py:146
+[2014-05-21 22:18:19,979][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:18:19,980][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:18:19,999][INFO][1.00]:  visit limit! phone_number:333, cmd_id:55, limit flag:1 - controller.py:146
+[2014-05-21 22:18:19,999][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1' msg_status=1,msg_status_info='访问次数超限,1' where id='1' - controller.py:53
+[2014-05-21 22:19:15,474][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:19:15,475][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:19:15,495][INFO][1.00]:  visit limit! phone_number:333, cmd_id:55, limit flag:1 - controller.py:146
+[2014-05-21 22:19:15,495][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='访问次数超限,1' where id='1' - controller.py:53
+[2014-05-21 22:32:17,118][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:32:17,118][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:32:17,138][INFO][1.00]:  visit limit! phone_number:333, cmd_id:55, limit flag:1 - controller.py:146
+[2014-05-21 22:32:17,139][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='访问次数超限,1' where id='1' - controller.py:53
+[2014-05-21 22:35:45,485][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:35:45,485][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:35:45,506][INFO][1.00]:  phone is not in allow provinces! province:未知 - controller.py:152
+[2014-05-21 22:35:45,506][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='省份未开通' where id='1' - controller.py:53
+[2014-05-21 22:36:26,294][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:36:26,295][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:36:26,316][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:36:26,316][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:36:39,886][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:36:39,887][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:36:39,907][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:36:39,907][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:38:33,247][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:39:38,383][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:39:38,384][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:39:38,405][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:39:38,405][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:39:43,424][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:43:28,678][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:43:28,679][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:43:28,700][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:43:28,700][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:43:31,712][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:46:08,343][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:46:08,344][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:46:08,366][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:46:08,366][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:46:30,438][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:46:53,853][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:46:53,853][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:46:53,874][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:46:53,874][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:47:06,917][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:52:22,136][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 22:52:22,137][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 22:52:22,158][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 22:52:22,159][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 22:53:01,275][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 23:09:34,272][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 23:09:34,272][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:118
+[2014-05-21 23:09:34,292][INFO][1.00]:  breaking... - controller.py:164
+[2014-05-21 23:09:34,292][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:53
+[2014-05-21 23:09:49,341][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:105
+[2014-05-21 23:14:50,924][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:14:50,925][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:14:50,925][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:14:50,946][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:14:50,946][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:14:50,947][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:51,950][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:52,953][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:53,957][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:54,961][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:55,965][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:56,968][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:57,971][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:58,975][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:14:59,978][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:15:00,981][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:15:01,984][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:15:02,987][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:15:02,989][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:16:02,119][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:03,121][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:04,125][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:05,128][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:06,131][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:07,134][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:16:07,136][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:16:07,137][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:16:07,157][INFO][1.00]:  visit limit! phone_number:333, cmd_id:55, limit flag:1 - controller.py:147
+[2014-05-21 23:16:07,158][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='访问次数超限,1' where id='1' - controller.py:54
+[2014-05-21 23:16:07,159][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:08,161][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:09,165][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:10,168][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:11,172][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:12,175][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:13,178][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:16:14,181][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:16:14,183][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:26:26,970][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:27,973][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:28,976][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:29,979][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:30,982][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:26:30,984][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:26:30,985][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:26:31,004][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:26:31,005][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status=1,msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:26:31,006][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:32,009][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:33,012][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:34,015][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:35,018][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:36,021][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:26:37,024][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:26:37,026][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:30:47,334][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:48,337][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:49,341][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:50,344][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:51,347][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:30:51,349][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:30:51,350][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:30:51,371][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:30:51,371][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:30:51,373][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:52,376][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:53,380][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:54,383][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:30:55,387][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:30:55,389][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:39:39,305][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:39:39,306][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:39:39,307][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:39:39,326][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:39:39,327][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:39:39,328][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:40,331][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:41,335][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:42,338][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:43,341][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:44,345][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:45,348][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:46,351][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '1' limit 1 - controller.py:37
+[2014-05-21 23:39:47,355][INFO][1.00]:  select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where id > '0' limit 1 - controller.py:37
+[2014-05-21 23:39:47,357][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:49:29,442][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:49:29,442][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:49:29,464][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:49:29,464][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:49:42,505][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:51:03,955][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-21 23:51:03,956][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-21 23:51:03,976][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-21 23:51:03,976][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-21 23:51:06,988][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-22 09:08:53,151][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-22 09:08:53,151][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'service_id': 'ABCD', 'ID': '55', 'feetype': '200'} - controller.py:119
+[2014-05-22 09:08:53,175][INFO][1.00]:  breaking... - controller.py:165
+[2014-05-22 09:08:53,175][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:54
+[2014-05-22 09:10:26,468][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:106
+[2014-05-22 09:19:02,805][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:107
+[2014-05-22 09:19:02,805][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'feetype': '200', 'ID': '55', 'service_id': 'ABCD'} - controller.py:120
+[2014-05-22 09:19:02,826][INFO][1.00]:  breaking... - controller.py:166
+[2014-05-22 09:19:02,827][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:55
+[2014-05-22 09:19:08,848][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:107
+[2014-05-22 09:19:08,850][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'feetype': '200', 'ID': '55', 'service_id': 'ABCD'} - controller.py:120
+[2014-05-22 09:19:08,869][INFO][1.00]:  breaking... - controller.py:166
+[2014-05-22 09:19:08,869][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:55
+[2014-05-22 09:19:12,885][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:107
+[2014-05-22 09:19:12,885][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'feetype': '200', 'ID': '55', 'service_id': 'ABCD'} - controller.py:120
+[2014-05-22 09:19:12,905][INFO][1.00]:  breaking... - controller.py:166
+[2014-05-22 09:19:12,906][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:55
+[2014-05-22 10:44:04,141][INFO][1.00]:  {'phone_number': '333', 'sp_number': '10669999', 'mo_message': '1232', 'linkid': '33', 'gwid': '10', 'id': '1'} - controller.py:107
+[2014-05-22 10:44:04,142][INFO][1.00]:  match product: {'fee': '200', 'allow_province': 'None', 'name': 'sp\xe4\xb8\x9a\xe5\x8a\xa11', 'sp_number': '10669999', 'serv_spn': '10669999', 'gwid': '10', 'mo_cmd': '1232', 'forbidden_area': 'None', 'serv_mo': '123*', 'appID': '1', 'msgtype': '1', 'feetype': '200', 'ID': '55', 'service_id': 'ABCD'} - controller.py:120
+[2014-05-22 10:44:04,163][INFO][1.00]:  breaking... - controller.py:166
+[2014-05-22 10:44:04,163][INFO][1.00]:  dbsql:update wraith_message set province='未知',area='未知',fee='200',service_id='ABCD',mt_message='welcome',msgtype='1', msg_status='10',msg_status_info='mo正常' where id='1' - controller.py:55

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- July 14, 2005 -->
+<wsdl:definitions
+   name="ctcc_sms_notification_interface"
+   targetNamespace="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/notification/v2_1/interface"
+   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:ctcc_sms_notification="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/notification/v2_1/interface"
+   xmlns:ctcc_sms_xsd="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+   xmlns:ctcc_common_xsd="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1"
+   xmlns:ctcc_sms_notification_local_xsd="http://www.chinatelecom.com.cn/schema/ctcc/sms/notification/v2_1/local">
+
+   <wsdl:types>
+      <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.chinatelecom.com.cn/schema/ctcc/sms/notification/v2_1/local">
+         <xsd:import namespace="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1" schemaLocation="ctcc_sms_types_2_1.xsd"/>
+         <xsd:import namespace="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1" schemaLocation="ctcc_common_types_2_1.xsd"/>
+
+         <xsd:element name="notifySmsReception" type="ctcc_sms_notification_local_xsd:notifySmsReception"/>
+         <xsd:complexType name="notifySmsReception">
+            <xsd:sequence>
+               <xsd:element name="registrationIdentifier" type="xsd:string"/>
+               <xsd:element name="message" type="ctcc_sms_xsd:SmsMessage"/>
+            </xsd:sequence>
+         </xsd:complexType>
+
+         <xsd:element name="notifySmsReceptionResponse" type="ctcc_sms_notification_local_xsd:notifySmsReceptionResponse"/>
+         <xsd:complexType name="notifySmsReceptionResponse">
+            <xsd:sequence/>
+         </xsd:complexType>
+
+         <xsd:element name="notifySmsDeliveryReceipt" type="ctcc_sms_notification_local_xsd:notifySmsDeliveryReceipt"/>
+         <xsd:complexType name="notifySmsDeliveryReceipt">
+            <xsd:sequence>
+               <xsd:element name="correlator" type="xsd:string"/>
+               <xsd:element name="deliveryStatus" type="ctcc_sms_xsd:DeliveryInformation"/>
+            </xsd:sequence>
+         </xsd:complexType>
+
+         <xsd:element name="notifySmsDeliveryReceiptResponse" type="ctcc_sms_notification_local_xsd:notifySmsDeliveryReceiptResponse"/>
+         <xsd:complexType name="notifySmsDeliveryReceiptResponse">
+            <xsd:sequence/>
+         </xsd:complexType>
+      </xsd:schema>
+   </wsdl:types>
+
+   <wsdl:message name="SmsNotification_notifySmsReceptionRequest">
+      <wsdl:part name="parameters" element="ctcc_sms_notification_local_xsd:notifySmsReception"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SMSNotifySOAPHeader">
+    <wsdl:part name="NotifySOAPHeader" element="ctcc_common_xsd:NotifySOAPHeader" />
+  </wsdl:message>
+
+   <wsdl:message name="SmsNotification_notifySmsReceptionResponse">
+      <wsdl:part name="result" element="ctcc_sms_notification_local_xsd:notifySmsReceptionResponse"/>
+   </wsdl:message>
+
+   <wsdl:message name="SmsNotification_notifySmsDeliveryReceiptRequest">
+      <wsdl:part name="parameters" element="ctcc_sms_notification_local_xsd:notifySmsDeliveryReceipt"/>
+   </wsdl:message>
+
+   <wsdl:message name="SmsNotification_notifySmsDeliveryReceiptResponse">
+      <wsdl:part name="result" element="ctcc_sms_notification_local_xsd:notifySmsDeliveryReceiptResponse"/>
+   </wsdl:message>
+
+   <wsdl:portType name="SmsNotification">
+      <wsdl:operation name="notifySmsReception">
+         <wsdl:input message="ctcc_sms_notification:SmsNotification_notifySmsReceptionRequest"/>
+         <wsdl:output message="ctcc_sms_notification:SmsNotification_notifySmsReceptionResponse"/>
+      </wsdl:operation>
+
+      <wsdl:operation name="notifySmsDeliveryReceipt">
+         <wsdl:input message="ctcc_sms_notification:SmsNotification_notifySmsDeliveryReceiptRequest"/>
+         <wsdl:output message="ctcc_sms_notification:SmsNotification_notifySmsDeliveryReceiptResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

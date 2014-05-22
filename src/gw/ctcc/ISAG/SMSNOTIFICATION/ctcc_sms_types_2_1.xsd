@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- July 14, 2005 -->
+<xsd:schema
+   targetNamespace="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+   xmlns:ctcc_sms_xsd="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <xsd:complexType name="DeliveryInformation">
+      <xsd:sequence>
+         <xsd:element name="address" type="xsd:anyURI"/>
+         <xsd:element name="deliveryStatus" type="ctcc_sms_xsd:DeliveryStatus"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="SmsMessage">
+      <xsd:sequence>
+         <xsd:element name="message" type="xsd:string"/>
+         <xsd:element name="senderAddress" type="xsd:anyURI"/>
+         <xsd:element name="smsServiceActivationNumber" type="xsd:anyURI"/>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:simpleType name="DeliveryStatus">
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="DeliveredToNetwork"/>
+         <xsd:enumeration value="DeliveryUncertain"/>
+         <xsd:enumeration value="DeliveryImpossible"/>
+         <xsd:enumeration value="MessageWaiting"/>
+         <xsd:enumeration value="DeliveredToTerminal"/>
+         <xsd:enumeration value="DeliveryNotificationNotSupported"/>
+	 <xsd:enumeration value="AuthPriceFailed"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+
+   <xsd:simpleType name="SmsFormat">
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="Ems"/>
+         <xsd:enumeration value="SmartMessaging"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+ 
+</xsd:schema>
