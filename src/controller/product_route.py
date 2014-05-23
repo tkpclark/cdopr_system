@@ -10,9 +10,8 @@ class Product_route:
     __t__ = '*'
     
     def load_products(self):
-        #select t1.ID,t1.appID,t1.mo_cmd,t1.sp_number,     t2.fee,t2.feetype,t2.mo_cmd as serv_mo,t2.sp_number as serv_spn,t2.msgtype,t2.name,t2.gwid,t2.allow_province,t2.forbidden_area,t2.service_id                    from mtrs_cmd t1, mtrs_service t2, mtrs_cp t3, wraith_cp_product t4                    where t1.serviceID=t2.ID and t1.status=1 and t1.cpProdID=t4.id and t4.cpID=t3.ID
-        sql =  '''select t1.ID,t1.appID,t1.mo_cmd,t1.sp_number,     
-        t2.fee,t2.feetype,t2.mo_cmd as serv_mo,t2.sp_number as serv_spn,t2.msgtype,t2.name,t2.gwid,t2.allow_province,t2.forbidden_area,t2.service_id
+        sql =  '''select t1.ID as cmdID,t1.appID,t1.mo_cmd,t1.sp_number,t1.is_agent,
+        t2.fee,t2.feetype,t2.msgtype,t2.gwid,t1.open_province,t1.forbidden_area,t2.service_id
         from mtrs_cmd t1, mtrs_service t2
         where t1.serviceID=t2.ID and t1.status=1'''
         self.__products__ = mysql.queryAll(sql);
@@ -22,11 +21,11 @@ class Product_route:
         default_content={}
         default_content['content']="welcome"
         for product in self.__products__:
-            sql = "select content from wraith_products_contents where pid="+product['ID']
+            sql = "select content from wraith_products_contents where pid="+product['cmdID']
             one_prod_contents = mysql.queryAll(sql);
             if(len(one_prod_contents)==0):
                 one_prod_contents.append(default_content)
-            self.contents[product['ID']]=one_prod_contents
+            self.contents[product['cmdID']]=one_prod_contents
         
         #print self.contents
         print 'products loaded'

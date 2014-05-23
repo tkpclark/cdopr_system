@@ -1,6 +1,9 @@
 #encoding:utf-8
+
 import sys
 import os
+os.chdir(sys.path[0])
+sys.path.append('../pub')
 from Mydb import mysql
 import time
 import urllib
@@ -51,7 +54,7 @@ def write_db(id, cmd_info):
     sql = sql[0:-1]
     sql += " where id='%s'"%(id)
     '''
-    sql = "update wraith_message set province='%s',area='%s',fee='%s',service_id='%s',mt_message='%s',msgtype='%s', msg_status='%s',msg_status_info='%s' where id='%s'"%(cmd_info['province'],cmd_info['area'],cmd_info['fee'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],cmd_info['msg_status'], cmd_info['msg_status_info'],id)
+    sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',service_id='%s',mt_message='%s',msgtype='%s', msg_status='%s',msg_status_info='%s',is_agent='%s',report='DELIVRD' where id='%s'"%(cmd_info['cmdID'],cmd_info['province'],cmd_info['area'],cmd_info['fee'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],cmd_info['msg_status'], cmd_info['msg_status_info'],cmd_info['is_agent'],id)
     logging.info('dbsql:%s',sql)
     
     mysql.query(sql)
@@ -104,10 +107,10 @@ def main():
         for record in data:
             ########logging.debug(json.dumps(record))
             while True:#just for jumping to the end
-                logging.info(record)
+                logging.info("record:%s",record)
                 mo_data.set_deal_pos(record['id'])
                 cmd_info.clear()
-                #cmd_info['msg_status']='110'
+                cmd_info['msg_status']='11'
                 
                 
                 #######match a product            
@@ -138,20 +141,20 @@ def main():
                     break
                 
                               
-                cmd_info['mt_message']=product_route.get_random_content(cmd_info['ID'])
+                cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
                 
                 
                 
                 ########check visit count 
-                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['ID'],cmd_info['province'],cmd_info['gwid'])
+                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],cmd_info['province'],cmd_info['gwid'])
                 if(limit_flag > 0):
                     logging.info('visit limit! phone_number:%s, cmd_id:%s, limit flag:%d',record['phone_number'],cmd_info['ID'],limit_flag)
                     cmd_info['msg_status_info']='访问次数超限,%d'%(limit_flag)
                     break
                 
-                ########check allow province  
-                if (len(cmd_info['allow_province']) > 0) and (cmd_info['allow_province'] != 'None') and cmd_info['province'] not in cmd_info['allow_province']:
-                    logging.info('phone is not in allow provinces! province:%s',cmd_info['province'])
+                ########check open province  
+                if (len(cmd_info['open_province']) > 0) and (cmd_info['open_province'] != 'None') and cmd_info['province'] not in cmd_info['open_province']:
+                    logging.info('phone is not in open provinces! province:%s',cmd_info['province'])
                     cmd_info['msg_status_info']='省份未开通'
                     break
     
@@ -163,7 +166,7 @@ def main():
                 ########all check is ok
                 cmd_info['msg_status_info']='mo正常'
                 cmd_info['msg_status']='10'
-                logging.info("breaking...")
+                #logging.info("breaking...")
                 break
                 ########
                 ########

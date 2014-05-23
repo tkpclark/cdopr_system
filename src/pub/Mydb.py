@@ -1,5 +1,7 @@
 import MySQLdb
 import sys
+import logging
+from logging.handlers import RotatingFileHandler
 
 class Mydb:
 	def __init__(self,host,user,password,charset="utf8"):
@@ -15,14 +17,14 @@ class Mydb:
 			self.cur=self.conn.cursor()
 
 		except MySQLdb.Error as e:
-			print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
+			logging.info("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 			sys.exit()
 
 	def selectDb(self,db):
 		try:
 			self.conn.select_db(db)
 		except MySQLdb.Error as e:
-			print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
+			logging.info("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 			sys.exit()
 		
 
@@ -31,7 +33,7 @@ class Mydb:
 			n=self.cur.execute(sql)
 			return n
 		except MySQLdb.Error as e:
-			print("Mysql Error:%s\\nSQL:%s" %(e,sql))
+			logging.info("Mysql Error:%s,SQL:%s" %(e,sql))
 	  		sys.exit()
 
 
@@ -82,12 +84,12 @@ class Mydb:
 
 
 
-host = '202.85.209.109'
-user = 'wraith'
-password = 'tengyewudi2012@)!@'
+host = '42.62.78.249'
+user = 'tkp'
+password = 'qepapap'
 
 mysql = Mydb(host, user, password)
-mysql.selectDb('wraith')
+mysql.selectDb('cdopr')
 '''
 result = mysql.queryAll("select * from wraith_mo");
 print result
