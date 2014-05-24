@@ -1,48 +1,27 @@
 #encoding:utf-8
 import sys
 import os
+os.chdir(sys.path[0])
+sys.path.append('../pub')
 from Mydb import mysql
 import time
 import logging
 from logging.handlers import RotatingFileHandler
-import json
-from command import *
-import datetime
-import copy
-from forward_func import *
-import threading
 
 
 def get_data():
-    sql = 'select * from wraith_message where is_agent=1 and forward_status in (0,1)'
+    sql = "select id from wraith_message where(mo_status is not null and mo_status!='ok') or (forward_status > 1) or (motime < NOW()-interval 4 hour) or (is_agent=0 and report is not null)"
     logging.info(sql)
     data = mysql.queryAll(sql);
     return data
 
 
-def write_db(id, cmd_info):
-    sql = '''
-    update wraith_message set 
-    sp_id='%s',
-    cpname='%s',
-    cpID='%s',
-    spID='%s',
-    service_name='%s',
-    spname='%s', 
-    cp_productID='%s',
-    cp_product_name='%s',
-    serviceID='%s',
-    serv_mocmd='%s',
-    serv_spnumber='%s',
-    where id='%s' 
-    '''\
-    %(cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
+def migrate(id):
+    sql = "insert into wraith_message_history select * from wraith_message where id=%s"%(id)    
     logging.info('dbsql:%s',sql)
-    
     mysql.query(sql)
-
-def update_forward_status(id,forward_status,type):
-    sql = " update wraith_message set forward_status='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,id)    
+    
+    sql = "delete from wraith_message where id=%s"%(id)    
     logging.info('dbsql:%s',sql)
     mysql.query(sql)
 
@@ -53,7 +32,7 @@ def init_env():
     os.chdir(sys.path[0])
     
     #init logging
-    logfile = '/home/tkp/cdopr/logs/forward/forward.log'
+    logfile = '/home/tkp/cdopr/logs/migrate/migrate.log'
     Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024*1024,backupCount=5)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.00]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
@@ -61,9 +40,6 @@ def init_env():
     logger.addHandler(Rthandler)
     logger.setLevel(logging.NOTSET)
     
-    global cmd
-    cmd = Command()
-    cmd.load_cmds()
     
     
 def main():
@@ -74,52 +50,16 @@ def main():
         data = get_data() 
         #print (len(data))
         if(len(data) == 0):
-            time.sleep(1)
+            time.sleep(20)
             continue
-        
-        if(len(threading.enumerate()) > 100):
-            logging.info("threading numbers too much! sleep for a while...")
-            time.sleep(1)
-            continue
+
 
         for record in data:
             ########logging.debug(json.dumps(record))
-                logging.info("record:%s",record)
-                
-                #get cmd info
-                cmd_info = cmd.get_cmd_info(record['cmdID'])
-                logging.info("cmd_info:%s",cmd_info)
-               
-                #finish cmd info of this message
-                if(cmd_info['serv_mocmd']=='None'):
-                    write_db(record['id'],cmd_info)
-                    
-                    
-                #1.转发mo+mr一起转的记录
-                #forward_method为1，report not null，forward_status=0
-                if(cmd_info['forward_method']=='1' and record['forward_status']=='0' and record['report']!='None'):
-                    update_forward_status(record['id'],3,"mo")
-                    threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                    
-                #2.转mo/mr分的记录的上行
-                #forward_method为0，forward_status=0 
-                elif(cmd_info['forward_method']=='0' and record['forward_status']=='0'):
-                    update_forward_status(record['id'],1,"mo")
-                    threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                    
-                #3.转mo/mr分开的下行
-                #forward_method为0，forward_status=1 report is not null
-                elif(cmd_info['forward_method']=='0' and record['forward_status']=='1' and record['report']!='None'):
-                    update_forward_status(record['id'],2,"mt")
-                    threading.Thread(target=eval(cmd_info['forward_mt_module']), args=(record['id'], cmd_info['mourl'])).start()
-                else:
-                    logging.info("impossible!")
-                #sys.exit()
-                
-            #write_db(record['id'],cmd_info)
+                #logging.info("record:%s",record)
+                migrate(record['id'])
+              
                    
-                
-            
             
             #time.sleep(10)
 if __name__ == "__main__":

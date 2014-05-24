@@ -43,18 +43,12 @@ class MoData:
         return data
 
 
-def write_db(id, cmd_info):
+def write_db(id, cmd_info, zone, mo_status):
     
-    '''
-    sql = "update wraith_message set "
-    for key in cmd_info:
-        if(key=='id'):
-            continue
-        sql += "%s='%s',"%(key,cmd_info[key])
-    sql = sql[0:-1]
-    sql += " where id='%s'"%(id)
-    '''
-    sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',service_id='%s',mt_message='%s',msgtype='%s', msg_status='%s',msg_status_info='%s',is_agent='%s',report='DELIVRD' where id='%s'"%(cmd_info['cmdID'],cmd_info['province'],cmd_info['area'],cmd_info['fee'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],cmd_info['msg_status'], cmd_info['msg_status_info'],cmd_info['is_agent'],id)
+    if(len(cmd_info)>1):
+        sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',service_id='%s',mt_message='%s',msgtype='%s', mo_status='%s',is_agent='%s' where id='%s'"%(cmd_info['cmdID'],zone[0],zone[1],cmd_info['fee'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],mo_status,cmd_info['is_agent'],id)
+    else:
+        sql = "update wraith_message set province='%s',area='%s', mo_status='%s' where id='%s'" %(zone[0],zone[1],mo_status,id)
     logging.info('dbsql:%s',sql)
     
     mysql.query(sql)
@@ -106,30 +100,32 @@ def main():
 
         for record in data:
             ########logging.debug(json.dumps(record))
-            while True:#just for jumping to the end
+            for i in range(1):#just for jumping to the end
                 logging.info("record:%s",record)
                 mo_data.set_deal_pos(record['id'])
-                cmd_info.clear()
-                cmd_info['msg_status']='11'
                 
+
                 
-                #######match a product            
+                ########get province and area
+                zone = mobile_dict.get_mobile_area(record['phone_number'])
+                
+                #######match a product
+                cmd_info.clear()            
                 cmd_info = copy.copy(product_route.match(record['gwid'], record['sp_number'], record['mo_message']))
                 if(cmd_info == {}):
                     logging.fatal('!!! %s + %s + %s not match',record['gwid'], record['sp_number'], record['mo_message'])
-                    cmd_info['msg_status_info']='无匹配业务'
+                    mo_status='无匹配业务'
                     break
                 
                 logging.info('match product: %s',cmd_info)
                 
-                ########get province and area
-                cmd_info['province'],cmd_info['area'] = mobile_dict.get_mobile_area(record['phone_number'])
+                
                 
                 
                 ########linkisok?
                 if(record['linkid'].isdigit() == False):
                     logging.info('!!!linkid abnormal:' + record['linkid'])
-                    cmd_info['msg_status_info'] = 'linkid异常'
+                    mo_status = 'linkid异常'
                     break
                 
                 
@@ -137,41 +133,41 @@ def main():
                 #logging.info("matching..."+record['phone_number'])
                 if(blklist.match(record['phone_number'])):
                     logging.info('!!!blklist:' + record['phone_number'])
-                    cmd_info['msg_status_info']='黑名单'
+                    mo_status='黑名单'
                     break
                 
                               
+                ###########mt_message
                 cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
                 
                 
                 
                 ########check visit count 
-                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],cmd_info['province'],cmd_info['gwid'])
+                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0],cmd_info['gwid'])
                 if(limit_flag > 0):
                     logging.info('visit limit! phone_number:%s, cmd_id:%s, limit flag:%d',record['phone_number'],cmd_info['ID'],limit_flag)
-                    cmd_info['msg_status_info']='访问次数超限,%d'%(limit_flag)
+                    mo_status='访问次数超限,%d'%(limit_flag)
                     break
                 
                 ########check open province  
-                if (len(cmd_info['open_province']) > 0) and (cmd_info['open_province'] != 'None') and cmd_info['province'] not in cmd_info['open_province']:
-                    logging.info('phone is not in open provinces! province:%s',cmd_info['province'])
-                    cmd_info['msg_status_info']='省份未开通'
+                if (len(cmd_info['open_province']) > 0) and (cmd_info['open_province'] != 'None') and zone[0] not in cmd_info['open_province']:
+                    logging.info('phone is not in open provinces! province:%s',zone[0])
+                    mo_status='省份未开通'
                     break
     
-                if(cmd_info['province']+'@'+cmd_info['area'] in cmd_info['forbidden_area']):
-                    logging.info('phone is in forbidden area! area:%s@%s',cmd_info['province'],cmd_info['area'])
-                    cmd_info['msg_status_info']='区域禁止'
+                if(zone[0]+'@'+zone[1] in cmd_info['forbidden_area']):
+                    logging.info('phone is in forbidden area! area:%s@%s',zone[0],zone[1])
+                    mo_status='区域禁止'
                     break
                 
                 ########all check is ok
-                cmd_info['msg_status_info']='mo正常'
-                cmd_info['msg_status']='10'
+                mo_status='ok'
                 #logging.info("breaking...")
                 break
                 ########
                 ########
                 
-            write_db(record['id'],cmd_info)
+            write_db(record['id'],cmd_info,zone,mo_status)
                    
                 
             

@@ -23,14 +23,14 @@ def update_forward_result(message_id,forward_result,type):
     #time.sleep(100)
     
     
-def f10(message_id,url):
-    logging.info('f10 ok')
+def f10(record):
+    logging.info('forwarding record %s',record)
     time.sleep(1)
-    update_forward_result(message_id,1,"mo")
-def f11(message_id,url):
-    logging.info('f11 ok')
+    update_forward_result(record['id'],1,"mo")
+def f11(record):
+    logging.info('forwarding record %s',record)
     time.sleep(1)
-    update_forward_result(message_id,2,"mt")
+    update_forward_result(record['id'],2,"mt")
     
     
 def get_data():
@@ -53,11 +53,11 @@ def write_db(id, cmd_info):
     cp_product_name='%s',
     serviceID='%s',
     serv_mocmd='%s',
-    serv_spnumber='%s',
+    serv_spnumber='%s'
     where id='%s' 
     '''\
     %(cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
-    logging.info('dbsql:%s',sql)
+    logging.info(sql)
     
     mysql.query(sql)
 
@@ -96,53 +96,57 @@ def main():
             time.sleep(1)
             continue
         
+        
+        '''
         if(len(threading.enumerate()) > 100):
             logging.info("threading numbers too much! sleep for a while...")
             time.sleep(1)
             continue
-
+        '''
+        deal_num = 0
         for record in data:
             ########logging.debug(json.dumps(record))
-                logging.info("record:%s",record)
+            #logging.info("record:%s",record)
                 
-                #get cmd info
-                cmd_info = cmd.get_cmd_info(record['cmdID'])
-                logging.info("cmd_info:%s",cmd_info)
-               
-                #finish cmd info of this message
-                if(cmd_info['serv_mocmd']=='None'):
-                    write_db(record['id'],cmd_info)
+            #get cmd info
+            cmd_info = cmd.get_cmd_info(record['cmdID'])
+            #logging.info("cmd_info:%s",cmd_info)
+           
+            #finish cmd info of this message
+            if(record['serv_mocmd']=='None'):
+                write_db(record['id'],cmd_info)
+                
+                
+            #1.转发mo+mr一起转的记录
+            #forward_method为1，report not null，forward_status=0
+            if(cmd_info['forward_method']=='1' and record['forward_status']=='0' and record['report']!='None'):
+                update_forward_status(record['id'],3,"mo")
+                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
+                eval("%s(record)"%(cmd_info['forward_mo_module']))
+                deal_num += 1
+            #2.转mo/mr分的记录的上行
+            #forward_method为0，forward_status=0 
+            elif(cmd_info['forward_method']=='0' and record['forward_status']=='0'):
+                update_forward_status(record['id'],1,"mo")
+                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
+                eval("%s(record)"%(cmd_info['forward_mo_module']))
+                deal_num += 1
+                #f10(record['id'],cmd_info['mourl'])
+            #3.转mo/mr分开的下行
+            #forward_method为0，forward_status=1 report is not null
+            elif(cmd_info['forward_method']=='0' and record['forward_status']=='1' and record['report']!='None'):
+                update_forward_status(record['id'],2,"mt")
+                #threading.Thread(target=eval(cmd_info['forward_mt_module']), args=(record['id'], cmd_info['mourl'])).start()
+                #f11(record['id'],cmd_info['mourl'])
+                eval("%s(record)"%(cmd_info['forward_mo_module']))
+                deal_num += 1
                     
-                    
-                #1.转发mo+mr一起转的记录
-                #forward_method为1，report not null，forward_status=0
-                if(cmd_info['forward_method']=='1' and record['forward_status']=='0' and record['report']!='None'):
-                    update_forward_status(record['id'],3,"mo")
-                    #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                    eval("%s(%s,'%s')"%(cmd_info['forward_mo_module'],record['id'], cmd_info['mourl']))
-                #2.转mo/mr分的记录的上行
-                #forward_method为0，forward_status=0 
-                elif(cmd_info['forward_method']=='0' and record['forward_status']=='0'):
-                    update_forward_status(record['id'],1,"mo")
-                    #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                    eval("%s(%s,'%s')"%(cmd_info['forward_mo_module'],record['id'], cmd_info['mourl']))
-                    #f10(record['id'],cmd_info['mourl'])
-                #3.转mo/mr分开的下行
-                #forward_method为0，forward_status=1 report is not null
-                elif(cmd_info['forward_method']=='0' and record['forward_status']=='1' and record['report']!='None'):
-                    update_forward_status(record['id'],2,"mt")
-                    #threading.Thread(target=eval(cmd_info['forward_mt_module']), args=(record['id'], cmd_info['mourl'])).start()
-                    #f11(record['id'],cmd_info['mourl'])
-                    eval("%s(%s,'%s')"%(cmd_info['forward_mo_module'],record['id'], cmd_info['mourl']))
-                    
-                else:
-                    logging.info("impossible!")
                 #sys.exit()
                 
-            #write_db(record['id'],cmd_info)
-                   
+        if(deal_num == 0):
+            time.sleep(1)       
                 
-            
+        #logging.info("all:%d,deal:%d",len(data),deal_num)  
             
             #time.sleep(10)
 if __name__ == "__main__":
