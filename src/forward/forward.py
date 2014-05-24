@@ -18,23 +18,23 @@ import copy
 def update_forward_result(message_id,forward_result,type):
     global mysql
     sql = " update wraith_message set forward_%s_result='%d' where id='%s'"%(type,forward_result,message_id)    
-    logging.info('dbsql:%s',sql)
+    #logging.info('dbsql:%s',sql)
     mysql.query(sql)
     #time.sleep(100)
     
     
 def f10(record):
     logging.info('forwarding record %s',record)
-    time.sleep(1)
+    #time.sleep(1)
     update_forward_result(record['id'],1,"mo")
 def f11(record):
     logging.info('forwarding record %s',record)
-    time.sleep(1)
+    #time.sleep(1)
     update_forward_result(record['id'],2,"mt")
     
     
 def get_data():
-    sql = 'select * from wraith_message where is_agent=1 and forward_status in (0,1)'
+    sql = 'select * from wraith_message where is_agent=1 and forward_status in (0,1) limit 1000'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -57,13 +57,13 @@ def write_db(id, cmd_info):
     where id='%s' 
     '''\
     %(cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
-    logging.info(sql)
+    #logging.info(sql)
     
     mysql.query(sql)
 
 def update_forward_status(id,forward_status,type):
     sql = " update wraith_message set forward_status='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,id)    
-    logging.info('dbsql:%s',sql)
+    #logging.info('dbsql:%s',sql)
     mysql.query(sql)
 
     

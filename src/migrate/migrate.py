@@ -10,7 +10,7 @@ from logging.handlers import RotatingFileHandler
 
 
 def get_data():
-    sql = "select id from wraith_message where(mo_status is not null and mo_status!='ok') or (forward_status > 1) or (motime < NOW()-interval 4 hour) or (is_agent=0 and report is not null)"
+    sql = "select id from wraith_message where(mo_status is not null and mo_status!='ok') or (forward_status > 1) or (motime < NOW()-interval 4 hour) or (is_agent=0 and report is not null) limit 1000"
     logging.info(sql)
     data = mysql.queryAll(sql);
     return data

@@ -19,7 +19,7 @@ class Product_route:
         
         #load conents
         default_content={}
-        default_content['content']="welcome"
+        default_content['content']=""
         for product in self.__products__:
             sql = "select content from wraith_products_contents where pid="+product['cmdID']
             one_prod_contents = mysql.queryAll(sql);
@@ -28,7 +28,7 @@ class Product_route:
             self.contents[product['cmdID']]=one_prod_contents
         
         #print self.contents
-        print 'products loaded'
+        #print 'products loaded'
     def get_random_content(self,product_id):      
             ran_number = random.randint(0,len(self.contents[product_id])-1)
             return self.contents[product_id][ran_number]['content']

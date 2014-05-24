@@ -8,6 +8,7 @@ class Blklist:
         sql = "select phone_number from wraith_blklist"
         self.__blklist__ = mysql.queryAll(sql);
         #print self.__blklist__
+        #print "blklist loaded!"
     
     def match(self, phone_number):
         

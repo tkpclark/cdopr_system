@@ -38,7 +38,7 @@ class Mobile_dict:
     __t__ = ','
     def load_mobile_dict(self):
       
-        fd = open('../../conf/code-utf8.dict', 'rb')
+        fd = open('../../data/code-utf8.dict', 'rb')
         i = 0
         for fitem in fd.readlines():
             if len(fitem.split(self.__t__)) == 6:
@@ -61,7 +61,7 @@ class Mobile_dict:
             else:
                 print "mobiledict.config err:", fitem
         fd.close()
-        print  "records loaded!"
+        #print  "mobiledict loaded!"
         
     def get_mobile_area(self, phone_number):
         for i in range(len(self.__m_dict__)):

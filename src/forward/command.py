@@ -14,7 +14,7 @@ class Command:
         where t1.cpProdID=t3.id and t3.cpID=t2.id and t1.serviceID=t5.ID and t5.spID=t4.ID
         '''
         self.__cmd_dict__ = mysql.queryAll(sql)
-        print 'cmd_info loaded'
+        #print 'cmd_info loaded'
         
     def get_cmd_info(self, cmdID):
         #print "cmdID:%s"%cmdID
