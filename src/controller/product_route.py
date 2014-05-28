@@ -3,6 +3,7 @@
 
 from Mydb import mysql
 import random
+import logging
 class Product_route:
     
     __products__ = []
@@ -10,18 +11,19 @@ class Product_route:
     __t__ = '*'
     
     def load_products(self):
-        sql =  '''select t1.ID as cmdID,t1.appID,t1.mo_cmd,t1.sp_number,t1.is_agent,
+        sql =  '''select t1.ID as cmdID,t1.app_module,t1.mo_cmd,t1.sp_number,t1.is_agent,
         t2.fee,t2.feetype,t2.msgtype,t2.gwid,t1.open_province,t1.forbidden_area,t2.service_id
         from mtrs_cmd t1, mtrs_service t2
         where t1.serviceID=t2.ID and t1.status=1'''
         self.__products__ = mysql.queryAll(sql);
-        
+        logging.info(sql)
+        logging.info('all cmdinfo: %s',self.__products__)
         
         #load conents
         default_content={}
         default_content['content']=""
         for product in self.__products__:
-            sql = "select content from wraith_products_contents where pid="+product['cmdID']
+            sql = "select content from mtrs_cmd_mt where cmdID="+product['cmdID']
             one_prod_contents = mysql.queryAll(sql);
             if(len(one_prod_contents)==0):
                 one_prod_contents.append(default_content)

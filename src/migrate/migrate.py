@@ -10,7 +10,12 @@ from logging.handlers import RotatingFileHandler
 
 
 def get_data():
-    sql = "select id from wraith_message where(mo_status is not null and mo_status!='ok') or (forward_status > 1) or (motime < NOW()-interval 4 hour) or (is_agent=0 and report is not null) limit 1000"
+    condition1 = "mo_status is not null and mo_status!='ok'"#mo处理结果为非法的记录
+    condition2 = "motime < NOW()-interval 4 hour" #超过n小时仍未处理完毕的记录
+    condition3 = "is_agent=0 and report is not null" #非转发业务处理完成的记录
+    condition4 = 'forward_status>1'#转发完成的记录
+    
+    sql = "select id from wraith_message where(%s) or (%s) or (%s) or (%s) limit 1000"%(condition1,condition2,condition3,condition4)
     logging.info(sql)
     data = mysql.queryAll(sql);
     return data

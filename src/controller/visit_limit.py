@@ -14,14 +14,14 @@ class Visit_limit:
         sql = "select * from wraith_visit_limit"
         self.__v_dict__ = mysql.queryAll(sql)
         #print self.__v_dict__
-    #def get_user_visit_count(self,phone_number,province,product_id):
-    def set_user_visit_count_daily(self,phone_number,product_id,province,gwid):
+    #def get_user_visit_count(self,phone_number,province,cmdID):
+    def set_user_visit_count_daily(self,phone_number,cmdID,province):
         now = datetime.datetime.now()
         day = now.strftime('%Y%m%d')
         
         
         ###daily
-        key = '%s_%s_%s_%s_%s' % (product_id,province,phone_number,gwid,day)
+        key = '%s_%s_%s_%s' % (cmdID,province,phone_number,day)
         #self.r.INCR(key)
         if(self.r.exists(key)==False):
             self.r.setex(key,86400,1)
@@ -32,13 +32,13 @@ class Visit_limit:
             
         ###monthly
     
-    def set_user_visit_count_monthly(self,phone_number,product_id,province,gwid):
+    def set_user_visit_count_monthly(self,phone_number,cmdID,province):
         now = datetime.datetime.now()
         month = now.strftime('%Y%m')
         
         
         ###daily
-        key = '%s_%s_%s_%s_%s' % (product_id,province,phone_number,gwid,month)
+        key = '%s_%s_%s_%s' % (cmdID,province,phone_number,month)
         #self.r.INCR(key)
         if(self.r.exists(key)==False):
             self.r.setex(key,2764800,1)
@@ -48,30 +48,30 @@ class Visit_limit:
             
 
         ###monthly   
-    def get_user_visit_limit(self,product_id,province,gwid):
+    def get_user_visit_limit(self,cmdID,province):
         
         #exactly
         for record in self.__v_dict__:
-            #print record['product_id'],record['province']
-            #print product_id,province
-            if( (record['product_id'] == product_id) and (record['province'] == province) and (record['gwid'] == gwid)):
-                 return (record['daily_count'],record['monthly_count'])
+            #print record['cmdID'],record['province']
+            #print cmdID,province
+            if( (record['cmdID'] == cmdID) and (record['province'] == province)):
+                 return (record['daily_limit'],record['monthly_limit'])
             
         #default of a product
         for record in self.__v_dict__:
-            #print record['product_id'],record['province']
-            #print product_id,province
-            if( (record['product_id'] == product_id) and (record['province'] == '默认') and (record['gwid'] == gwid)):
-                return (record['daily_count'],record['monthly_count'])
+            #print record['cmdID'],record['province']
+            #print cmdID,province
+            if( (record['cmdID'] == cmdID) and (record['province'] == '默认')):
+                return (record['daily_limit'],record['monthly_limit'])
         
         #eventually default
         return (10,100);
-    def is_arrive_limit(self,phone_number, product_id, province, gwid):
+    def is_arrive_limit(self,phone_number, cmdID, province):
 
         #daily_limit check        
-        visit_limit_daily,visit_limit_monthly=self.get_user_visit_limit(product_id,province,gwid)
-        visit_count_dayily=self.set_user_visit_count_daily(phone_number, product_id, province,gwid)
-        visit_count_monthly=self.set_user_visit_count_monthly(phone_number, product_id, province,gwid)
+        visit_limit_daily,visit_limit_monthly=self.get_user_visit_limit(cmdID,province)
+        visit_count_dayily=self.set_user_visit_count_daily(phone_number, cmdID, province)
+        visit_count_monthly=self.set_user_visit_count_monthly(phone_number, cmdID, province)
         
         
         if((int)(visit_count_dayily) > (int)(visit_limit_daily)):
@@ -81,7 +81,7 @@ class Visit_limit:
         
         
         #limit of the first 9 bits of the phone_number
-        group_visit_count_dayily=self.set_user_visit_count_daily(phone_number[0:-2], product_id, province,gwid)
+        group_visit_count_dayily=self.set_user_visit_count_daily(phone_number[0:-2], cmdID, province)
         if((int)(group_visit_count_dayily)) > 80:
             return 3
         

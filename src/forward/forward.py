@@ -9,32 +9,48 @@ import time
 import logging
 from logging.handlers import RotatingFileHandler
 import json
+from deduction import *
 from command import *
 import datetime
 import copy
+from ran import in_po
 #from forward_func import *
 #import threading
 
-def update_forward_result(message_id,forward_result,type):
+def update_forward_info(message_id,forward_status,forward_result,type):
     global mysql
-    sql = " update wraith_message set forward_%s_result='%d' where id='%s'"%(type,forward_result,message_id)    
+    sql = " update wraith_message set forward_status='%d', forward_%s_result='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,forward_result,type,message_id)    
     #logging.info('dbsql:%s',sql)
     mysql.query(sql)
     #time.sleep(100)
     
+def f_no(record,mourl):
+    #logging.info('forwarding nothing %s',record)
+    #time.sleep(1)
+    return 1
+ 
+def f_mo(record,mourl):
+    #logging.info('forwarding record %s',record)
+    #time.sleep(1)
+    #http://youraddress/interface_mo?spnumber=106673336&msg=CP&fee=2&mobile=13179386983&linkid=72523970&createtime=20120320095009
+    nowtime = '11223344'
+    url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s' \
+    %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime)
+    logging.info('(%s):%s',record['id'], url)
+    return 1
     
-def f10(record):
-    logging.info('forwarding record %s',record)
+def f_mr(record,mrurl):
+    #logging.info('forwarding record %s',record)
     #time.sleep(1)
-    update_forward_result(record['id'],1,"mo")
-def f11(record):
-    logging.info('forwarding record %s',record)
-    #time.sleep(1)
-    update_forward_result(record['id'],2,"mt")
+    nowtime = '11223344'
+    url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s' \
+    %(mrurl,record['phone_number'],record['linkid'],record['report'],nowtime)
+    logging.info('(%s):%s',record['id'], url)
+    return 1
     
     
 def get_data():
-    sql = 'select * from wraith_message where is_agent=1 and forward_status in (0,1) limit 1000'
+    sql = 'select * from wraith_message where is_agent=1 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -61,11 +77,6 @@ def write_db(id, cmd_info):
     
     mysql.query(sql)
 
-def update_forward_status(id,forward_status,type):
-    sql = " update wraith_message set forward_status='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,id)    
-    #logging.info('dbsql:%s',sql)
-    mysql.query(sql)
-
     
 def init_env():
     
@@ -78,17 +89,22 @@ def init_env():
     logger.addHandler(Rthandler)
     logger.setLevel(logging.NOTSET)
     
+
     
+    global deduction
+    deduction = Deduction()
+    deduction.load_dict()
     
     global cmd
     cmd = Command()
-    cmd.load_cmds()
+    cmd.load_dict()
+    
 
     
 def main():
     
     init_env()
-    
+    logging.info("starting...")
     while True:
         data = get_data() 
         #print (len(data))
@@ -103,52 +119,45 @@ def main():
             time.sleep(1)
             continue
         '''
-        deal_num = 0
         for record in data:
             ########logging.debug(json.dumps(record))
             #logging.info("record:%s",record)
-                
-            #get cmd info
             cmd_info = cmd.get_cmd_info(record['cmdID'])
-            #logging.info("cmd_info:%s",cmd_info)
-           
-            #finish cmd info of this message
-            if(record['serv_mocmd']=='None'):
+            
+            #####转发mo#####
+            if(record['forward_status']=='0'):
+                type = 'mo'
+                
+                #logging.info("cmd_info:%s",cmd_info)
                 write_db(record['id'],cmd_info)
                 
+                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
+                de = deduction.get_deduction(cmd_info['cp_productID'],record['province'])
+                if(in_po(de)): 
+                    forward_status = 4 
+                    forward_result = 2 
+                else:
+                    forward_result = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
+                    forward_status = 1 if(forward_result == 1) else 6 
                 
-            #1.转发mo+mr一起转的记录
-            #forward_method为1，report not null，forward_status=0
-            if(cmd_info['forward_method']=='1' and record['forward_status']=='0' and record['report']!='None'):
-                update_forward_status(record['id'],3,"mo")
-                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                eval("%s(record)"%(cmd_info['forward_mo_module']))
-                deal_num += 1
-            #2.转mo/mr分的记录的上行
-            #forward_method为0，forward_status=0 
-            elif(cmd_info['forward_method']=='0' and record['forward_status']=='0'):
-                update_forward_status(record['id'],1,"mo")
-                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                eval("%s(record)"%(cmd_info['forward_mo_module']))
-                deal_num += 1
-                #f10(record['id'],cmd_info['mourl'])
-            #3.转mo/mr分开的下行
-            #forward_method为0，forward_status=1 report is not null
-            elif(cmd_info['forward_method']=='0' and record['forward_status']=='1' and record['report']!='None'):
-                update_forward_status(record['id'],2,"mt")
-                #threading.Thread(target=eval(cmd_info['forward_mt_module']), args=(record['id'], cmd_info['mourl'])).start()
+                
+            ####转发mr#####
+            elif(record['forward_status']=='1'):
+                type = 'mt'
+                #threading.Thread(target=eval(cmd_info['forward_mr_module']), args=(record['id'], cmd_info['mourl'])).start()
                 #f11(record['id'],cmd_info['mourl'])
-                eval("%s(record)"%(cmd_info['forward_mo_module']))
-                deal_num += 1
-                    
-                #sys.exit()
+                forward_result = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
+                forward_status = 2 if(forward_result == 1) else 7 
                 
-        if(deal_num == 0):
-            time.sleep(1)       
                 
-        #logging.info("all:%d,deal:%d",len(data),deal_num)  
-            
-            #time.sleep(10)
+                
+            ################
+            else:
+                logging.info("impossible!")
+                
+            update_forward_info(record['id'],forward_status,forward_result,type)
+            #sys.exit()     
+                
 if __name__ == "__main__":
     main()
     

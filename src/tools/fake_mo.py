@@ -11,9 +11,9 @@ import random
 def main():
     
     for i in range(string.atoi(sys.argv[1])):
-        phone_number='139%s'%("".join(random.sample('01234567890123456789012345678901234567890123456789',8)))
+        phone_number='133%s'%("".join(random.sample('01234567890123456789012345678901234567890123456789',8)))
         sp_number='10669999'
-        mo_message=random.choice(['112', '1232'])
+        mo_message=random.choice(['232', '1232'])
         linkid="".join(random.sample('012345678901234567890123456789012345678901234567890123456789',20))
         #gwid=random.randint(1,20)
         gwid=10

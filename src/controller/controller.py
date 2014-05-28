@@ -17,7 +17,7 @@ from blklist import *
 from visit_limit import *
 import datetime
 import copy
-
+from ran import in_po
     
 def get_data():
     sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where mo_status is null limit 1000'
@@ -27,8 +27,13 @@ def get_data():
 
 def write_db(id, cmd_info, zone, mo_status):
     
+    ####正式运营请注释掉此部分代码
+    report=''
+    report=',report=%d'%(2 if in_po(0.05) else 1)
+    ####
+    
     if(len(cmd_info)>1):
-        sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',service_id='%s',mt_message='%s',msgtype='%s', mo_status='%s',is_agent='%s', report=1 where id='%s'"%(cmd_info['cmdID'],zone[0],zone[1],cmd_info['fee'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],mo_status,cmd_info['is_agent'],id)
+        sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',feetype='%s',service_id='%s',mt_message='%s',msgtype='%s', mo_status='%s',is_agent='%s' %s where id='%s'"%(cmd_info['cmdID'],zone[0],zone[1],cmd_info['fee'],cmd_info['feetype'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],mo_status,cmd_info['is_agent'],report,id)
     else:
         sql = "update wraith_message set province='%s',area='%s', mo_status='%s' where id='%s'" %(zone[0],zone[1],mo_status,id)
     #logging.info('dbsql:%s',sql)
@@ -97,7 +102,11 @@ def main():
                 
                 #logging.info('match product: %s',cmd_info)
                 ###########mt_message
-                cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
+                if(cmd_info['app_module']):#调用相应的应用来生成下行
+                    pass
+                    #调用应用的代码写在这里
+                else:#立刻生成下行                
+                    cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
                 
                 
                 
@@ -117,7 +126,7 @@ def main():
                 
                 
                 ########check visit count 
-                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0],cmd_info['gwid'])
+                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0])
                 if(limit_flag > 0):
                     mo_status='访问次数超限,%d'%(limit_flag)
                     break
