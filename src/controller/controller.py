@@ -28,8 +28,11 @@ def get_data():
 def write_db(id, cmd_info, zone, mo_status):
     
     ####正式运营请注释掉此部分代码
-    report=''
-    report=',report=%d'%(2 if in_po(0.05) else 1)
+    if(mo_status=='ok'):
+        report=',report=%d'%(2 if in_po(0.05) else 1)
+    else:
+        report=''
+    
     ####
     
     if(len(cmd_info)>1):
@@ -103,6 +106,7 @@ def main():
                 #logging.info('match product: %s',cmd_info)
                 ###########mt_message
                 if(cmd_info['app_module']):#调用相应的应用来生成下行
+                    cmd_info['mt_message']=''
                     pass
                     #调用应用的代码写在这里
                 else:#立刻生成下行                

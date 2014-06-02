@@ -1,6 +1,9 @@
+import sys
+import os
+os.chdir(sys.path[0])
+sys.path.append('../pub')
 from Mydb import mysql
 from product_route import *
-import sys
 
 product_route = Product_route()
 product_route.load_products()
