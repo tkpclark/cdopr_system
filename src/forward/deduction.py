@@ -24,13 +24,13 @@ class Deduction:
             #print record['cpProdID'],record['zone']
             #print cpProdID,zone
             if( (record['cpProdID'] == cpProdID) and (record['zone'] == zone)):
-                 return record['deduction']
+                 return float(record['deduction'])
         #default of a product
         for record in self.__deduction_dict__:
             #print record['cpProdID'],record['zone']
             #print cpProdID,zone
             if( (record['cpProdID'] == cpProdID) and (record['zone'] == '默认')):
-                return record['deduction']
+                return float(record['deduction'])
         
         #eventually default
         return 0;

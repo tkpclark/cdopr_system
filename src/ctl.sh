@@ -6,7 +6,7 @@ pid=`ps -ef | grep -v grep | grep -v $0| grep $prog | sed -n  '1P' | awk '{print
 
 if [ "$2" == "start" ] ; then
 	if [ -z $pid ] ; then  
-		nohup python $path > /dev/null &
+		nohup python $path 2&> /dev/null &
 	else  
 		echo $prog "is running..." $pid  
 	fi

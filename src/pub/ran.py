@@ -4,15 +4,19 @@ import sys
 import os
 import string
 import random
+import logging
 
 def in_po(p):
     po=100*p
     a=random.randint(1,100)
     if(a <= po):
-        return True
+        re=True
     else:
-        return False
+        re=False
     
+    #logging.info("p:%f,re:%s",po,re)
+    #print "p:%f,re:%s"%(po,re)
+    return re
 def main():
     
     for i in range(string.atoi(sys.argv[1])):

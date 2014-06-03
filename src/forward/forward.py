@@ -50,7 +50,7 @@ def f_mr(record,mrurl):
     
     
 def get_data():
-    sql = 'select * from wraith_message where is_agent=1 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000'
+    sql = 'select * from wraith_message where is_agent=2 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -58,7 +58,9 @@ def get_data():
 
 def write_db(id, cmd_info):
     sql = '''
-    update wraith_message set 
+    update wraith_message set
+    cmd_spnumber='%s',
+    cmd_mocmd='%s',
     sp_id='%s',
     cpname='%s',
     cpID='%s',
@@ -72,7 +74,7 @@ def write_db(id, cmd_info):
     serv_spnumber='%s'
     where id='%s' 
     '''\
-    %(cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
+    %(cmd_info['cmd_spnumber'],cmd_info['cmd_mocmd'],cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
     #logging.info(sql)
     
     mysql.query(sql)

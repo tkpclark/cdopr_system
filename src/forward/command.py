@@ -6,7 +6,7 @@ class Command:
     __cmd_dict__ = []
     def load_dict(self):
         sql = '''
-        select t1.id as cmdID,t2.ID as cpID,t2.cpname,
+        select t1.id as cmdID,t1.sp_number as cmd_spnumber,t1.mo_cmd as cmd_mocmd,t2.ID as cpID,t2.cpname,
         t3.id as cp_productID,t3.`name` as cp_product_name,t3.mourl,
         t3.mrurl,t3.forward_mo_module,t3.forward_mr_module,t1.open_province,t1.forbidden_area,
         t4.ID as spID, t4.sp_id,t4.spname,
