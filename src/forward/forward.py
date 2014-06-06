@@ -22,7 +22,7 @@ def visit_url(url):
     #logging.info(url)
     logging.info("visit url")
     try:
-        res = urllib2.urlopen(url, timeout=1)
+        res = urllib2.urlopen(url, timeout=2)
         r = res.read()
         logging.info("res:%s",r)
         return 1
@@ -45,7 +45,7 @@ def f_mo(record,mourl):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
     #http://youraddress/interface_mo?spnumber=106673336&msg=CP&fee=2&mobile=13179386983&linkid=72523970&createtime=20120320095009
-    nowtime = '11223344'
+    nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime)
     logging.info('(%s):%s',record['id'], url)

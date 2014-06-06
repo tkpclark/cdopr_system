@@ -16,8 +16,10 @@ class Command:
         '''
         self.__cmd_dict__ = mysql.queryAll(sql)
         logging.info(sql)
-        logging.info("loadding cmds:%s",self.__cmd_dict__)
+        #logging.info("loadding cmds:%s",self.__cmd_dict__)
         #print 'cmd_info loaded'
+        for i in range(len(self.__cmd_dict__)):
+            logging.info(self.__cmd_dict__[i])
         
     def get_cmd_info(self, cmdID):
         #print "cmdID:%s"%cmdID

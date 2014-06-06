@@ -17,7 +17,9 @@ class Product_route:
         where t1.serviceID=t2.ID and t1.status=1'''
         self.__products__ = mysql.queryAll(sql);
         logging.info(sql)
-        logging.info('all cmdinfo: %s',self.__products__)
+        #logging.info('all cmdinfo: %s',self.__products__)
+        for i in range(len(self.__products__)):
+            logging.info(self.__products__[i])
         
         #load conents
         default_content={}
