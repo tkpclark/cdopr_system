@@ -54,7 +54,7 @@ def f_mo(record,mourl):
 def f_mr(record,mrurl):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
-    nowtime = '11223344'
+    nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     report='DELIVRD' if record['report']=='1' else record['report']
     url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s' \
     %(mrurl,record['phone_number'],record['linkid'],report,nowtime)

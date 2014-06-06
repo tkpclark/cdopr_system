@@ -15,12 +15,13 @@ from product_route import *
 from m_dict import *
 from blklist import *
 from visit_limit import *
+from frequency import *
 import datetime
 import copy
 from ran import in_po
     
 def get_data():
-    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area from wraith_message where mo_status is null limit 1000'
+    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area,motime from wraith_message where mo_status is null order by id asc limit 1000'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -74,6 +75,9 @@ def init_env():
     visit_limit = Visit_limit()
     visit_limit.load_dict()
     
+    global frequency
+    frequency = Frequency()
+    
 def main():
     
     init_env()
@@ -116,6 +120,10 @@ def main():
                     cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
                 
                 
+                ########Frequency
+                if(frequency.rec_freq(record['phone_number'],record['motime'])==False):
+                    mo_status = '频度过高'
+                    break
                 
                 ########linkisok?
                 if(record['linkid'].isdigit() == False):
@@ -135,7 +143,10 @@ def main():
                 ########check visit count 
                 limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0])
                 if(limit_flag > 0):
-                    mo_status='访问次数超限,%d'%(limit_flag)
+                    if(limit_flag==1):
+                        mo_status='超日限'
+                    elif(limit_flag==1):
+                        mo_status='超月限'
                     break
                 
                 ########check open province  
