@@ -14,9 +14,21 @@ from command import *
 import datetime
 import copy
 from ran import in_po
+import urllib2
 #from forward_func import *
 #import threading
 
+def visit_url(url):
+    #logging.info(url)
+    logging.info("visit url")
+    try:
+        res = urllib2.urlopen(url, timeout=1)
+        r = res.read()
+        logging.info("res:%s",r)
+        return 1
+    except:
+        logging.info('failed')
+        return 0
 def update_forward_info(message_id,forward_status,forward_result,type):
     global mysql
     sql = " update wraith_message set forward_status='%d', forward_%s_result='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,forward_result,type,message_id)    
@@ -37,16 +49,17 @@ def f_mo(record,mourl):
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime)
     logging.info('(%s):%s',record['id'], url)
-    return 1
+    return visit_url(url)
     
 def f_mr(record,mrurl):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
     nowtime = '11223344'
+    report='DELIVRD' if record['report']=='1' else record['report']
     url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s' \
-    %(mrurl,record['phone_number'],record['linkid'],record['report'],nowtime)
+    %(mrurl,record['phone_number'],record['linkid'],report,nowtime)
     logging.info('(%s):%s',record['id'], url)
-    return 1
+    return visit_url(url)
     
     
 def get_data():
@@ -85,7 +98,7 @@ def init_env():
     #init logging
     logfile = '/home/tkp/cdopr/logs/forward/forward.log'
     Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024*1024,backupCount=5)
-    formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.00]:  %(message)s - %(filename)s:%(lineno)d')
+    formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.01]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
     logger.addHandler(Rthandler)
