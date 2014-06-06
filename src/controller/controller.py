@@ -20,7 +20,7 @@ import copy
 from ran import in_po
     
 def get_data():
-    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid from wraith_message where mo_status is null limit 1000'
+    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area from wraith_message where mo_status is null limit 1000'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -34,9 +34,8 @@ def write_db(id, cmd_info, zone, mo_status):
         report=''
     
     ####
-    
     if(len(cmd_info)>1):
-        sql = "update wraith_message set cmdID='%s',province='%s',area='%s',fee='%s',feetype='%s',service_id='%s',mt_message='%s',msgtype='%s', mo_status='%s',is_agent='%s' %s where id='%s'"%(cmd_info['cmdID'],zone[0],zone[1],cmd_info['fee'],cmd_info['feetype'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],mo_status,cmd_info['is_agent'],report,id)
+        sql = "update wraith_message set province='%s',area='%s', cmdID='%s',fee='%s',feetype='%s',service_id='%s',mt_message='%s',msgtype='%s', mo_status='%s',is_agent='%s' %s where id='%s'"%(zone[0],zone[1], cmd_info['cmdID'],cmd_info['fee'],cmd_info['feetype'],cmd_info['service_id'],cmd_info['mt_message'],cmd_info['msgtype'],mo_status,cmd_info['is_agent'],report,id)
     else:
         sql = "update wraith_message set province='%s',area='%s', mo_status='%s' where id='%s'" %(zone[0],zone[1],mo_status,id)
     #logging.info('dbsql:%s',sql)
@@ -95,7 +94,11 @@ def main():
             for i in range(1):#just for jumping to the end
                 
                 ########get province and area
-                zone = mobile_dict.get_mobile_area(record['phone_number'])
+                if(record['province']=='None'):
+                    zone = mobile_dict.get_mobile_area(record['phone_number'])
+                else:
+                    zone = (record['province'],record['area'])
+                    
                 #######match a product
                 cmd_info.clear()            
                 cmd_info = copy.copy(product_route.match(record['gwid'], record['sp_number'], record['mo_message']))
