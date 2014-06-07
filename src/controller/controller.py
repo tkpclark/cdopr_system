@@ -51,7 +51,7 @@ def init_env():
     
     #init logging
     logfile = '/home/tkp/cdopr/logs/controller/controller.log'
-    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024*1024,backupCount=5)
+    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024,backupCount=500)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.00]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
@@ -141,12 +141,9 @@ def main():
                 
                 
                 ########check visit count 
-                limit_flag = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0])
-                if(limit_flag > 0):
-                    if(limit_flag==1):
-                        mo_status='超日限'
-                    elif(limit_flag==1):
-                        mo_status='超月限'
+                f,v = visit_limit.is_arrive_limit(record['phone_number'],cmd_info['cmdID'],zone[0])
+                if(f != '0'):
+                    mo_status = v
                     break
                 
                 ########check open province  

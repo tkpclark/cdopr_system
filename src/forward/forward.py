@@ -97,7 +97,7 @@ def init_env():
     
     #init logging
     logfile = '/home/tkp/cdopr/logs/forward/forward.log'
-    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024*1024,backupCount=5)
+    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024,backupCount=500)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.01]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
