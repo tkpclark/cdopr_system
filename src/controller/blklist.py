@@ -1,21 +1,32 @@
+import sys
+import os
+os.chdir(sys.path[0])
+sys.path.append('../pub')
 from Mydb import mysql
 class Blklist:
     
-    __blklist__ = []
+    __blklist__ = {}
     __t__ = '*'
     
     def load_blklist(self):
         sql = "select phone_number from wraith_blklist"
-        self.__blklist__ = mysql.queryAll(sql);
-        #print self.__blklist__
+        tmp = mysql.queryAll(sql)
+        
         #print "blklist loaded!"
+        for item in tmp:
+            self.__blklist__[item['phone_number']]=''
+            
+        #print self.__blklist__
     
     def match(self, phone_number):
         
-        for item in self.__blklist__:
-          if(item['phone_number'] == phone_number):
-              return True
-        return False
+        if(self.__blklist__.has_key(phone_number)):
+            return True
+        else:
+            return False
    
     
-    
+if __name__ == "__main__":
+    blklist = Blklist()
+    blklist.load_blklist()
+    print blklist.match(sys.argv[1])

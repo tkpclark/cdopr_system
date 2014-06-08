@@ -12,7 +12,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import json
 from product_route import *
-from m_dict import *
+from codeseg import *
 from blklist import *
 from visit_limit import *
 from frequency import *
@@ -67,9 +67,8 @@ def init_env():
     blklist = Blklist()
     blklist.load_blklist()
     
-    global mobile_dict
-    mobile_dict = Mobile_dict()
-    mobile_dict.load_mobile_dict()
+    global codeseg
+    codeseg = Codeseg()
     
     global visit_limit
     visit_limit = Visit_limit()
@@ -99,7 +98,7 @@ def main():
                 
                 ########get province and area
                 if(record['province']=='None'):
-                    zone = mobile_dict.get_mobile_area(record['phone_number'])
+                    zone = codeseg.get_mobile_area(record['phone_number'])
                 else:
                     zone = (record['province'],record['area'])
                     
