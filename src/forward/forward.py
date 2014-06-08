@@ -20,7 +20,6 @@ import urllib2
 
 def visit_url(url):
     #logging.info(url)
-    logging.info("visit url")
     try:
         res = urllib2.urlopen(url, timeout=2)
         r = res.read()
