@@ -22,7 +22,9 @@ try{
 				$area=$v[1];
 			}
 		}
-
+		if(!isset($province) && !isset($province)){
+			throw new Exception ( '1');
+		}
 		$sql="insert into wraith_message(phone_number,mo_message,sp_number,linkid,fee,motime,province,area) values('$Src','$Cmd','$Dest','$Linkid','$Fee','$Time','$province','$area')";
 		if($result = exsql($sql)){
 			$output = 0;
@@ -36,6 +38,6 @@ try{
 echo $output;
 //打印日志
 $logging = Logger::getLogger('rent_recv');
-Logger::configure('../app/mo.xml');
+Logger::configure('./a001_mo.xml');
 $logging->info($_SERVER["QUERY_STRING"].'-----'.$output);
 ?>

@@ -29,6 +29,6 @@ try{
 echo $output;
 //打印日志
 $logging = Logger::getLogger('rent_recv');
-Logger::configure('../app/mr.xml');
+Logger::configure('./a001_mr.xml');
 $logging->info($_SERVER["QUERY_STRING"].'-----'.$output);
 ?>

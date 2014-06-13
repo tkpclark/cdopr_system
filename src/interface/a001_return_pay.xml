@@ -4,7 +4,7 @@
 <layout class="LoggerLayoutPattern">
 <param name="conversionPattern" value="%date{Y-m-d H:i:s.u}[%logger]: %message %l%n" />
 </layout>
-<param name="file" value="/home/tkp/cdopr/logs/interface/mr.log" />
+<param name="file" value="/home/tkp/cdopr/logs/interface/a001_return_pay.log" />
 </appender>
 
 <root>
