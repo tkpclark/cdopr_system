@@ -60,9 +60,25 @@ def stat(stat_hour):
             msg_count_deduction = cresult[0]['msg_count_deduction']
             amount_deduction = cresult[0]['amount_deduction'] if cresult[0]['amount_deduction']!='None' else '0'
             
+            #成功转发的mo数量            
+            #count msg_count_forward and amount_forward record number
+            csql = "select count(*) as msg_count_forward_mo from wraith_message_history where %s and forward_mo_result='1' " % (where_clause)
+            #logging.info(csql)
+            cresult = mysql.queryAll(csql)
+            msg_count_forward_mo = cresult[0]['msg_count_forward_mo']
+            
+            
+            #成功转发的mt数量和金额            
+            #count msg_count_forward and amount_forward record number
+            csql = "select count(*) as msg_count_forward_mt,sum(fee) as amount_forward from wraith_message_history where %s and forward_mt_result='1' " % (where_clause)
+            #logging.info(csql)
+            cresult = mysql.queryAll(csql)
+            msg_count_forward_mt = cresult[0]['msg_count_forward_mt']
+            amount_forward = cresult[0]['amount_forward'] if cresult[0]['amount_forward']!='None' else '0'
+            
             #insert
-            csql = "insert into wraith_statistic(stat_time,gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cpProdID,province,msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction)values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
-            % (stat_hour,row['gwid'],row['feetype'],row['is_agent'],row['cmdID'],row['spID'],row['serviceID'],row['cpID'],row['cp_productID'],row['province'],msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction)
+            csql = "insert into wraith_statistic(stat_time,gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cpProdID,province,msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
+            % (stat_hour,row['gwid'],row['feetype'],row['is_agent'],row['cmdID'],row['spID'],row['serviceID'],row['cpID'],row['cp_productID'],row['province'],msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)
             #logging.info(csql)
             mysql.query(csql)
             
