@@ -1,0 +1,5 @@
+while true
+do
+	./fakemt
+	sleep 1
+done
