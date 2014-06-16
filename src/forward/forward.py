@@ -15,6 +15,7 @@ import datetime
 import copy
 from ran import in_po
 import urllib2
+import urllib
 #from forward_func import *
 #import threading
 
@@ -60,6 +61,25 @@ def f_mr(record,mrurl):
     logging.info('(%s):%s',record['id'], url)
     return visit_url(url)
     
+def f_mo_1(record,mourl):
+    #logging.info('forwarding record %s',record)
+    #time.sleep(1)
+    #http://youraddress/interface_mo?spnumber=106673336&msg=CP&fee=2&mobile=13179386983&linkid=72523970&createtime=20120320095009
+    nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s&prov=%s&area=%s' \
+    %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime,record['province'],record['area'])
+    logging.info('(%s):%s',record['id'], url)
+    return visit_url(url)
+    
+def f_mr_1(record,mrurl):
+    #logging.info('forwarding record %s',record)
+    #time.sleep(1)
+    nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    report='DELIVRD' if record['report']=='1' else record['report']
+    url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s&prov=%s&area=%s' \
+    %(mrurl,record['phone_number'],record['linkid'],report,nowtime,record['province'],record['area'])
+    logging.info('(%s):%s',record['id'], url)
+    return visit_url(url)
     
 def get_data():
     sql = 'select * from wraith_message where is_agent=2 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000'
@@ -96,7 +116,7 @@ def init_env():
     
     #init logging
     logfile = '/home/tkp/cdopr/logs/forward/forward.log'
-    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024,backupCount=500)
+    Rthandler = RotatingFileHandler(logfile, maxBytes=1000*1024,backupCount=500)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.01]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
