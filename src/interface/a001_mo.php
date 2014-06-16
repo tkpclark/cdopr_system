@@ -25,7 +25,7 @@ try{
 		if(!isset($province) && !isset($province)){
 			throw new Exception ( '1');
 		}
-		$sql="insert into wraith_message(phone_number,mo_message,sp_number,linkid,fee,motime,province,area) values('$Src','$Cmd','$Dest','$Linkid','$Fee','$Time','$province','$area')";
+		$sql="insert into wraith_message(phone_number,mo_message,sp_number,linkid,fee,motime,province,area,gwid) values('$Src','$Cmd','$Dest','$Linkid','$Fee','$Time','$province','$area','37')";
 		if($result = exsql($sql)){
 			$output = 0;
 		}

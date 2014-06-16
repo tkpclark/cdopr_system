@@ -38,7 +38,7 @@ def init_env():
     
     #init logging
     logfile = '/home/tkp/cdopr/logs/migrate/migrate.log'
-    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024,backupCount=500)
+    Rthandler = RotatingFileHandler(logfile, maxBytes=1000*1024,backupCount=500)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.00]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
