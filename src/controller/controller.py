@@ -29,10 +29,13 @@ def get_data():
 def write_db(id, cmd_info, zone, mo_status):
     
     ####正式运营请注释掉此部分代码
+    '''
     if(mo_status=='ok'):
         report=',report=%d'%(2 if in_po(0.05) else 1)
     else:
         report=''
+    '''
+    report=''
     
     ####
     if(len(cmd_info)>1):
@@ -51,7 +54,7 @@ def init_env():
     
     #init logging
     logfile = '/home/tkp/cdopr/logs/controller/controller.log'
-    Rthandler = RotatingFileHandler(logfile, maxBytes=10*1024,backupCount=500)
+    Rthandler = RotatingFileHandler(logfile, maxBytes=1000*1024,backupCount=500)
     formatter = logging.Formatter('[%(asctime)s][%(levelname)s][1.00]:  %(message)s - %(filename)s:%(lineno)d')
     Rthandler.setFormatter(formatter)
     logger=logging.getLogger()
