@@ -76,7 +76,37 @@ int __ns1__orderRelationUpdateNotify(struct soap *soap, struct ns2__OrderRelatio
 
 	ns3__Response->streamingNo=ns2__OrderRelationUpdateNotifyReq->streamingNo;
 	    ns3__Response->resultCode=0;
-	
+
+	    char sql[512];
+
+
+	    	sprintf(sql,"insert into wraith_subscribe_history( phone_number,service_id,optype,optime, gwid ) values ('%s', '%s', '%d', NOW(), '%s');",
+	    			ns2__OrderRelationUpdateNotifyReq->userID,
+	    			ns2__OrderRelationUpdateNotifyReq->productID,
+	    			ns2__OrderRelationUpdateNotifyReq->OPType,
+	    			gwid
+	    			);
+	    	proclog("%s",sql);
+	    	mysql_exec(&mysql, sql);
+
+
+	    	//delete first
+	    	sprintf(sql,"delete from wraith_subscribe_users where phone_number='%s'",ns2__OrderRelationUpdateNotifyReq->userID);
+	    	proclog("%s",sql);
+	    	mysql_exec(&mysql, sql);
+
+	    	//insert
+		if(ns2__OrderRelationUpdateNotifyReq->OPType == 0 || ns2__OrderRelationUpdateNotifyReq->OPType == 2)
+		{
+			sprintf(sql,"insert into wraith_subscribe_users (phone_number,service_id,status,gwid) values('%s','%s','1','%s')",
+					ns2__OrderRelationUpdateNotifyReq->userID,
+					ns2__OrderRelationUpdateNotifyReq->productID,
+					gwid
+					);
+			proclog("%s",sql);
+			mysql_exec(&mysql, sql);
+		}
+
 	 return SOAP_OK;
 }
 
@@ -85,7 +115,7 @@ int __ns1__serviceConsumeNotify(struct soap *soap, struct ns2__ServiceConsumeNot
 {
 	char gbcontent[512];
 	memset(gbcontent,0,sizeof(gbcontent));
-	to_gb(ns2__ServiceConsumeNotifyReq->featureStr,gbcontent);
+	//to_gb(ns2__ServiceConsumeNotifyReq->featureStr,gbcontent);
 	proclog("[serviceConsumeNotify]sNo[%s]featureStr[%s]linkID[%s]userID[%s]productID[%s]",ns2__ServiceConsumeNotifyReq->streamingNo,gbcontent,ns2__ServiceConsumeNotifyReq->linkID,ns2__ServiceConsumeNotifyReq->userID,ns2__ServiceConsumeNotifyReq->productID);
 
 	ns3__Response->streamingNo=ns2__ServiceConsumeNotifyReq->streamingNo;
