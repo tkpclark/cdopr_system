@@ -19,7 +19,7 @@ def main():
     d = datetime.datetime.now()
     #统计的起始时间点
     timelength = datetime.timedelta(hours=stat_hours_back)
-    #d -= timelength
+    d -= timelength
     
     ##
     onehour = datetime.timedelta(hours=1)
