@@ -18,7 +18,7 @@ def stat(stat_hour):
     
     
     sql = "select gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province from wraith_message where %s='%s' group by gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province " % (db_stat_hour,stat_hour)
-    logging.info(sql)
+    #logging.info(sql)
     result = mysql.queryAll(sql)
     if(mysql.rowcount()==0):
         return
@@ -32,7 +32,7 @@ def stat(stat_hour):
         
         #count msg_count_all
         csql = "select count(*) as msg_count_all from wraith_message where %s" % (where_clause)
-        logging.info(csql)
+        #logging.info(csql)
         cresult = mysql.queryAll(csql)
         msg_count_all = cresult[0]['msg_count_all']
         
@@ -52,7 +52,7 @@ def stat(stat_hour):
         
         
         #count msg_count_deduction and amount_deduction record number
-        csql = "select count(*) as msg_count_deduction, sum(fee) as amount_deduction from wraith_message where %s and forward_status=4 " % (where_clause)
+        csql = "select count(*) as msg_count_deduction, sum(fee) as amount_deduction from wraith_message where %s and forward_status in(1,2,3,6,7) " % (where_clause)
         #logging.info(csql)
         cresult = mysql.queryAll(csql)
         msg_count_deduction = cresult[0]['msg_count_deduction']
@@ -85,7 +85,7 @@ def stat(stat_hour):
         else:
             csql = "insert into wraith_statistic(stat_time,gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cpProdID,province,msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
             % (stat_hour,row['gwid'],row['feetype'],row['is_agent'],row['cmdID'],row['spID'],row['serviceID'],row['cpID'],row['cp_productID'],row['province'],msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)
-        logging.info(csql)
+        #logging.info(csql)
         mysql.query(csql)
         
         

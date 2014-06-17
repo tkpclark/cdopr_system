@@ -15,14 +15,16 @@ def main():
     
     #统计多少个小时的数据
     stat_hours_back = string.atoi(sys.argv[1])
+    onehour = datetime.timedelta(hours=1)
     
     d = datetime.datetime.now()
     #统计的起始时间点
     timelength = datetime.timedelta(hours=stat_hours_back)
     d -= timelength
+    d+=onehour
     
     ##
-    onehour = datetime.timedelta(hours=1)
+    
     for i in range(stat_hours_back):
         
         stat_hour = d.strftime("%Y-%m-%d:%H")
