@@ -12,6 +12,7 @@ void mysql_create_connect(MYSQL *mysql,char *ip,char *usr,char *pwd,char *dbname
 	mysql_init(mysql);
 	if(!mysql_real_connect(mysql,ip,usr,pwd,dbname,0,NULL,0))
 	{
+		proclog("connecting to %s %s failed,usr:%s,pwd:%s, errno:%s",ip,dbname,usr,pwd,strerror(errno));
 		sql_err_log(mysql);
 		exit(0);
 	}

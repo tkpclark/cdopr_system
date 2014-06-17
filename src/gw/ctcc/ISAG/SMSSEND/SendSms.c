@@ -51,14 +51,14 @@ static void procquit(void)
 {
   	proclog("MESSAGE:quited!");
 }
-static void read_config()
+static void read_config(char *confile)
 {
 	struct ccl_t config;
 	const struct ccl_pair_t *iter;
 	config.comment_char = '#';
 	config.sep_char = '=';
 	config.str_char = '"';
-	ccl_parse(&config, "../conf/ctccgw.ccl");
+	ccl_parse(&config, confile);
 	while((iter = ccl_iterate(&config)) != 0)
 	{
 		if(!strcmp(iter->key,"mmapfile"))
@@ -243,7 +243,7 @@ static fulfil(char *p_data)
 
 			///
 }
-main()
+main(int argc, char **argv)
 {
 	int i;
 	int lockfd;
@@ -262,7 +262,7 @@ main()
 	  kill(prtpid,SIGINT);
 		pause();
 	}
-	read_config();
+	read_config(argv[1]);
 	//sprintf(tmp,"|%d",getpid());
 	//strcat(mdname,tmp);
 

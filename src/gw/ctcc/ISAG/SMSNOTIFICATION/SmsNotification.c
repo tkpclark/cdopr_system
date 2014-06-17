@@ -8,7 +8,7 @@
 
 //char logbuf[1024];
 char mdname[]="SmsNotification";
-char logpath[] = "../logs/ctccgw/";
+char logpath[128];
 char version[]="1.00";
 
 static char ip[32];
@@ -27,7 +27,7 @@ static void read_config()
 	config.comment_char = '#';
 	config.sep_char = '=';
 	config.str_char = '"';
-	ccl_parse(&config, "../conf/ctccgw.ccl");
+	ccl_parse(&config, "ctccgw.ccl");
 	while((iter = ccl_iterate(&config)) != 0)
 	{
 		if(!strcmp(iter->key,"ip"))
@@ -40,6 +40,8 @@ static void read_config()
 			strcpy(pass,iter->value);
 		else if(!strcmp(iter->key,"gwid"))
 			strcpy(gwid,iter->value);
+		else if(!strcmp(iter->key,"logpath"))
+			strcpy(logpath,iter->value);
 
 	}
 	ccl_release(&config);
@@ -76,7 +78,8 @@ int __ns1__notifySmsDeliveryReceipt(struct soap *soap, struct ns2__notifySmsDeli
 			gwid
 			);
 	*/
-	sprintf(sql,"update wraith_mt set report='%d' where id=%s",ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus,ns2__notifySmsDeliveryReceipt->correlator);
+	int report = ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus==4?1:2;
+	sprintf(sql,"update wraith_message set report='%d',report_orig='%d' where id=%s",report,ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus,ns2__notifySmsDeliveryReceipt->correlator);
 	mysql_exec(&mysql, sql);
 	//writing heapfile
 	/*
@@ -136,7 +139,7 @@ int __ns1__notifySmsReception(struct soap *soap, struct ns2__notifySmsReception 
 
 
 	char sql[512];
-	sprintf(sql,"insert into wraith_mo( in_date, phone_number, message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
+	sprintf(sql,"insert into wraith_message( motime, phone_number, mo_message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
 			phone_number,
 			ns2__notifySmsReception->message->message,
 			sp_number,

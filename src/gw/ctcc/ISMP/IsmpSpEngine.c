@@ -7,7 +7,7 @@
 #include <ccl/ccl.h>
 #include "mysqllib.h"
 char mdname[]="IsmpSpEngine";
-char logpath[] = "../logs/ctccgw/";
+char logpath[128];
 char version[]="1.00";
 
 static char ip[32];
@@ -26,7 +26,7 @@ static void read_config()
 	config.comment_char = '#';
 	config.sep_char = '=';
 	config.str_char = '"';
-	ccl_parse(&config, "../conf/ctccgw.ccl");
+	ccl_parse(&config, "ctccgw.ccl");
 	while((iter = ccl_iterate(&config)) != 0)
 	{
 		if(!strcmp(iter->key,"ip"))
@@ -39,6 +39,8 @@ static void read_config()
 			strcpy(pass,iter->value);
 		else if(!strcmp(iter->key,"gwid"))
 			strcpy(gwid,iter->value);
+		else if(!strcmp(iter->key,"logpath"))
+			strcpy(logpath,iter->value);
 
 	}
 	ccl_release(&config);

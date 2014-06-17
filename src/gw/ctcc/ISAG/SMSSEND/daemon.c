@@ -20,7 +20,6 @@ static char chdname[64];
 static unsigned int mmapsize;
 static char mmapfile[128];
 
-
 static char dbip[16];
 static char dbuser[16];
 static char dbpass[32];
@@ -150,7 +149,7 @@ static int fetch_data()
 	//	proclog(logbuf);
 	char sql[256];
 
-	sprintf(sql,"select * from wraith_mt where ID > %d and gwid=%s limit 500",(off_t)(*(unsigned int*)p_map), gwid);
+	sprintf(sql,"select * from wraith_message where ID > %d and gwid=%s limit 500",(off_t)(*(unsigned int*)p_map), gwid);
 	//proclog(sql);
 	mysql_query(&mysql,"set names utf8");
 	mysql_query(&mysql,sql);
@@ -199,14 +198,14 @@ static int fetch_data()
 	return gotnum;
 
 }
-static void read_config()
+static void read_config(char *confile)
 {
 	struct ccl_t config;
 	const struct ccl_pair_t *iter;
 	config.comment_char = '#';
 	config.sep_char = '=';
 	config.str_char = '"';
-	ccl_parse(&config, "../conf/ctccgw.ccl");
+	ccl_parse(&config,confile);
 	while((iter = ccl_iterate(&config)) != 0)
 	{
 
@@ -246,7 +245,7 @@ static daemain(int argc,char **argv)
 	   printf("quit code can't install!");
 	   exit(0);
 	}
-	read_config();
+	read_config(argv[1]);
 	//printf("\nmdname=%s\nmmapfile=%s\nchdname=%s\nchdnum=%d\nmmapsize=%d\nrcdlen=%d\n",mdname,mmapfile,chdnum,mmapsize,rcdlen);
 
 
@@ -310,8 +309,13 @@ static daemain(int argc,char **argv)
 	}
 }
 
-main(int argc,char **argv)
+main(int argc, char **argv)
 {
+	if(argc!=2)
+	{
+		printf("please tell me config file!\n");
+		exit(0);
+	}
 	int pid;
 	int fd;
 	fd=open(pidfile,O_CREAT|O_EXCL|O_WRONLY,0600);
