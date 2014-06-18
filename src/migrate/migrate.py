@@ -21,12 +21,13 @@ def get_data():
     return data
 
 
-def migrate(id):
-    sql = "insert into wraith_message_history select * from wraith_message where id=%s"%(id)    
+def migrate():
+    sql = "insert into wraith_message_history select * from wraith_message where motime < CURDATE()" 
+           
     logging.info('dbsql:%s',sql)
     mysql.query(sql)
     
-    sql = "delete from wraith_message where id=%s"%(id)    
+    sql = "delete from wraith_message where motime < CURDATE()" 
     logging.info('dbsql:%s',sql)
     mysql.query(sql)
 
@@ -51,6 +52,7 @@ def main():
     
     init_env()
     
+    '''
     while True:
         data = get_data() 
         #print (len(data))
@@ -64,7 +66,8 @@ def main():
                 #logging.info("record:%s",record)
                 migrate(record['id'])
               
-                   
+     '''
+    migrate()
             
             #time.sleep(10)
 if __name__ == "__main__":

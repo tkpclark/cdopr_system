@@ -180,7 +180,7 @@ def main():
                 type = 'mo'
                 
                 #logging.info("cmd_info:%s",cmd_info)
-                write_db(record['id'],cmd_info)
+                #write_db(record['id'],cmd_info)
                 
                 #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
                 de = deduction.get_deduction(cmd_info['cp_productID'],record['province'])

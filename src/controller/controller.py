@@ -12,6 +12,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import json
 from product_route import *
+from command import *
 from codeseg import *
 from blklist import *
 from visit_limit import *
@@ -46,7 +47,31 @@ def write_db(id, cmd_info, zone, mo_status):
     
     mysql.query(sql)
     
+def write_cmd_info(id, cmd_info):
+    sql = '''
+    update wraith_message set
+    cmd_spnumber='%s',
+    cmd_mocmd='%s',
+    sp_id='%s',
+    cpname='%s',
+    cpID='%s',
+    spID='%s',
+    service_name='%s',
+    spname='%s', 
+    cp_productID='%s',
+    cp_product_name='%s',
+    serviceID='%s',
+    serv_mocmd='%s',
+    serv_spnumber='%s'
+    where id='%s' 
+    '''\
+    %(cmd_info['cmd_spnumber'],cmd_info['cmd_mocmd'],cmd_info['sp_id'],cmd_info['cpname'],cmd_info['cpID'],cmd_info['spID'],cmd_info['service_name'],cmd_info['spname'],cmd_info['cp_productID'],cmd_info['cp_product_name'],cmd_info['serviceID'],cmd_info['serv_mocmd'],cmd_info['serv_spnumber'],id)
+    #logging.info(sql)
     
+    mysql.query(sql)
+
+  
+     
 def init_env():
     
     #chdir
@@ -80,6 +105,10 @@ def init_env():
     global frequency
     frequency = Frequency()
     
+    global cmd
+    cmd = Command()
+    cmd.load_dict()
+    
 def main():
     
     init_env()
@@ -109,8 +138,12 @@ def main():
                 cmd_info.clear()            
                 cmd_info = copy.copy(product_route.match(record['gwid'], record['sp_number'], record['mo_message']))
                 if(cmd_info == {}):
-                    mo_status='无匹配业务'
+                    mo_status='无匹配指令'
                     break
+                
+                
+                ########标注指令信息
+                write_cmd_info(record['id'], cmd.get_cmd_info(cmd_info['cmdID']))
                 
                 #logging.info('match product: %s',cmd_info)
                 ###########mt_message
