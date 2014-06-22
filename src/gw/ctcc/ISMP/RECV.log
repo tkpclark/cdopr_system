@@ -1,0 +1,259 @@
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:39:37 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 888
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns3="http://www.chinatelecom.com.cn/schema/ctcc/sms/v2_1" xmlns:ns2="http://www.chinatelecom.com.cn/schema/ctcc/sms/notification/v2_1/local" xmlns:ns4="http://www.chinatelecom.com.cn/schema/ctcc/common/v2_1" xmlns:ns1="http://www.chinatelecom.com.cn/wsdl/ctcc/sms/notification/v2_1/service"><SOAP-ENV:Body SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Fault><faultcode>SOAP-ENV:Client</faultcode><faultstring>Method 'ns1:orderRelationUpdateNotifyReq' not implemented: method name or namespace not recognized</faultstring></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:46:59 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:47:11 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:48:27 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:49:02 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:49:42 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 19 Jun 2014 12:50:29 GMT
+Server: Apache/2.2.15 (CentOS)
+Content-Length: 612
+Connection: close
+Content-Type: text/html; charset=iso-8859-1
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>500 Internal Server Error</title>
+</head><body>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error or
+misconfiguration and was unable to complete
+your request.</p>
+<p>Please contact the server administrator,
+ root@localhost and inform them of the time the error occurred,
+and anything you might have done that may have
+caused the error.</p>
+<p>More information about this error may be available
+in the server error log.</p>
+<hr>
+<address>Apache/2.2.15 (CentOS) Server at 42.62.78.247 Port 80</address>
+</body></html>
+HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 12:51:37 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 12:52:28 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 12:54:08 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 12:55:28 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 12:57:22 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Thu, 19 Jun 2014 16:43:37 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 00:39:24 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 00:45:35 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 00:47:13 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 00:57:35 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 00:58:07 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>HTTP/1.1 200 OK
+Date: Fri, 20 Jun 2014 01:00:04 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>

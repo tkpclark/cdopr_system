@@ -1,0 +1,190 @@
+POST /services/SmsNotification HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 728
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>222222222</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13912345678</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
+POST /services/IsmpSpEngine HTTP/1.1
+Host: 42.62.78.247
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 740
+Connection: close
+SOAPAction: "http://sp.ismp.chinatelecom.com/IsmpSpEngine/orderRelationUpdateNotifyRequest"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReq><ns2:OPType>0</ns2:OPType><ns2:productID>135000000000000230100</ns2:productID><ns2:streamingNo>11111111111111111111</ns2:streamingNo><ns2:userID>13366233899</ns2:userID><ns2:userIDType>0</ns2:userIDType></ns1:orderRelationUpdateNotifyReq></SOAP-ENV:Body></SOAP-ENV:Envelope>
