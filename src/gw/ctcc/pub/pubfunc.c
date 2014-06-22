@@ -322,4 +322,37 @@ void tstring(char *buffer)
    //fputs (buffer+1, stdout);
 }
 
+int is_file_exist(char *filename)
+{
+	int fd;
+	fd=open(filename,0);
+	if(fd<=0)
+	{
+		return 0;
+	}
+	else
+	{
+		close(fd);
+		return 1;
+	}
+}
+void to_gb(char *in,char *out)
+{
+	char *putfout;
+	char *pout;
+	size_t ll1;
+	size_t ll2;
+	iconv_t cd;
+	ll1=1000;
+	ll2=1000;
+	putfout=out;
+	pout=in;
+	cd=iconv_open("gb2312","utf-8");
+	if(cd==(iconv_t)-1)
+	{
+		exit(0);
+	}
+	iconv(cd,&pout,&ll1,&putfout,&ll2);
+	iconv_close(cd);
+}
 

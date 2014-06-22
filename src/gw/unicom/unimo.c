@@ -61,11 +61,11 @@ static void sgip_resp(int cmd,void *seq,int len)
 	unsigned char *p;
 	memset(buf,0,sizeof(buf));
 	p=buf;
-	*(long *)p=htonl(len);
-	*(long *)(p+4)=htonl(cmd);
-	*(long *)(p+8)=htonl(*(int*)seq);
-	*(long *)(p+12)=htonl(*(int*)(seq+4));
-	*(long *)(p+16)=htonl(*(int*)(seq+8));
+	*(int *)p=htonl(len);
+	*(int *)(p+4)=htonl(cmd);
+	*(int *)(p+8)=htonl(*(int*)seq);
+	*(int *)(p+12)=htonl(*(int*)(seq+4));
+	*(int *)(p+16)=htonl(*(int*)(seq+8));
 	//if(writeall(writefd,buf,len)==-1)
 	if(write(writefd,buf,len)==-1)
 	{
@@ -118,14 +118,14 @@ static sgip_read()
 	}
 	//proclog_HEX(buffer,20);
 	seq=(void*)malloc(12);
-	len=ntohl(*((long *)buffer));
-	cmd=ntohl(*((unsigned long *)(buffer+4)));
+	len=ntohl(*((int *)buffer));
+	cmd=ntohl(*((unsigned int *)(buffer+4)));
 	
-	*(int*)seq=ntohl(*((unsigned long *)(buffer+8)));
-	*(int*)(seq+4)=ntohl(*((unsigned long *)(buffer+12)));
-	*(int*)(seq+8)=ntohl(*((unsigned long *)(buffer+16)));
+	*(int*)seq=ntohl(*((unsigned int *)(buffer+8)));
+	*(int*)(seq+4)=ntohl(*((unsigned int *)(buffer+12)));
+	*(int*)(seq+8)=ntohl(*((unsigned int *)(buffer+16)));
 	
-	proclog("header:len:[%d] CMD:[%X] seq:[%d][%d][%d]",len,cmd,*(int*)seq,*(int*)(seq+4),*(int*)(seq+8));
+	proclog("HEADER:len[%d]cmd[0x%X]seq[%d][%d][%d]",len,cmd,*(int*)seq,*(int*)(seq+4),*(int*)(seq+8));
 
 
 	///read body
@@ -181,8 +181,8 @@ static sgip_read()
 		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Content[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]\n",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
 		
 		char sql[512];
-		sprintf(sql,"insert into wraith_mo( in_date, phone_number, message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
-				UserNumber,
+		sprintf(sql,"insert into wraith_message( motime, phone_number, mo_message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
+				UserNumber+2,
 				MessageContent_utf8,
 				SPNumber,
 				linkid,
@@ -205,17 +205,18 @@ static sgip_read()
 		*(time_t*)(buffer+252)=time(0);
 		char UserNumber[22]={0};
 		strncpy(UserNumber,buffer+13,21);
-		unsigned long seq;
-		seq=ntohl(*((unsigned long *)(buffer+8)));
+		unsigned int seq;
+		seq=ntohl(*((unsigned int *)(buffer+8)));
 		unsigned char state,report_code;
 		//state=*(int *)(buffer+34);
 		state=*(unsigned char *)(buffer+34);
 		report_code=*(unsigned char *)(buffer+35);
-		proclog("REPORT: seq[%d]usernumber[%s]state[%d]errorcode:[%d]\n",seq,UserNumber,state,report_code);
+		proclog("REPORT: seq[%d]usernumber[%s]state[%d]errorcode[%d]",seq,UserNumber,state,report_code);
 //		write_to_heapfile(heapstatdbfd,buffer,sizeof(buffer));
 		char sql[512];
-		sprintf(sql,"update wraith_mt set report='%d', report_time=NOW() where id='%d'",report_code,seq);
-		proclog(sql);
+		int report=report_code==0?1:2;
+		sprintf(sql,"update wraith_message set report='%d', report_orig='%d', report_time=NOW() where id='%d'",report,report_code,seq);
+		//proclog(sql);
 		mysql_exec(&mysql, sql);
 
 	}

@@ -92,20 +92,20 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 	int i;
 
 	memset(pak,0,sizeof(pak));
-	memset(response,0,sizeof(response));
+	memset(response,9,sizeof(response));
 	pp=pak;
-	*(long *)pp=htonl(61);
-	*(long *)(pp+4)=htonl(0x00000001);
-	*(long *)(pp+8)=htonl(nodeId);
+	*(int *)pp=htonl(61);
+	*(int *)(pp+4)=htonl(0x00000001);
+	*(int *)(pp+8)=htonl(nodeId);
 	nownow[0]=0;
 	tstring(nownow);
-	*(long *)(pp+12)=htonl(atoll(nownow));
-	*(long *)(pp+16)=htonl(seq);
+	*(int *)(pp+12)=htonl(atoll(nownow));
+	*(int *)(pp+16)=htonl(seq);
 	*(pp+20)=(unsigned char)1;
 	strcpy(pp+21,username);
 	//strcpy(pp+37,gshare_key);
 	strcpy(pp+37,password);
-	//proclog( "login... ip:[%s:%d] name[%s] passwd[%s]",gateip,port,username,password);
+	proclog( "login... ip:[%s:%d] name[%s] passwd[%s]",gateip,port,username,password);
 	
 	sp=(skt_s*)sopen();
 	if(sclient(sp,gateip,port)==-1) 
@@ -120,16 +120,17 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 		proclog("failed to send login cmd!%s",strerror(errno));
 		exit(0);
 	}
+	proclog( "bind before is:%d",response[20]);
 	if((i=recv(sp->sd,response,29,MSG_WAITALL))==-1) 
 	{
 		proclog( "failed to recv login response!");
 		exit(0);
 	}
-	//cmd=ntohl(*((unsigned long *)(response+4)));
+	//cmd=ntohl(*((unsigned int *)(response+4)));
 	//if(cmd!=0x80000001) exit(0);
 	if(response[20]==0)
 	{
-		//proclog( "bind status is:%d",response[20]);
+		proclog( "bind status is:%d",response[20]);
 		bind_flag=1;
 	}
 	else
@@ -154,14 +155,14 @@ static int sgip_unbind(char *nodeid,unsigned int seq)
 	memset(response,0,40);
 	pp=pak;
 	//proclog("sending unbind cmd...");
-	*(long *)pp=htonl(20);
-	*(long *)(pp+4)=htonl(0x00000002);
-	*(long *)(pp+8)=htonl(atoi(nodeid));
-	//*(long *)(pp+12)=htonl(825140000);
+	*(int *)pp=htonl(20);
+	*(int *)(pp+4)=htonl(0x00000002);
+	*(int *)(pp+8)=htonl(atoi(nodeid));
+	//*(int *)(pp+12)=htonl(825140000);
 	nownow[0]=0;
 	tstring(nownow);
-	*(long *)(pp+12)=htonl(atol(nownow));
-	*(long *)(pp+16)=htonl(seq);//seq
+	*(int *)(pp+12)=htonl(atol(nownow));
+	*(int *)(pp+16)=htonl(seq);//seq
 
 	bind_flag=0;
 	
@@ -179,7 +180,7 @@ static int sgip_unbind(char *nodeid,unsigned int seq)
 }
 
 /*
-unsigned long s4,
+unsigned int s4,
 int mtclen,
 char *content,
 char *service_id,
@@ -199,47 +200,50 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	unsigned char nownow[300];
 	unsigned char *pp;
 
-	unsigned long pkg_len=0;
+	unsigned int pkg_len=0;
 	int n=0;
 	int cmd=0x00000003;
 
 	memset(buffer,0,sizeof(buffer));
 	pp=buffer;
-	*(long *)(pp+4)=htonl(cmd);
-	*(long *)(pp+8)=htonl(nodeId);
+	*(int *)(pp+4)=htonl(cmd);
+	*(int *)(pp+8)=htonl(nodeId);
 	nownow[0]=0;
 	tstring(nownow);
-	*(long *)(pp+12)=htonl(atol(nownow));
-	*(long *)(pp+16)=htonl(p_submit_pkg->seq);
+	*(int *)(pp+12)=htonl(atol(nownow));
+	*(int *)(pp+16)=htonl(p_submit_pkg->seq);
 	strcpy(pp+20,p_submit_pkg->SPNumber);
+	//sprintf(pp+41,"86%s",p_submit_pkg->ChargeNumber);
 	strcpy(pp+41,p_submit_pkg->ChargeNumber);
 	*(pp+62)=(unsigned char)1;//
+	//sprintf(pp+63,"86%s",p_submit_pkg->UserNumber);
 	strcpy(pp+63,p_submit_pkg->UserNumber);
 	strcpy(pp+84,p_submit_pkg->CorpId);
 	strcpy(pp+89,p_submit_pkg->ServiceType);
-	*(pp+99)=p_submit_pkg->FeeType;
+	*(pp+99)=(unsigned char)p_submit_pkg->FeeType;
 	strcpy(pp+100,p_submit_pkg->FeeValue);
-	strcpy(pp+106,"0"); //
-	*(pp+112)=(unsigned char)0;
-	*(pp+113)=(unsigned char)3;//0;
+	//strcpy(pp+106,"0"); //
+	//*(pp+112)=(unsigned char)0;
+
+	*(pp+113)=(unsigned char)0;//0;	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
 	*(pp+114)=(unsigned char)8;//
 	*(pp+147)=(unsigned char)1;//1;
 	*(pp+150)=(unsigned char)15;//
-	*(long *)(pp+152)=htonl(p_submit_pkg->MessageLength);
+	*(int *)(pp+152)=htonl(p_submit_pkg->MessageLength);
 	pkg_len=p_submit_pkg->MessageLength+164;
-	
-	*(long *)pp=htonl(pkg_len);
+
+	*(int *)pp=htonl(pkg_len);
 	strcpy(pp+156,p_submit_pkg->MessageContent);
 	strcpy(pp+156+p_submit_pkg->MessageLength,p_submit_pkg->linkid);
 	
-	proclog("seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]MessageContent[]MessageLength[%d]ServiceType[%s]SPNumber[%s]UserNumber[%s]linkid[%s]bind[%d]",
+	proclog("MT:seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]cnt[gbk]len[%d]ServiceType[%s]SPNumber[%s]UserNumber[%s]linkid[%s]bind[%d]",
 			p_submit_pkg->seq,
 			p_submit_pkg->ChargeNumber,
 			p_submit_pkg->CorpId,
 			nodeId,
 			p_submit_pkg->FeeType,
 			p_submit_pkg->FeeValue,
-		//	p_submit_pkg->MessageContent,
+			//p_submit_pkg->MessageContent,
 			p_submit_pkg->MessageLength,
 			p_submit_pkg->ServiceType,
 			p_submit_pkg->SPNumber,
@@ -247,7 +251,8 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 			p_submit_pkg->linkid,
 			bind_flag);
 
-	proclog_HEX(buffer,pkg_len);
+	//proclog_HEX(buffer,pkg_len);
+
 	if(writeall(sp->sd,buffer,pkg_len)==-1)
 	{
 		proclog("submit failed! %s",strerror(errno));
@@ -261,25 +266,50 @@ static read_response(int seq)
 	char buffer[256];
 	memset(buffer,9,sizeof(buffer));
 	int n=-2;
-	n=read(sp->sd,buffer,sizeof(buffer)-1);
-	//proclog("resp:%d bytes,cmd:0x%X,result:%d",n,ntohl(*(int*)(buffer+4)),buffer[20]);
-	proclog("rep_len:%d,result:%d",n,buffer[20]);
 
+	int len=0;
+	int cmd=0;
+	int sbm_seq=0;
+
+	//message header
+	if((n=read(sp->sd,buffer,20))!=20)
+	{
+		proclog("Read Header Error! return [%d]",n);
+		return;
+	}
+	len=ntohl(*((unsigned int *)buffer));
+	cmd=ntohl(*((unsigned int *)(buffer+4)));
+	sbm_seq=ntohl(*((unsigned int *)(buffer+16)));
+
+
+	//message body
+	memset(buffer,0,sizeof(buffer));
+	if((n=read(sp->sd,buffer,len-20))!=(len-20))
+	{
+		proclog("Read Body Error! return [%d]",n);
+		exit(0);
+	}
+	unsigned char result=buffer[0];
+	proclog("RESP:len[%d]cmd[0x%X]seq[%d]result[%d]",len,cmd,sbm_seq,result);
+
+	//update
 	char sql[512];
-	sprintf(sql,"update wraith_message set gw_resp='%d',gw_resp_time=NOW() where id='%d'",buffer[20],seq);
-	proclog(sql);
+	sprintf(sql,"update wraith_message set gw_resp='%d',gw_resp_time=NOW() where id='%d'",result,sbm_seq);
+	//proclog(sql);
 	mysql_exec(&mysql, sql);
 }
 static int new_data()
 {
 	char sql[256];
-	sprintf(sql,"select * from wraith_message where ID > %d and mo_status='ok' and gwid=%s limit 500",(off_t)psoff, gwid);
-	proclog(sql);
+	sprintf(sql,"select * from wraith_message where ID > %d and mo_status='ok' and motime > NOW() - interval 1 hour and  gwid=%s and gw_resp is null limit 500",(off_t)psoff, gwid);
+	//sprintf(sql,"select * from wraith_message where ID > 111229 and gwid=%s and report!='1' limit 500", gwid);
+	//proclog(sql);
+	mysql_exec(&mysql,"set names gbk");
 	mysql_exec(&mysql,sql);
 	result=mysql_store_result(&mysql);
 	return mysql_num_rows(result);
 }
-static void my_nano_sleep(unsigned long nsec)
+static void my_nano_sleep(unsigned int nsec)
 {
 	struct timespec slptm;
 	slptm.tv_sec = nsec/1000000000;
@@ -314,19 +344,29 @@ static send_all_data()
 		if(row[4])
 			strcpy(submit_pkg.SPNumber, row[4]);
 		if(row[2])
-			strcpy(submit_pkg.ChargeNumber, row[2]);
-		if(row[2])
-			strcpy(submit_pkg.UserNumber, row[2]);
+		{
+			char tmp[512];
+			memset(tmp,0,sizeof(tmp));
+			sprintf(tmp,"86%s",row[2]);
+			strcpy(submit_pkg.ChargeNumber, tmp);
+			strcpy(submit_pkg.UserNumber, tmp);
+		}
 		if(row[11])
-			strcpy(submit_pkg.ServiceType, row[11]);
+			strcpy(submit_pkg.ServiceType,row[11]);
 		if(row[8])
 			strcpy(submit_pkg.FeeValue, row[8]);
 		if(row[10])
-			strcpy(submit_pkg.MessageContent, row[10]);
+			strcpy(submit_pkg.MessageContent,row[10]);
 		if(row[5])
 			strcpy(submit_pkg.linkid, row[5]);
 		if(row[9])
-			submit_pkg.FeeType=atoi(row[9]);
+		{
+			if(!strcmp(row[9],"1"))
+				submit_pkg.FeeType= 2;
+			if(!strcmp(row[9],"2"))
+				submit_pkg.FeeType= 3;
+		}
+
 		submit_pkg.MessageLength=strlen(submit_pkg.MessageContent);
 		strcpy(submit_pkg.CorpId,corpId);
 
@@ -400,6 +440,7 @@ main(int argc, char **argv)
 		exit(0);
 	}
 	read_config(argv[1]);
+	proclog("starting...");
 	init();
 
 	idle_point=time(0);

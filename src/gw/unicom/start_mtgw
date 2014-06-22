@@ -1,5 +1,7 @@
+killall unimt
+sleep 1
 while true
 do
-	./unimt
-	sleep 2
+	./unimt app.config
+	sleep 3
 done

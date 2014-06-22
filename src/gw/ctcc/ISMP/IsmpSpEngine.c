@@ -81,16 +81,18 @@ int __ns1__orderRelationUpdateNotify(struct soap *soap, struct ns2__OrderRelatio
 
 	    char sql[512];
 
+	//Ð´ÀúÊ·±í
+	sprintf(sql,"insert into wraith_subscribe_history(phone_number,service_id,optype,optime,gwid)values('%s','%s','%d',NOW(),'%s')",
+			ns2__OrderRelationUpdateNotifyReq->userID,
+			ns2__OrderRelationUpdateNotifyReq->productID,
+			ns2__OrderRelationUpdateNotifyReq->OPType,
+			gwid
+			);
+	proclog("%s\n",sql);
+	mysql_exec(&mysql, sql);
 
-	    	sprintf(sql,"insert into wraith_subscribe_history( phone_number,service_id,optype,optime, gwid ) values ('%s', '%s', '%d', NOW(), '%s');",
-	    			ns2__OrderRelationUpdateNotifyReq->userID,
-	    			ns2__OrderRelationUpdateNotifyReq->productID,
-	    			ns2__OrderRelationUpdateNotifyReq->OPType,
-	    			gwid
-	    			);
-	    	proclog("%s",sql);
-	    	mysql_exec(&mysql, sql);
 
+	/*
 
 	    	//delete first
 	    	sprintf(sql,"delete from wraith_subscribe_users where phone_number='%s'",ns2__OrderRelationUpdateNotifyReq->userID);
@@ -108,6 +110,8 @@ int __ns1__orderRelationUpdateNotify(struct soap *soap, struct ns2__OrderRelatio
 			proclog("%s",sql);
 			mysql_exec(&mysql, sql);
 		}
+
+		*/
 
 	 return SOAP_OK;
 }

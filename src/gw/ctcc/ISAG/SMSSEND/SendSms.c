@@ -173,7 +173,7 @@ static fulfil(char *p_data)
 			receiptRequest.interfaceName=interfaceName;
 			char strseqid[16];
 			receiptRequest.correlator=tostr(*(int*)(p_data+350),strseqid);
-			*(unsigned int*)(p_map)=*(int*)(p_data+350);//tell daemon where the child has processed
+			//*(unsigned int*)(p_map)=*(int*)(p_data+350);//tell daemon where the child has processed
 			
 			//memset(utfcontent,0,sizeof(utfcontent));
 			//to_utf(p_data+60,utfcontent);
@@ -225,7 +225,7 @@ static fulfil(char *p_data)
 			proclog("correlator[%s]result[%s]", receiptRequest.correlator, ns2__sendSmsResponse.result);
 			//update result
 			char sql[256];
-			sprintf(sql, "update wraith_mt set resp='%s'  where ID='%s'",
+			sprintf(sql, "update wraith_message set gw_resp='%s', gw_resp_time=NOW()  where ID='%s'",
 										ns2__sendSmsResponse.result,
 										receiptRequest.correlator
 										);
@@ -329,15 +329,15 @@ main(int argc, char **argv)
 			sleep(60);
 			continue;
 		}
-		proclog("mmap old:[%d][%d][%d]\n",*(unsigned int*)(p_map),(*(unsigned int*)(p_map+sizeof(unsigned int))),(*(unsigned int*)(p_map+2*sizeof(unsigned int))));
+		proclog("mmap old:[%d][%d][%d]",*(unsigned int*)(p_map),(*(unsigned int*)(p_map+sizeof(unsigned int))),(*(unsigned int*)(p_map+2*sizeof(unsigned int))));
 		curnum=*(unsigned int*)(p_map+sizeof(unsigned int));
 		leftnum=*(unsigned int*)(p_map+2*sizeof(unsigned int));
 		memcpy(p_chd,p_map+512+curnum*rcdlen,rcdlen);
 
-		*(unsigned int*)(p_map)+=1;
+		*(unsigned int*)(p_map)=*(unsigned int*)(p_chd+350);
 		(*(unsigned int*)(p_map+sizeof(unsigned int)))+=1;
 		(*(unsigned int*)(p_map+2*sizeof(unsigned int)))-=1;
-		proclog("mmap new:[%d][%d][%d]\n",*(unsigned int*)(p_map),(*(unsigned int*)(p_map+sizeof(unsigned int))),(*(unsigned int*)(p_map+2*sizeof(unsigned int))));
+		proclog("mmap new:[%d][%d][%d]",*(unsigned int*)(p_map),(*(unsigned int*)(p_map+sizeof(unsigned int))),(*(unsigned int*)(p_map+2*sizeof(unsigned int))));
 		if(flock(lockfd,LOCK_UN))
 		{
 			proclog("unlock error! %s",strerror(errno));

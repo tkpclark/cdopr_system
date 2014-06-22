@@ -79,7 +79,7 @@ int __ns1__notifySmsDeliveryReceipt(struct soap *soap, struct ns2__notifySmsDeli
 			);
 	*/
 	int report = ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus==4?1:2;
-	sprintf(sql,"update wraith_message set report='%d',report_orig='%d' where id=%s",report,ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus,ns2__notifySmsDeliveryReceipt->correlator);
+	sprintf(sql,"update wraith_message set report='%d',report_orig='%d',report_time=NOW() where id=%s",report,ns2__notifySmsDeliveryReceipt->deliveryStatus->deliveryStatus,ns2__notifySmsDeliveryReceipt->correlator);
 	mysql_exec(&mysql, sql);
 	//writing heapfile
 	/*

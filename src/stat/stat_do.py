@@ -14,11 +14,12 @@ from logging.handlers import RotatingFileHandler
 
 def stat(stat_hour):
     logging.info("***stat hour:%s***",stat_hour)
+    print '***stat hour:%s***'%(stat_hour)
     db_stat_hour = "DATE_FORMAT(motime,'%Y-%m-%d:%H')"
     #db_stat_hour = sys.argv[1]
     
     
-    sql = "select gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province from wraith_message where %s='%s' group by gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province " % (db_stat_hour,stat_hour)
+    sql = "select gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province from wraith_message where %s='%s' and cmdId!=0 group by gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cp_productID,province " % (db_stat_hour,stat_hour)
     #logging.info(sql)
     result = mysql.queryAll(sql)
     if(mysql.rowcount()==0):

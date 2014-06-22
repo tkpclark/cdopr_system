@@ -139,8 +139,8 @@ static int fetch_data()
 	int n;
 	char *tmp;
 	MYSQL_RES *result;
-  MYSQL_ROW row;
-  int gotnum=0;
+	  MYSQL_ROW row;
+	  int gotnum=0;
 	
 	tmp=malloc(rcdlen);
 	memset(p_map+4,0,mmapsize-4);
@@ -149,8 +149,13 @@ static int fetch_data()
 	//	proclog(logbuf);
 	char sql[256];
 
-	sprintf(sql,"select * from wraith_message where ID > %d and gwid=%s limit 500",(off_t)(*(unsigned int*)p_map), gwid);
+	//id (off_t)(*(unsigned int*)p_map)
+	//sprintf(sql,"select * from wraith_message where gw_resp is NULL and mo_status='ok' and  gwid='%s' and feetype=1 or (feetype=2 and month_flag=1) limit 500", gwid);
+	sprintf(sql,"select * from wraith_message where ID > %d and mo_status='ok' and gwid=%s limit 500",(off_t)(*(unsigned int*)p_map), gwid);
 	//proclog(sql);
+
+
+
 	mysql_query(&mysql,"set names utf8");
 	mysql_query(&mysql,sql);
 	result=mysql_store_result(&mysql);
@@ -166,26 +171,28 @@ static int fetch_data()
 		if(row[0]!=NULL)//seqid
 			*(int*)(tmp+350)=atol(row[0]);
 		
-		if(row[3]!=NULL)//address
-			strcpy(tmp+260,row[3]);
+		if(row[2]!=NULL)//address
+			strcpy(tmp+260,row[2]);
 		
-		if(row[2]!=NULL)//senderName
-			strcpy(tmp+40,row[2]);
+		if(row[4]!=NULL)//senderName
+			strcpy(tmp+40,row[4]);
 		
-		if(row[9]!=NULL)//message
-			strcpy(tmp+60,row[9]);
+		if(row[10]!=NULL)//message
+			strcpy(tmp+60,row[10]);
 			
-		if(row[7]!=NULL)//productID
-			strcpy(tmp,row[7]);
+		if(row[11]!=NULL)//productID
+			strcpy(tmp,row[11]);
 			
-		if(row[4]!=NULL)//linkID
-			strcpy(tmp+320,row[4]);
+		if(row[5]!=NULL)//linkID
+			strcpy(tmp+320,row[5]);
 			
-		if(row[6]!=NULL)//amount==feecode
-			strcpy(tmp+280,row[6]);
+		if(row[8]!=NULL)//amount==feecode
+			strcpy(tmp+280,row[8]);
 
+		/*
 		if(row[8]!=NULL)//code
-					strcpy(tmp+290,row[8]);
+			strcpy(tmp+290,row[8]);
+		*/
 
 
 		memcpy(p_map+512+rcdlen*i,tmp,rcdlen);
