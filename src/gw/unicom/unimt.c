@@ -120,7 +120,7 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 		proclog("failed to send login cmd!%s",strerror(errno));
 		exit(0);
 	}
-	proclog( "bind before is:%d",response[20]);
+	//proclog( "bind before is:%d",response[20]);
 	if((i=recv(sp->sd,response,29,MSG_WAITALL))==-1) 
 	{
 		proclog( "failed to recv login response!");
@@ -130,7 +130,7 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 	//if(cmd!=0x80000001) exit(0);
 	if(response[20]==0)
 	{
-		proclog( "bind status is:%d",response[20]);
+		//proclog( "bind status is:%d",response[20]);
 		bind_flag=1;
 	}
 	else
