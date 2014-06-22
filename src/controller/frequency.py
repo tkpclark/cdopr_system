@@ -17,7 +17,7 @@ class Frequency:
         try:
             #key不存在，设置本次mo的值，然后返回True
             if(self.r.exists(key)==False):
-                print 'key doesnt exist'
+                #print 'key doesnt exist'
                 self.r.setex(key,60,motime)
                 return True
             #若key存在，检查是否这N秒内，若是则返回失败，不是则设置为本次motime，并返回成功

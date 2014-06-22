@@ -34,8 +34,8 @@ class Product_route:
         #print self.contents
         #print 'products loaded'
     def get_random_content(self,product_id):      
-            ran_number = random.randint(0,len(self.contents[product_id])-1)
-            return self.contents[product_id][ran_number]['content']
+        ran_number = random.randint(0,len(self.contents[product_id])-1)
+        return self.contents[product_id][ran_number]['content']
         
         
         

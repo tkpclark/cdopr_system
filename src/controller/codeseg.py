@@ -87,7 +87,7 @@ class Codeseg:
     def get_mobile_area(self, phone_number):
         
         key = phone_number[0:7]
-        print 'key:',key
+        #print 'key:',key
         try:
             return tuple(self.r.get(key).split('_'))
         except:

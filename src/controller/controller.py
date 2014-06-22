@@ -128,6 +128,8 @@ def main():
             ########logging.debug(json.dumps(record))
             for i in range(1):#just for jumping to the end
                 
+                mo_status='null'
+                #logging.info("1")  
                 ########get province and area
                 if(record['province']=='None'):
                     zone = codeseg.get_mobile_area(record['phone_number'])
@@ -141,30 +143,25 @@ def main():
                     mo_status='无匹配指令'
                     break
                 
+                ###########mt_message  
+                cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
                 
                 ########标注指令信息
                 write_cmd_info(record['id'], cmd.get_cmd_info(cmd_info['cmdID']))
                 
-                #logging.info('match product: %s',cmd_info)
-                ###########mt_message
-                if(cmd_info['app_module']):#调用相应的应用来生成下行
-                    cmd_info['mt_message']=''
-                    pass
-                    #调用应用的代码写在这里
-                else:#立刻生成下行                
-                    cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
-                
-                
+
                 ########Frequency
                 if(frequency.rec_freq(record['phone_number'],record['motime'])==False):
                     mo_status = '频度过高'
                     break
                 
+                
                 ########linkisok?
+                '''
                 if(record['linkid'].isdigit() == False):
                     mo_status = 'linkid异常'
                     break
-                
+                '''
                 
                 ##########blk list check
                 #logging.info("matching..."+record['phone_number'])
@@ -190,6 +187,11 @@ def main():
                     mo_status='区域禁止'
                     break
                 
+                
+                
+                
+                
+                
                 ########all check is ok
                 mo_status='ok'
                 ########
@@ -197,7 +199,7 @@ def main():
                 break
             logging.info("record:%s;zone:%s,%s;result:%s",record,zone[0],zone[1],mo_status)
             write_db(record['id'],cmd_info,zone,mo_status)
-                   
+            mo_status='null'      
                 
             
             
