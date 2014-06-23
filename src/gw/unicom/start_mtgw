@@ -1,7 +1,3 @@
-killall unimt
+killall -g moni_unimt.sh > /dev/null
 sleep 1
-while true
-do
-	./unimt app.config
-	sleep 3
-done
+./moni_unimt.sh ./unimt 10667333.config &

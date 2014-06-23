@@ -20,14 +20,14 @@ static char gwid[4];
 
 static MYSQL mysql;
 
-static void read_config()
+static void read_config(char *confile)
 {
 	struct ccl_t config;
 	const struct ccl_pair_t *iter;
 	config.comment_char = '#';
 	config.sep_char = '=';
 	config.str_char = '"';
-	ccl_parse(&config, "app.config");
+	ccl_parse(&config, confile);
 	while((iter = ccl_iterate(&config)) != 0)
 	{
 		if(!strcmp(iter->key,"ip"))
@@ -72,30 +72,6 @@ static void sgip_resp(int cmd,void *seq,int len)
 		proclog("cmd %X write error!",cmd); 
 		exit(0);
 	}
-}
-
-
-sgip_init()
-{
-	//struct sigaction signew;
-
-	read_config();
-
-	readfd=open("/dev/null",0);
-	writefd=open("/dev/null",0);
-	dup2(0,readfd);
-	dup2(1,writefd);
-	close(0);
-	close(1);
-
-	if(atexit(&procquit))
-	{
-		printf("quit code can't be load!\n");
-		exit(0);
-	}
-
-	mysql_create_connect(&mysql, ip, user,pass,db);
-
 }
 
 static sgip_read()
@@ -178,7 +154,7 @@ static sgip_read()
 		{
 			strcpy(MessageContent_utf8,MessageContent);
 		}
-		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Content[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]\n",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
+		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Content[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
 		
 		char sql[512];
 		sprintf(sql,"insert into wraith_message( motime, phone_number, mo_message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
@@ -238,14 +214,42 @@ static sgip_read()
 	//proclog("returning...");
 }
 
-main()
+main(int argc ,char **argv)
 {
+	if(argc!=2)
+	{
+		printf("please tell me config file!\n");
+		exit(0);
+	}
+	if(!is_file_exist(argv[1]))
+	{
+		printf("file %s doesn't exist!\n",argv[1]);
+		exit(0);
+	}
+
+	read_config(argv[1]);
+	proclog("starting...");
+
 	int n=0;
 	int i=0;
 	fd_set fds1;
 	struct timeval tv;
 
-	sgip_init();
+	readfd=open("/dev/null",0);
+	writefd=open("/dev/null",0);
+	dup2(0,readfd);
+	dup2(1,writefd);
+	close(0);
+	close(1);
+
+	if(atexit(&procquit))
+	{
+		printf("quit code can't be load!\n");
+		exit(0);
+	}
+
+	mysql_create_connect(&mysql, ip, user,pass,db);
+
 	while(9)
 	{
 		FD_ZERO(&fds1);
