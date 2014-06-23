@@ -8,19 +8,20 @@ import time
 import logging
 from logging.handlers import RotatingFileHandler
 
-
 def get_data():
+    '''
     condition1 = "mo_status is not null and mo_status!='ok'"#mo处理结果为非法的记录
     condition2 = "motime < NOW()-interval 4 hour" #超过n小时仍未处理完毕的记录
     condition3 = "is_agent=1 and report is not null" #非转发业务处理完成的记录
     condition4 = 'forward_status>1'#转发完成的记录
+    '''
     
-    sql = "select id from wraith_message where(%s) or (%s) or (%s) or (%s) limit 1000"%(condition1,condition2,condition3,condition4)
+    sql = "select id from wraith_message where motime < CURDATE()"
     logging.info(sql)
     data = mysql.queryAll(sql);
     return data
 
-
+'''
 def migrate():
     sql = "insert into wraith_message_history select * from wraith_message where motime < CURDATE()" 
            
@@ -29,8 +30,23 @@ def migrate():
     
     sql = "delete from wraith_message where motime < CURDATE()" 
     logging.info('dbsql:%s',sql)
-    mysql.query(sql)
+    #mysql.query(sql)
+'''
 
+def migrate(id):
+    sql = "insert into wraith_message_history select * from wraith_message where id='%s'"%(id) 
+    logging.info('dbsql:%s',sql)
+    mysql.query(sql)
+    affected_num = mysql.conn.affected_rows()
+    logging.info('affected_rows:%d'%(affected_num))
+                 
+    if(affected_num != 1):
+        logging.info("failed to insert ,ignore")
+        return
+    
+    sql = "delete from wraith_message where motime < CURDATE() where id='%s'"%(id) 
+    logging.info('dbsql:%s',sql)
+    mysql.query(sql)
     
 def init_env():
     
@@ -52,22 +68,15 @@ def main():
     
     init_env()
     
-    '''
-    while True:
-        data = get_data() 
-        #print (len(data))
-        if(len(data) == 0):
-            time.sleep(10)
-            continue
+    
+    data = get_data() 
 
-
-        for record in data:
-            ########logging.debug(json.dumps(record))
-                #logging.info("record:%s",record)
-                migrate(record['id'])
-              
-     '''
-    migrate()
+    for record in data:
+        ########logging.debug(json.dumps(record))
+            #logging.info("record:%s",record)
+            
+            migrate(record['id'])
+    #migrate()
             
             #time.sleep(10)
 if __name__ == "__main__":
