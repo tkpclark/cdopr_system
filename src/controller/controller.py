@@ -93,7 +93,6 @@ def init_env():
     
     global blklist
     blklist = Blklist()
-    blklist.load_blklist()
     
     global codeseg
     codeseg = Codeseg()

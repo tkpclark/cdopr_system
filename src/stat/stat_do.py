@@ -93,7 +93,7 @@ def stat(stat_hour):
         else:
             csql = "insert into wraith_statistic(stat_time,gwid,feetype,is_agent,cmdID,spID,serviceID,cpID,cpProdID,province,msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,msg_count_deduction_suc,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" \
             % (stat_hour,row['gwid'],row['feetype'],row['is_agent'],row['cmdID'],row['spID'],row['serviceID'],row['cpID'],row['cp_productID'],row['province'],msg_count_all,msg_count_legal,msg_count_suc,msg_count_deduction,msg_count_deduction_suc,amount_suc,amount_deduction,msg_count_forward_mo,msg_count_forward_mt,amount_forward)
-        #logging.info(csql)
+        logging.info(csql)
         mysql.query(csql)
         
         

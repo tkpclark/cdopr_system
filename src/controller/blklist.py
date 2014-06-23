@@ -1,5 +1,9 @@
-import sys
+#encoding:utf-8
+
+import sys 
 import os
+import redis
+'''
 os.chdir(sys.path[0])
 sys.path.append('../pub')
 from Mydb import mysql
@@ -30,3 +34,22 @@ if __name__ == "__main__":
     blklist = Blklist()
     blklist.load_blklist()
     print blklist.match(sys.argv[1])
+    
+'''
+
+
+
+
+class Blklist:
+    
+    r = False
+    def __init__(self):
+        self.r = redis.StrictRedis(host='localhost', port=6379, db=2)
+        
+    def match(self, phone_number):
+        return  self.r.exists(phone_number)
+   
+    
+if __name__ == "__main__":
+    blklist = Blklist()
+    print blklist.match(sys.argv[1])    
