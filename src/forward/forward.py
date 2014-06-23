@@ -23,19 +23,20 @@ def visit_url(url):
     #logging.info(url)
     try:
         res = urllib2.urlopen(url, timeout=2)
-        r = res.read()
+        r = res.read().strip()
         logging.info("res:%s",r)
-        return 1
+        return (1,r)
     except:
         logging.info('failed')
-        return 0
-def update_forward_info(message_id,forward_status,forward_result,type):
+        return (0,'')
+def update_forward_info(message_id,forward_status,forward_result,forward_resp,forward_url,type):
     global mysql
     
     if(forward_status==4 or forward_status==3 or forward_status==5):
         sql = "update wraith_message set forward_status='%d' where id='%s'"%(forward_status, message_id)
     else:
-        sql = "update wraith_message set forward_status='%d', forward_%s_result='%d',forward_%s_time=NOW() where id='%s'"%(forward_status,type,forward_result,type,message_id)    
+        sql = "update wraith_message set forward_status='%d', forward_%s_result='%d',forward_%s_time=NOW(),forward_%s_resp='%s',forward_%s_url='%s' where id='%s'" \
+        %(forward_status,type,forward_result,type,type,forward_resp,type,forward_url,message_id)    
     #logging.info('dbsql:%s',sql)
     mysql.query(sql)
     #time.sleep(100)
@@ -58,9 +59,9 @@ def f_mo(record,mourl):
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime)
     logging.info('(%s):%s',record['id'], url)
-    forward_result = visit_url(url)
+    forward_result,forward_resp = visit_url(url)
     forward_status = 1 if(forward_result == 1) else 6 #1：转发成功 6：mo转发失败
-    return(forward_status,forward_result) 
+    return(forward_status,forward_result,forward_resp,url) 
     
 def f_mr(record,mrurl):
     #logging.info('forwarding record %s',record)
@@ -70,9 +71,9 @@ def f_mr(record,mrurl):
     url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s' \
     %(mrurl,record['phone_number'],record['linkid'],report,nowtime)
     logging.info('(%s):%s',record['id'], url)
-    forward_result = visit_url(url)
+    forward_result,forward_resp = visit_url(url)
     forward_status = 2 if(forward_result == 1) else 7 
-    return(forward_status,forward_result) 
+    return(forward_status,forward_result,forward_resp,url) 
     
 def f_mo_1(record,mourl):
     #logging.info('forwarding record %s',record)
@@ -82,9 +83,9 @@ def f_mo_1(record,mourl):
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s&prov=%s&area=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime,record['province'],record['area'])
     logging.info('(%s):%s',record['id'], url)
-    forward_result = visit_url(url)
+    forward_result,forward_resp = visit_url(url)
     forward_status = 1 if(forward_result == 1) else 6 #1：转发成功 6：mo转发失败
-    return(forward_status,forward_result)
+    return(forward_status,forward_result,forward_resp,url) 
     
 def f_mr_1(record,mrurl):
     #logging.info('forwarding record %s',record)
@@ -94,9 +95,9 @@ def f_mr_1(record,mrurl):
     url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s&prov=%s&area=%s' \
     %(mrurl,record['phone_number'],record['linkid'],report,nowtime,record['province'],record['area'])
     logging.info('(%s):%s',record['id'], url)
-    forward_result = visit_url(url)
+    forward_result,forward_resp = visit_url(url)
     forward_status = 2 if(forward_result == 1) else 7 
-    return(forward_status,forward_result) 
+    return(forward_status,forward_result,forward_resp,url) 
     
 def get_data():
     sql = "select * from wraith_message where mo_status='ok' and is_agent=2 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000"
@@ -188,16 +189,16 @@ def main():
                     forward_status = 4 #上行被扣量
                     forward_result = 0 #随便赋值
                 else:
-                    forward_status,forward_result = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
+                    forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
                     
                 
                 
             ####转发mr#####
             elif(record['forward_status']=='1'):
-                type = 'mt'
+                type = 'mr'
                 #threading.Thread(target=eval(cmd_info['forward_mr_module']), args=(record['id'], cmd_info['mourl'])).start()
                 #f11(record['id'],cmd_info['mourl'])
-                forward_status,forward_result = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
+                forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
                 
                 
                 
@@ -206,7 +207,7 @@ def main():
             else:
                 logging.info("impossible!")
                 
-            update_forward_info(record['id'],forward_status,forward_result,type)
+            update_forward_info(record['id'],forward_status,forward_result,forward_resp,forward_url,type)
             #sys.exit()     
                 
 if __name__ == "__main__":
