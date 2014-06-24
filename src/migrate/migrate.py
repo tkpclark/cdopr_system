@@ -44,7 +44,7 @@ def migrate(id):
         logging.info("failed to insert ,ignore")
         return
     
-    sql = "delete from wraith_message where motime < CURDATE() where id='%s'"%(id) 
+    sql = "delete from wraith_message where id='%s'"%(id) 
     logging.info('dbsql:%s',sql)
     mysql.query(sql)
     
