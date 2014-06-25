@@ -15,6 +15,7 @@ from product_route import *
 from command import *
 from codeseg import *
 from blklist import *
+from whitelist import *
 from visit_limit import *
 from frequency import *
 import datetime
@@ -94,6 +95,9 @@ def init_env():
     global blklist
     blklist = Blklist()
     
+    global whitelist
+    whitelist = Whitelist()
+    
     global codeseg
     codeseg = Codeseg()
     
@@ -148,6 +152,13 @@ def main():
                 ########标注指令信息
                 write_cmd_info(record['id'], cmd.get_cmd_info(cmd_info['cmdID']))
                 
+
+
+                #######白名单
+                if(whitelist.match(record['phone_number'])):
+                    mo_status='ok'
+                    break
+
 
                 ########Frequency
                 if(frequency.rec_freq(record['phone_number'],record['motime'])==False):
