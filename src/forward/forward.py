@@ -45,11 +45,11 @@ def update_forward_info(message_id,forward_status,forward_result,forward_resp,fo
 def f_no(record,mourl):
     #logging.info('forwarding nothing %s',record)
     #time.sleep(1)
-    return (3,0)
+    return (3,0,0,0)
  
 #用于上下行一起转的情况中，上行填写
 def f_fake(record,mourl):
-    return (1,1)
+    return (1,1,0,0)
 
 def f_mo(record,mourl):
     #logging.info('forwarding record %s',record)
@@ -100,7 +100,7 @@ def f_mr_1(record,mrurl):
     return(forward_status,forward_result,forward_resp,url) 
     
 def get_data():
-    sql = "select * from wraith_message where mo_status='ok' and is_agent=2 and ((forward_status=0) or (forward_status=1 and report is not NULL)) limit 1000"
+    sql = "select * from wraith_message where mo_status='ok' and is_agent=2 and ((forward_status=0) or (forward_status=1 and report is not NULL)) order by id asc limit 100"
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data

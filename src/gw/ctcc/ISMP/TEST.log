@@ -2955,3 +2955,170 @@ Free namespace stack
 ../pub/stdsoap2.c(8367): free(0x97bd40)
 Shutdown socket 4 how=2
 Close socket 4
+Reinitializing context
+Free namespace stack
+Free any remaining temp blocks
+Free attribute storage
+Free pointer hashtable
+Free ID hashtable
+Free namespace stack
+../pub/stdsoap2.c(9191): malloc(256) = 0xfc4340
+Begin count phase (socket=-1 mode=0x8 count=0)
+Element begin tag='SOAP-ENV:Envelope' level='0' id='0' type=''
+Attribute 'xmlns:SOAP-ENV'='http://schemas.xmlsoap.org/soap/envelope/'
+Attribute 'xmlns:SOAP-ENC'='http://schemas.xmlsoap.org/soap/encoding/'
+Attribute 'xmlns:xsi'='http://www.w3.org/2001/XMLSchema-instance'
+Attribute 'xmlns:xsd'='http://www.w3.org/2001/XMLSchema'
+Attribute 'xmlns:ns2'='http://req.sp.ismp.chinatelecom.com'
+Attribute 'xmlns:ns3'='http://rsp.sp.ismp.chinatelecom.com'
+Attribute 'xmlns:ns1'='http://sp.ismp.chinatelecom.com'
+Element begin tag='SOAP-ENV:Body' level='1' id='0' type=''
+Element begin tag='ns1:orderRelationUpdateNotifyReq' level='2' id='0' type=''
+Element begin tag='ns2:OPType' level='3' id='-1' type=''
+Element ending tag='ns2:OPType'
+Element begin tag='ns2:productID' level='3' id='0' type=''
+Element ending tag='ns2:productID'
+Element begin tag='ns2:streamingNo' level='3' id='0' type=''
+Element ending tag='ns2:streamingNo'
+Element begin tag='ns2:userID' level='3' id='0' type=''
+Element ending tag='ns2:userID'
+Element begin tag='ns2:userIDType' level='3' id='-1' type=''
+Element ending tag='ns2:userIDType'
+Element ending tag='ns1:orderRelationUpdateNotifyReq'
+Element ending tag='SOAP-ENV:Body'
+Element ending tag='SOAP-ENV:Envelope'
+End of count phase
+../pub/stdsoap2.c(7466): malloc(96) = 0xfc4480
+Connect/reconnect to 'http://42.62.78.247/services/IsmpSpEngine' host='42.62.78.247' path='/services/IsmpSpEngine' port=80
+Opening socket 4 to host='42.62.78.247' port=80
+Calculating the message size with attachments, current count=740
+New count is 740 bytes
+Initializing for output
+Free namespace stack
+Begin send phase (socket=4 mode=0x1 count=740)
+HTTP POST to http://42.62.78.247/services/IsmpSpEngine
+Element begin tag='SOAP-ENV:Envelope' level='0' id='0' type=''
+Attribute 'xmlns:SOAP-ENV'='http://schemas.xmlsoap.org/soap/envelope/'
+Attribute 'xmlns:SOAP-ENC'='http://schemas.xmlsoap.org/soap/encoding/'
+Attribute 'xmlns:xsi'='http://www.w3.org/2001/XMLSchema-instance'
+Attribute 'xmlns:xsd'='http://www.w3.org/2001/XMLSchema'
+Attribute 'xmlns:ns2'='http://req.sp.ismp.chinatelecom.com'
+Attribute 'xmlns:ns3'='http://rsp.sp.ismp.chinatelecom.com'
+Attribute 'xmlns:ns1'='http://sp.ismp.chinatelecom.com'
+Element begin tag='SOAP-ENV:Body' level='1' id='0' type=''
+Element begin tag='ns1:orderRelationUpdateNotifyReq' level='2' id='0' type=''
+Element begin tag='ns2:OPType' level='3' id='-1' type=''
+Element ending tag='ns2:OPType'
+Element begin tag='ns2:productID' level='3' id='0' type=''
+Element ending tag='ns2:productID'
+Element begin tag='ns2:streamingNo' level='3' id='0' type=''
+Element ending tag='ns2:streamingNo'
+Element begin tag='ns2:userID' level='3' id='0' type=''
+Element ending tag='ns2:userID'
+Element begin tag='ns2:userIDType' level='3' id='-1' type=''
+Element ending tag='ns2:userIDType'
+Element ending tag='ns1:orderRelationUpdateNotifyReq'
+Element ending tag='SOAP-ENV:Body'
+Element ending tag='SOAP-ENV:Envelope'
+End send mode=0x1
+End of send phase
+Initializing for input
+Free namespace stack
+Free any remaining temp blocks
+Free attribute storage
+../pub/stdsoap2.c(8342): free(0xfc4340)
+Free pointer hashtable
+Free ID hashtable
+../pub/stdsoap2.c(9191): malloc(256) = 0xfc4340
+Free ID hashtable
+Read 441 bytes from socket=4/fd=0
+Read count=441 (+441)
+Waiting for HTTP request/response...
+HTTP status: HTTP/1.1 200 OK
+HTTP header: Date: Wed, 25 Jun 2014 06:31:19 GMT
+HTTP header: Server: Apache/2.2.15 (CentOS)
+HTTP header: Connection: close
+HTTP header: Content-Length: 632
+HTTP header: Content-Type: text/xml; charset=utf-8
+../pub/stdsoap2.c(7466): malloc(48) = 0xfc49d0
+Finished HTTP header parsing, status = 200
+Keep alive connection = 0
+XML PI <?xml version="1.0" encoding="UTF-8"?>
+Switching to utf-8 encoding
+../pub/stdsoap2.c(10558): malloc(62) = 0xfc4a40
+Enlarging look-aside buffer to append data, old size=0, new size=256
+../pub/stdsoap2.c(10361): malloc(256) = 0xfc4ac0
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc4c00
+../pub/stdsoap2.c(2749): malloc(40) = 0xfc4d40
+Push namespace binding (level=0) 'SOAP-ENV' 'http://schemas.xmlsoap.org/soap/envelope/'
+Push OK ('SOAP-ENV' matches 'SOAP-ENV' in namespace table)
+../pub/stdsoap2.c(10558): malloc(62) = 0xfc4da0
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc4e20
+../pub/stdsoap2.c(2749): malloc(40) = 0xfc4f60
+Push namespace binding (level=0) 'SOAP-ENC' 'http://schemas.xmlsoap.org/soap/encoding/'
+Push OK ('SOAP-ENC' matches 'SOAP-ENC' in namespace table)
+../pub/stdsoap2.c(10558): malloc(57) = 0xfc4fc0
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc5040
+../pub/stdsoap2.c(2749): malloc(35) = 0xfc5180
+Push namespace binding (level=0) 'xsi' 'http://www.w3.org/2001/XMLSchema-instance'
+Push OK ('xsi' matches 'xsi' in namespace table)
+../pub/stdsoap2.c(10558): malloc(57) = 0xfc51e0
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc5260
+Read 108 bytes from socket=4/fd=0
+Read count=549 (+108)
+../pub/stdsoap2.c(2749): malloc(35) = 0xfc53a0
+Push namespace binding (level=0) 'xsd' 'http://www.w3.org/2001/XMLSchema'
+Push OK ('xsd' matches 'xsd' in namespace table)
+../pub/stdsoap2.c(10558): malloc(57) = 0xfc5400
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc5480
+../pub/stdsoap2.c(2749): malloc(35) = 0xfc55c0
+Push namespace binding (level=0) 'ns2' 'http://req.sp.ismp.chinatelecom.com'
+Push OK ('ns2' matches 'ns2' in namespace table)
+../pub/stdsoap2.c(10558): malloc(57) = 0xfc5620
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc56a0
+../pub/stdsoap2.c(2749): malloc(35) = 0xfc57e0
+Push namespace binding (level=0) 'ns3' 'http://rsp.sp.ismp.chinatelecom.com'
+Push OK ('ns3' matches 'ns3' in namespace table)
+../pub/stdsoap2.c(10558): malloc(57) = 0xfc5840
+Read 250 bytes from socket=4/fd=0
+Read count=799 (+250)
+../pub/stdsoap2.c(10614): malloc(256) = 0xfc58c0
+../pub/stdsoap2.c(2749): malloc(35) = 0xfc5a00
+Push namespace binding (level=0) 'ns1' 'http://sp.ismp.chinatelecom.com'
+Push OK ('ns1' matches 'ns1' in namespace table)
+Tags and (default) namespaces match: 'SOAP-ENV:Envelope' 'SOAP-ENV:Envelope'
+Begin element found (level=1) 'SOAP-ENV:Envelope'='SOAP-ENV:Envelope'
+../pub/stdsoap2.c(15156): malloc(42) = 0xfc5a60
+Tags and (default) namespaces match: 'SOAP-ENV:Body' 'SOAP-ENV:Body'
+Begin element found (level=2) 'SOAP-ENV:Body'='SOAP-ENV:Body'
+Tags and (default) namespaces match: 'ns1:orderRelationUpdateNotifyReturn' 'ns1:orderRelationUpdateNotifyReturn'
+Begin element found (level=3) 'ns1:orderRelationUpdateNotifyReturn'='ns1:orderRelationUpdateNotifyReturn'
+Enter id='' type=12 loc=0x7fff219b06a0 size=16 level=0
+Tags and (default) namespaces match: 'ns3:resultCode' 'ns3:resultCode'
+Begin element found (level=4) 'ns3:resultCode'='ns3:resultCode'
+Enter id='' type=1 loc=0x7fff219b06a0 size=4 level=0
+Element content value='0'
+End element found (level=4) 'ns3:resultCode'='ns3:resultCode'
+Tags and (default) namespaces match: 'ns3:streamingNo' 'ns3:streamingNo'
+Begin element found (level=4) 'ns3:streamingNo'='ns3:streamingNo'
+Reading string content, flag=1
+../pub/stdsoap2.c(7466): malloc(40) = 0xfc5ad0
+Enter id='' type=4 loc=0xfc5ad0 size=8 level=0
+End element found (level=4) 'ns3:streamingNo'='ns3:streamingNo'
+End element found (level=3) 'ns1:orderRelationUpdateNotifyReturn'='ns1:orderRelationUpdateNotifyReturn'
+End element found (level=2) 'SOAP-ENV:Body'='SOAP-ENV:Body'
+End element found (level=1) 'SOAP-ENV:Envelope'='SOAP-ENV:Envelope'
+End of receive message ok
+Resolving forwarded data
+Resolution phase
+Resolution done
+Free namespace stack
+../pub/stdsoap2.c(8367): free(0xfc5a00)
+../pub/stdsoap2.c(8367): free(0xfc57e0)
+../pub/stdsoap2.c(8367): free(0xfc55c0)
+../pub/stdsoap2.c(8367): free(0xfc53a0)
+../pub/stdsoap2.c(8367): free(0xfc5180)
+../pub/stdsoap2.c(8367): free(0xfc4f60)
+../pub/stdsoap2.c(8367): free(0xfc4d40)
+Shutdown socket 4 how=2
+Close socket 4

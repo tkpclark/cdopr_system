@@ -257,3 +257,12 @@ Content-Type: text/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
+HTTP/1.1 200 OK
+Date: Wed, 25 Jun 2014 06:31:19 GMT
+Server: Apache/2.2.15 (CentOS)
+Connection: close
+Content-Length: 632
+Content-Type: text/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://req.sp.ismp.chinatelecom.com" xmlns:ns3="http://rsp.sp.ismp.chinatelecom.com" xmlns:ns1="http://sp.ismp.chinatelecom.com"><SOAP-ENV:Body><ns1:orderRelationUpdateNotifyReturn><ns3:resultCode>0</ns3:resultCode><ns3:streamingNo>11111111111111111111</ns3:streamingNo></ns1:orderRelationUpdateNotifyReturn></SOAP-ENV:Body></SOAP-ENV:Envelope>
