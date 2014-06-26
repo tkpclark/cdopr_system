@@ -14,7 +14,7 @@ def loadcode():
     
     #print "blklist loaded!"
     r = redis.StrictRedis(host='localhost', port=6379, db=3)
-    #r.flushdb()
+    r.flushdb()
     for item in tmp:
         r.set(item['phone_number'],'1')
         #print r.get(item['code'])
