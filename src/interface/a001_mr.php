@@ -12,11 +12,11 @@ try{
 	
 	if(!empty($Status) && !empty($Linkid)){
 		if($Status=='DELIVRD')
-			$Status=1;
+			$report=1;
 		else
-			$Status=2;
+			$report=2;
 
-		$sql="update wraith_message set report='$Status' where linkid=$Linkid";
+		$sql="update wraith_message set report='$report',report_orig='$Status' where linkid=$Linkid";
 		if($result = exsql($sql)){
 			$output = 0;
 		}

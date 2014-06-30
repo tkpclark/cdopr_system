@@ -24,7 +24,7 @@ class Frequency:
             else:
                 latter = datetime.datetime.strptime(motime,'%Y-%m-%d %H:%M:%S')
                 former = datetime.datetime.strptime(self.r.get(key),'%Y-%m-%d %H:%M:%S')
-                print former,latter
+                #print former,latter
                 if ((latter-former).seconds < 3):
                     return False
                 else:

@@ -84,7 +84,7 @@ class Mydb:
 
 
 
-host = '42.62.78.249'
+host = 'mysql.db'
 user = 'tkp'
 password = 'qepapap'
 
