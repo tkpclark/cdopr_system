@@ -1,6 +1,7 @@
 #encoding:utf-8
 
 import sys
+import string
 import os
 os.chdir(sys.path[0])
 sys.path.append('../pub')
@@ -11,6 +12,7 @@ from logging.handlers import RotatingFileHandler
 import json
 from deduction import *
 from command import *
+from visit_limit import *
 import datetime
 import copy
 from ran import in_po
@@ -32,7 +34,14 @@ def visit_url(url):
 def update_forward_info(message_id,forward_status,forward_result,forward_resp,forward_url,type):
     global mysql
     
-    if(forward_status==4 or forward_status==3 or forward_status==5):
+    if(   forward_status==4     \
+       or forward_status==3     \
+       or forward_status==5     \
+       or forward_status==13    \
+       or forward_status==14    \
+       or forward_status==15    \
+       or forward_status==16 
+       ):
         sql = "update wraith_message set forward_status='%d' where id='%s'"%(forward_status, message_id)
     else:
         sql = "update wraith_message set forward_status='%d', forward_%s_result='%d',forward_%s_time=NOW(),forward_%s_resp='%s',forward_%s_url='%s' where id='%s'" \
@@ -151,6 +160,9 @@ def init_env():
     cmd = Command()
     cmd.load_dict()
     
+    global visit_limit
+    visit_limit = Visit_limit()
+    visit_limit.load_dict()
 
     
 def main():
@@ -174,38 +186,59 @@ def main():
         for record in data:
             ########logging.debug(json.dumps(record))
             #logging.info("record:%s",record)
-            cmd_info = cmd.get_cmd_info(record['cmdID'])
-            
-            #####转发mo#####
-            if(record['forward_status']=='0'):
-                type = 'mo'
+            for i in range(1):#just for jumping to the end
+                cmd_info = cmd.get_cmd_info(record['cmdID'])
                 
-                #logging.info("cmd_info:%s",cmd_info)
-                #write_db(record['id'],cmd_info)
                 
-                #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
-                de = deduction.get_deduction(cmd_info['cp_productID'],record['province'])
-                if(in_po(de)): 
-                    forward_status = 4 #上行被扣量
-                    forward_result = 0 #随便赋值
-                else:
-                    forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
+                ######是否转发超限#######
+                f,v = visit_limit.is_arrive_forward_limit(record['phone_number'],cmd_info['cmdID'],record['province'])
+                if(f != 0):
+                    forward_status=f
+                    forward_result = 0
+                    forward_resp = ''
+                    forward_url = ''
+                    type = '' #useless just make a defination
+                    break
+                
+                
+                
+                
+                
+                #＝＝＝＝＝＝转发＝＝＝＝＝＝#
+                
+                #####转发mo#####
+                if(record['forward_status']=='0'):
+                    type = 'mo'
                     
+                    #logging.info("cmd_info:%s",cmd_info)
+                    #write_db(record['id'],cmd_info)
+                    
+                    #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
+                    de = deduction.get_deduction(cmd_info['cp_productID'],record['province'])
+                    if(in_po(de)): 
+                        forward_status = 4 #上行被扣量
+                        forward_result = 0 #随便赋值
+                    else:
+                        forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
+                        
+                    
+                    
+                ####转发mr#####
+                elif(record['forward_status']=='1'):
+                    type = 'mr'
+                    #threading.Thread(target=eval(cmd_info['forward_mr_module']), args=(record['id'], cmd_info['mourl'])).start()
+                    #f11(record['id'],cmd_info['mourl'])
+                    forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
+                    
+                    
+                    
+                    
+                ################
+                else:
+                    logging.info("impossible!")
                 
                 
-            ####转发mr#####
-            elif(record['forward_status']=='1'):
-                type = 'mr'
-                #threading.Thread(target=eval(cmd_info['forward_mr_module']), args=(record['id'], cmd_info['mourl'])).start()
-                #f11(record['id'],cmd_info['mourl'])
-                forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
                 
-                
-                
-                
-            ################
-            else:
-                logging.info("impossible!")
                 
             update_forward_info(record['id'],forward_status,forward_result,forward_resp,forward_url,type)
             #sys.exit()     

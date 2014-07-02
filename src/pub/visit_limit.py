@@ -364,26 +364,29 @@ class Visit_limit:
    
              
         cmd_prov_all_forward_count_daily_limit,cmd_prov_all_forward_count_monthly_limit = self.get_cmd_prov_all_forward_limit(cmdID, province)
+        print cmd_prov_all_forward_count_daily_limit,cmd_prov_all_forward_count_monthly_limit
         if((int)(cmd_prov_all_forward_count_daily_limit) and \
            (int)(self.get_cmd_prov_all_visit_count_daily(cmdID, province)) >= (int)(cmd_prov_all_forward_count_daily_limit)):
-            return ('13','转发省总量超日限')
+            return (13,'转发省总量超日限')
             
         if((int)(cmd_prov_all_forward_count_monthly_limit) and \
            (int)(self.get_cmd_prov_all_visit_count_monthly(cmdID, province)) >= (int)(cmd_prov_all_forward_count_monthly_limit)):
-            return ('14','转发省总量超月限')
+            return (14,'转发省总量超月限')
             
             
         cmd_all_forward_count_daily_limit,cmd_all_forward_count_monthly_limit = self.get_cmd_all_forward_limit(cmdID)
         if((int)(cmd_all_forward_count_daily_limit) and \
            (int)(self.get_cmd_all_visit_count_daily(cmdID)) >= (int)(cmd_all_forward_count_daily_limit)):
-            return ('15','转发总量超日限')
+            return (15,'转发总量超日限')
             
         if((int)(cmd_all_forward_count_monthly_limit) and \
            (int)(self.get_cmd_all_visit_count_monthly(cmdID)) >= (int)(cmd_all_forward_count_monthly_limit)):
-            return ('16','转发总量超月限')
+            return (16,'转发总量超月限')
+        
+        return (0,'0')
            
          
-        return ('0','ok')
+         
                 
 if __name__ == "__main__":
     visit_limit = Visit_limit()
