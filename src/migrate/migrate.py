@@ -32,9 +32,11 @@ def migrate():
     logging.info('dbsql:%s',sql)
     #mysql.query(sql)
 '''
-
+    
 def migrate(id):
-    sql = "insert into wraith_message_history select * from wraith_message where id='%s'"%(id) 
+    
+
+    sql = "replace into wraith_message_history select * from wraith_message where id='%s'"%(id) 
     logging.info('dbsql:%s',sql)
     mysql.query(sql)
     affected_num = mysql.conn.affected_rows()

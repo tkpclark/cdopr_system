@@ -28,8 +28,9 @@ def visit_url(url):
         r = res.read().strip()
         logging.info("res:%s",r)
         return (1,r)
-    except:
-        logging.info('failed')
+    except Exception, e:
+        logging.info(e)
+        #logging.info('failed')
         return (0,'')
 def update_forward_info(message_id,forward_status,forward_result,forward_resp,forward_url,type):
     global mysql

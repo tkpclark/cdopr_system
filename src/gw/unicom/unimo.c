@@ -8,8 +8,8 @@ static int readfd;
 static int writefd;
 
 char mdname[]="unimo";
-char logpath[] = "../../../logs/unicomgw/";
-char version[]="1.00";
+char logpath[128];
+char version[]="1.02";
 
 static char ip[32];
 static char port[8];
@@ -40,7 +40,8 @@ static void read_config(char *confile)
 			strcpy(pass,iter->value);
 		else if(!strcmp(iter->key,"gwid"))
 			strcpy(gwid,iter->value);
-
+		else if(!strcmp(iter->key,"logpath"))
+			strcpy(logpath,iter->value);
 	}
 	ccl_release(&config);
 
@@ -87,7 +88,11 @@ static sgip_read()
 	//read header
 	memset(buffer,0,20);
 	//proclog("reading header...");
-	if((n=read(readfd,buffer,20))!=20)
+
+	n=read(readfd,buffer,20);
+	if(n==0)
+		exit(0);
+	if(n!=20)
 	{
 		proclog("Read Header Error! return [%d]",n);
 		exit(0);
@@ -155,10 +160,11 @@ static sgip_read()
 			strcpy(MessageContent_utf8,MessageContent);
 		}
 		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Content[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
-		
+		if(!strncmp(UserNumber,"86",2))
+			strcpy(UserNumber,UserNumber+2);
 		char sql[512];
 		sprintf(sql,"insert into wraith_message( motime, phone_number, mo_message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
-				UserNumber+2,
+				UserNumber,
 				MessageContent_utf8,
 				SPNumber,
 				linkid,
