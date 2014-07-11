@@ -23,7 +23,7 @@ import copy
 from ran import in_po
     
 def get_data():
-    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area,motime from wraith_message where mo_status is null order by id asc limit 1000'
+    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area,motime from wraith_message where mo_status is null order by id asc limit 10'
     #logging.info(sql)
     data = mysql.queryAll(sql);
     return data
@@ -130,7 +130,6 @@ def main():
         for record in data:
             ########logging.debug(json.dumps(record))
             for i in range(1):#just for jumping to the end
-                
                 mo_status='null'
                 #logging.info("1")  
                 ########get province and area
@@ -138,9 +137,9 @@ def main():
                     zone = codeseg.get_mobile_area(record['phone_number'])
                 else:
                     zone = (record['province'],record['area'])
-                    
+                
                 #######match a product
-                cmd_info.clear()            
+                cmd_info.clear()
                 cmd_info = copy.copy(product_route.match(record['gwid'], record['sp_number'], record['mo_message']))
                 if(cmd_info == {}):
                     mo_status='无匹配指令'
@@ -148,11 +147,8 @@ def main():
                 
                 ###########mt_message  
                 cmd_info['mt_message']=product_route.get_random_content(cmd_info['cmdID'])
-                
                 ########标注指令信息
                 write_cmd_info(record['id'], cmd.get_cmd_info(cmd_info['cmdID']))
-                
-
 
                 #######白名单
                 if(whitelist.match(record['phone_number'])):
@@ -172,7 +168,6 @@ def main():
                     mo_status = 'linkid异常'
                     break
                 '''
-                
                 ##########blk list check
                 #logging.info("matching..."+record['phone_number'])
                 if(blklist.match(record['phone_number'])):

@@ -43,20 +43,22 @@ class Product_route:
             
         ##
         i = 0
-        while True:
+        for m in range(20):
             i += 1
             if(len(sp_number) <= 9 and sp_number.find(self.__t__)>0):
                 break
             if(i != 1):
                 sp_number = self.__extend_prob__(sp_number)
             _message = message
+            
             j=0
-            while True:
+            for n in range(20):
                 j += 1
                 if(_message == self.__t__):
                     break
                 if(j != 1):
-                    _message = self.__extend_prob__(_message)               
+                    _message = self.__extend_prob__(_message)       
+                #print sp_number,_message
                 product = self.__search__(gwid, sp_number, _message)
                 if(product != False):
                     return product
@@ -64,11 +66,9 @@ class Product_route:
         return False
     
     def match(self, gwid, sp_number, message):
-        
         #there is  "tel:" before ctcc spnumber, need to remove it
         if(sp_number[0:4] == 'tel:'):
             sp_number = sp_number[4:]
-            
         #accurately first    
         product = self.__search__(gwid, sp_number, message)
         if(product != False):

@@ -196,7 +196,16 @@ static sgip_read()
 		proclog("REPORT: seq[%d]usernumber[%s]state[%d]errorcode[%d]",seq,UserNumber,state,report_code);
 //		write_to_heapfile(heapstatdbfd,buffer,sizeof(buffer));
 		char sql[512];
-		int report=report_code==0?1:2;
+		//int report=report_code==0?1:2;
+		int report=0;
+		if(report_code==0||report_code==100)
+		{
+			report=1;
+		}
+		else
+		{
+			report=2;
+		}
 		sprintf(sql,"update wraith_message set report='%d', report_orig='%d', report_time=NOW() where id='%d'",report,report_code,seq);
 		//proclog(sql);
 		mysql_exec(&mysql, sql);

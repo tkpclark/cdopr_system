@@ -4,7 +4,7 @@
 #include "sk.h"
 #include "sgip.h"
 
-static const char *pidfile="mt.pid";
+
 static int sd;
 static unsigned int psoff;
 static unsigned int seq=0;
@@ -20,7 +20,7 @@ static char gwid[4];
 skt_s *sp;
 
 
-char mdname[]="unimt";
+char mdname[]="unimt_fee";
 char logpath[128];
 char version[]="1.00";
 
@@ -225,9 +225,9 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	//strcpy(pp+106,"0"); //
 	//*(pp+112)=(unsigned char)0;
 
-	*(pp+113)=(unsigned char)0;//0;	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
+	*(pp+113)=(unsigned char)3;//包月话单 	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
 	*(pp+114)=(unsigned char)8;//
-	*(pp+147)=(unsigned char)1;//1;
+	*(pp+147)=(unsigned char)3;//包月话单
 	*(pp+150)=(unsigned char)15;//
 	*(int *)(pp+152)=htonl(p_submit_pkg->MessageLength);
 	pkg_len=p_submit_pkg->MessageLength+164;
@@ -236,6 +236,7 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	strcpy(pp+156,p_submit_pkg->MessageContent);
 	strcpy(pp+156+p_submit_pkg->MessageLength,p_submit_pkg->linkid);
 	
+	/*
 	proclog("MT:seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]cnt[gbk]len[%d]ServiceType[%s]SPNumber[%s]UserNumber[%s]linkid[%s]bind[%d]",
 			p_submit_pkg->seq,
 			p_submit_pkg->ChargeNumber,
@@ -252,7 +253,19 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 			bind_flag);
 
 	//proclog_HEX(buffer,pkg_len);
+	*/
 
+	proclog("MT:seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]ServiceType[%s]SPNumber[%s]UserNumber[%s]bind[%d]",
+				p_submit_pkg->seq,
+				p_submit_pkg->ChargeNumber,
+				p_submit_pkg->CorpId,
+				nodeId,
+				p_submit_pkg->FeeType,
+				p_submit_pkg->FeeValue,
+				p_submit_pkg->ServiceType,
+				p_submit_pkg->SPNumber,
+				p_submit_pkg->UserNumber,
+				bind_flag);
 	if(writeall(sp->sd,buffer,pkg_len)==-1)
 	{
 		proclog("submit failed! %s",strerror(errno));
@@ -301,7 +314,7 @@ static read_response(int seq)
 static int new_data()
 {
 	char sql[256];
-	sprintf(sql,"select * from wraith_message where ID > %d and mo_status='ok' and motime > NOW() - interval 10 hour and  gwid=%s and gw_resp is null limit 500",(off_t)psoff, gwid);
+	sprintf(sql,"select * from wraith_message where gwid=%s and gw_resp is null limit 500", gwid);
 	//sprintf(sql,"select * from wraith_message where ID > 111229 and gwid=%s and report!='1' limit 500", gwid);
 	//proclog(sql);
 	mysql_exec(&mysql,"set names gbk");
@@ -361,9 +374,6 @@ static send_all_data()
 			strcpy(submit_pkg.linkid, row[5]);
 		if(row[9])
 		{
-			if(!strcmp(row[9],"1"))
-				submit_pkg.FeeType= 2;
-			if(!strcmp(row[9],"2"))
 				submit_pkg.FeeType= 3;
 		}
 

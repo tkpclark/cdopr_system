@@ -1,3 +1,4 @@
 gcc unimo.c ../ctcc/pub/pubfunc.c ../ctcc/pub/mysqllib.c -g -o unimo -I/usr/include/mysql -L/usr/lib64/mysql -I../ctcc/pub -lccl -lmysqlclient -liconv
 gcc unimt.c  slib.c ../ctcc/pub/pubfunc.c ../ctcc/pub/mysqllib.c -g -o unimt -I/usr/include/mysql -L/usr/lib64/mysql -I../ctcc/pub -lccl -lmysqlclient -liconv
+gcc unimt_fee.c  slib.c ../ctcc/pub/pubfunc.c ../ctcc/pub/mysqllib.c -g -o unimt_fee -I/usr/include/mysql -L/usr/lib64/mysql -I../ctcc/pub -lccl -lmysqlclient -liconv
 
