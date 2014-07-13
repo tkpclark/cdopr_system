@@ -6,7 +6,7 @@
 
 static const char *pidfile="mt.pid";
 static int sd;
-static unsigned int psoff;
+static unsigned int psoff=489600;
 static unsigned int seq=0;
 static char nodeId[16];//="3024051405"
 static char corpId[16];//="51405"
@@ -301,9 +301,9 @@ static read_response(int seq)
 static int new_data()
 {
 	char sql[256];
-	sprintf(sql,"select * from wraith_message where ID > %d and mo_status='ok' and motime > NOW() - interval 10 hour and  gwid=%s and gw_resp is null limit 500",(off_t)psoff, gwid);
+	sprintf(sql,"select * from wraith_message where motime > NOW()-interval 1 hour and mo_status='ok'  and  gwid=%s and gw_resp is null limit 500", gwid);
 	//sprintf(sql,"select * from wraith_message where ID > 111229 and gwid=%s and report!='1' limit 500", gwid);
-	//proclog(sql);
+	proclog(sql);
 	mysql_exec(&mysql,"set names gbk");
 	mysql_exec(&mysql,sql);
 	result=mysql_store_result(&mysql);
@@ -470,7 +470,7 @@ main(int argc, char **argv)
 			}
 		}
 		
-		sleep(1);
+		sleep(5);
 	}	
 }
 

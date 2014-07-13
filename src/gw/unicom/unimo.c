@@ -9,7 +9,7 @@ static int writefd;
 
 char mdname[]="unimo";
 char logpath[128];
-char version[]="1.02";
+char version[]="1.03";
 
 static char ip[32];
 static char port[8];
@@ -138,14 +138,16 @@ static sgip_read()
 		
 		MessageLength=ntohl(*(unsigned int*)(buffer+45));
 		strncpy(UserNumber,buffer,21);
+		//proclog("UserNumber[%s]",UserNumber);
 		strncpy(SPNumber,buffer+21,21);
-
+		//proclog("SPNumber[%s]",SPNumber);
 		pid=*(unsigned char *)(buffer+42);
 		udhi=*(unsigned char *)(buffer+43);
 		MessageCoding=*(unsigned char *)(buffer+44);
 		memset(MessageContent,0,sizeof(MessageContent));
 		memcpy(MessageContent,buffer+49,MessageLength);
 		strcpy(linkid,buffer+49+MessageLength);
+		//proclog("linkid[%s]",linkid);
 		if (MessageCoding==8)
 		{
 			convt(MessageContent,MessageContent_utf8,"ucs-2be","utf-8");
@@ -160,8 +162,16 @@ static sgip_read()
 			strcpy(MessageContent_utf8,MessageContent);
 		}
 		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Content[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
+
 		if(!strncmp(UserNumber,"86",2))
-			strcpy(UserNumber,UserNumber+2);
+		{
+			char tmp[32];
+			memset(tmp,0,sizeof(tmp));
+			strcpy(tmp,UserNumber+2);
+			memset(UserNumber,0,sizeof(UserNumber));
+			strcpy(UserNumber,tmp);
+		}
+
 		char sql[512];
 		sprintf(sql,"insert into wraith_message( motime, phone_number, mo_message, sp_number, linkid, gwid ) values (NOW(),'%s', '%s', '%s', '%s', '%s');",
 				UserNumber,
