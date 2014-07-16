@@ -12,6 +12,21 @@ typedef struct
 	int MessageLength;
 	char MessageContent[140];
 	char linkid[10];
+
+	unsigned char UserCount;
+	char GivenValue[8];
+	unsigned char AgentFlag;
+	unsigned char MorelatetoMTFlag;
+	unsigned char Priority;
+	char ExpireTime[32];
+	char ScheduleTime[32];
+	unsigned char ReportFlag;
+	unsigned char TP_pid;
+	unsigned char TP_udhi;
+	unsigned char MessageCoding;
+	unsigned char MessageType;
+
+
 }SUBMIT_PKG;
 
 

@@ -215,26 +215,29 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	strcpy(pp+20,p_submit_pkg->SPNumber);
 	//sprintf(pp+41,"86%s",p_submit_pkg->ChargeNumber);
 	strcpy(pp+41,p_submit_pkg->ChargeNumber);
-	*(pp+62)=(unsigned char)1;//
+	*(pp+62)=p_submit_pkg->UserCount;//
 	//sprintf(pp+63,"86%s",p_submit_pkg->UserNumber);
 	strcpy(pp+63,p_submit_pkg->UserNumber);
 	strcpy(pp+84,p_submit_pkg->CorpId);
 	strcpy(pp+89,p_submit_pkg->ServiceType);
 	*(pp+99)=(unsigned char)p_submit_pkg->FeeType;
 	strcpy(pp+100,p_submit_pkg->FeeValue);
-	//strcpy(pp+106,"0"); //
-	//*(pp+112)=(unsigned char)0;
+	strcpy(pp+106,p_submit_pkg->GivenValue); //
+	*(pp+112)=p_submit_pkg->AgentFlag;
 
-	*(pp+113)=(unsigned char)3;//包月话单 	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
-	*(pp+114)=(unsigned char)8;//
-	*(pp+147)=(unsigned char)3;//包月话单
-	*(pp+150)=(unsigned char)15;//
+	*(pp+113)=p_submit_pkg->MorelatetoMTFlag;//包月话单 	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
+	*(pp+114)=p_submit_pkg->Priority;//
+	*(pp+147)=p_submit_pkg->ReportFlag;//包月话单
+	*(pp+148)=p_submit_pkg->TP_pid;
+	*(pp+149)=p_submit_pkg->TP_udhi;
+	*(pp+150)=p_submit_pkg->MessageCoding;//
+	*(pp+151)=p_submit_pkg->MessageType;
 	*(int *)(pp+152)=htonl(p_submit_pkg->MessageLength);
 	pkg_len=p_submit_pkg->MessageLength+164;
 
 	*(int *)pp=htonl(pkg_len);
 	strcpy(pp+156,p_submit_pkg->MessageContent);
-	strcpy(pp+156+p_submit_pkg->MessageLength,p_submit_pkg->linkid);
+	//strcpy(pp+156+p_submit_pkg->MessageLength,p_submit_pkg->linkid);
 	
 	/*
 	proclog("MT:seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]cnt[gbk]len[%d]ServiceType[%s]SPNumber[%s]UserNumber[%s]linkid[%s]bind[%d]",
@@ -254,17 +257,34 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 
 	//proclog_HEX(buffer,pkg_len);
 	*/
-
-	proclog("MT:seq[%u]ChargeNumber[%s]CorpId[%s]nodeid[%u]FeeType[%d]FeeValue[%s]ServiceType[%s]SPNumber[%s]UserNumber[%s]bind[%d]",
-				p_submit_pkg->seq,
-				p_submit_pkg->ChargeNumber,
-				p_submit_pkg->CorpId,
-				nodeId,
+	/*
+	 * submit_pkg.UserCount=1;
+		strcpy(submit_pkg.GivenValue,"0");
+		submit_pkg.AgentFlag=0;
+		submit_pkg.MorelatetoMTFlag=3;
+		submit_pkg.Priority=0;
+		submit_pkg.ReportFlag=3;
+		submit_pkg.TP_pid=0;
+		submit_pkg.TP_udhi=0;
+		submit_pkg.MessageCoding=15;
+		submit_pkg.MessageType=0;
+	 */
+	proclog("MT:seq[%u]nodeid[%u]cmd[0x%x]SPNumber[%s]ChargeNumber[%s]UserCount[%d]UserNumber[%s]CorpId[%s]ServiceType[%s]FeeType[%d]FeeValue[%s]GivenValue[%s]AgentFlag[%d]MorelatetoMTFlag[%d]Priority[%d]ReportFlag[%d]TP_pid[%d]TP_udhi[%d]MessageCoding[%d]MessageType[%d]MessageLength[%d]bind[%d]",
+				p_submit_pkg->seq,nodeId,cmd,p_submit_pkg->SPNumber,
+				p_submit_pkg->ChargeNumber,p_submit_pkg->UserCount,p_submit_pkg->UserNumber,
+				p_submit_pkg->CorpId,p_submit_pkg->ServiceType,
 				p_submit_pkg->FeeType,
 				p_submit_pkg->FeeValue,
-				p_submit_pkg->ServiceType,
-				p_submit_pkg->SPNumber,
-				p_submit_pkg->UserNumber,
+				p_submit_pkg->GivenValue,
+				p_submit_pkg->AgentFlag,
+				p_submit_pkg->MorelatetoMTFlag,
+				p_submit_pkg->Priority,
+				p_submit_pkg->ReportFlag,
+				p_submit_pkg->TP_pid,
+				p_submit_pkg->TP_udhi,
+				p_submit_pkg->MessageCoding,
+				p_submit_pkg->MessageType,
+				p_submit_pkg->MessageLength,
 				bind_flag);
 	if(writeall(sp->sd,buffer,pkg_len)==-1)
 	{
@@ -314,7 +334,7 @@ static read_response(int seq)
 static int new_data()
 {
 	char sql[256];
-	sprintf(sql,"select * from wraith_message where gwid=%s and gw_resp is null limit 500", gwid);
+	sprintf(sql,"select * from wraith_message where gwid=%s and mo_status='ok' and  gw_resp is null limit 500", gwid);
 	//sprintf(sql,"select * from wraith_message where ID > 111229 and gwid=%s and report!='1' limit 500", gwid);
 	//proclog(sql);
 	mysql_exec(&mysql,"set names gbk");
@@ -352,6 +372,22 @@ static send_all_data()
 	while(row=mysql_fetch_row(result))
 	{
 		memset(&submit_pkg,0,sizeof(SUBMIT_PKG));
+
+		//////
+		submit_pkg.UserCount=1;
+		strcpy(submit_pkg.GivenValue,"0");
+		submit_pkg.AgentFlag=0;
+		submit_pkg.MorelatetoMTFlag=3;
+		submit_pkg.Priority=0;
+		submit_pkg.ReportFlag=3;
+		submit_pkg.TP_pid=0;
+		submit_pkg.TP_udhi=0;
+		submit_pkg.MessageCoding=15;
+		submit_pkg.MessageType=0;
+
+
+		///////////from db
+
 		if(row[0])
 			submit_pkg.seq=atoi(row[0]);
 		if(row[4])
@@ -365,18 +401,19 @@ static send_all_data()
 			strcpy(submit_pkg.UserNumber, tmp);
 		}
 		if(row[11])
-			strcpy(submit_pkg.ServiceType,row[11]);
-		if(row[8])
-			strcpy(submit_pkg.FeeValue, row[8]);
-		if(row[10])
-			strcpy(submit_pkg.MessageContent,row[10]);
-		if(row[5])
-			strcpy(submit_pkg.linkid, row[5]);
-		if(row[9])
 		{
-				submit_pkg.FeeType= 3;
+			strcpy(submit_pkg.ServiceType,row[11]);
+			//printf("servicetype:%s\n",submit_pkg.ServiceType);
+		}
+		if(row[8])
+		{
+			strcpy(submit_pkg.FeeValue, row[8]);
+			//printf("value:%s\n",submit_pkg.FeeValue);
 		}
 
+
+
+		submit_pkg.FeeType= 3;
 		submit_pkg.MessageLength=strlen(submit_pkg.MessageContent);
 		strcpy(submit_pkg.CorpId,corpId);
 
