@@ -23,8 +23,8 @@ import copy
 from ran import in_po
     
 def get_data():
-    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area,motime from wraith_message where mo_status is null order by id asc limit 10'
-    #logging.info(sql)
+    sql = 'select id,phone_number,mo_message,sp_number,linkid,gwid,province,area,motime from wraith_message where mo_status is null order by id asc limit 50'
+    logging.info(sql)
     data = mysql.queryAll(sql);
     return data
 

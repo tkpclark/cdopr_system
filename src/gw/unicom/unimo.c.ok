@@ -209,14 +209,16 @@ static sgip_read()
 
 
 
-/*
+
+
 		//################# write to db#################
 		memset(UserNumber_db,0,sizeof(UserNumber_db));
 		if(strncmp(UserNumber,"86",2)==0)
 			strcpy(UserNumber_db,UserNumber+2);
 		else
 			strcpy(UserNumber_db,UserNumber);
-			*/
+
+
 		proclog("MO:UserNumber[%s]SPNumber[%s]Messagelen[%d]Cont[%s]MessageCoding[%d]linkid[%s]pid[%d]udhi[%d]",UserNumber,SPNumber,MessageLength,MessageContent_utf8,MessageCoding,linkid,pid,udhi);
 
 		char sql[512];

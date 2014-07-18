@@ -20,8 +20,8 @@ extern char version[];
 void proclog(const char *fmt,...)
 {
 	char ts[32];
-	char buf[2048]; //logout
-	char tmp[2048];//came in
+	char buf[1024]; //logout
+	char tmp[1024];//came in
 	time_t tt;
 	struct timeval tv;
 

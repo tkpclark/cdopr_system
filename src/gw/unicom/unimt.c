@@ -22,7 +22,7 @@ skt_s *sp;
 
 char mdname[]="unimt";
 char logpath[128];
-char version[]="1.00";
+char version[]="1.01";
 
 static char dbip[32];
 static char dbname[32];
@@ -261,7 +261,7 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 
 	return;
 }
-static read_response(int seq)
+static read_response()
 {
 	char buffer[256];
 	memset(buffer,9,sizeof(buffer));
@@ -372,13 +372,13 @@ static send_all_data()
 
 
 		sgip_submit(&submit_pkg,atoll(nodeId));
-		read_response(submit_pkg.seq);
+		read_response();
 		//printf("row0:%s\n",row[0]);
 		if(row[0])
 			psoff=atoi(row[0]);
 
 		//my_nano_sleep(300000000);
-		sleep(1);
+		//sleep(1);
 	}
 }
 /*
