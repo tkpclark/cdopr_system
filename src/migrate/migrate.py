@@ -16,7 +16,7 @@ def get_data():
     condition4 = 'forward_status>1'#转发完成的记录
     '''
     
-    sql = "select id from wraith_message where motime < CURDATE() and gwid!=40"
+    sql = "select id from wraith_message where motime < CURDATE()"
     logging.info(sql)
     data = mysql.queryAll(sql);
     return data

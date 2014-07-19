@@ -22,7 +22,7 @@ skt_s *sp;
 
 char mdname[]="unimt";
 char logpath[128];
-char version[]="1.01";
+char version[]="1.03";
 
 static char dbip[32];
 static char dbname[32];
@@ -115,17 +115,22 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 	}
 	//if((cmppsd=sclient(sp,ggate_ip,5088))==-1) exit(0);
 	
+	struct timeval wtime={5,0};
+	setsockopt(sp->sd,SOL_SOCKET,SO_SNDTIMEO,&wtime,sizeof(wtime));
+	alarm(10);
 	if(write(sp->sd,pak,61)==-1)
 	{
 		proclog("failed to send login cmd!%s",strerror(errno));
 		exit(0);
 	}
 	//proclog( "bind before is:%d",response[20]);
-	if((i=recv(sp->sd,response,29,MSG_WAITALL))==-1) 
+	alarm(10);
+	if(read(sp->sd,response,29)==-1)
 	{
 		proclog( "failed to recv login response!");
 		exit(0);
 	}
+	alarm(0);
 	//cmd=ntohl(*((unsigned int *)(response+4)));
 	//if(cmd!=0x80000001) exit(0);
 	if(response[20]==0)
@@ -166,14 +171,16 @@ static int sgip_unbind(char *nodeid,unsigned int seq)
 
 	bind_flag=0;
 	
-	if(writeall(sp->sd,pak,20)==-1)
+	alarm(10);
+	if(write(sp->sd,pak,20)!=20)
 	{
 		proclog("failed int unbind:%s",strerror(errno));
 		return;
 	}
 
-	n=recv(sp->sd,response,20,MSG_WAITALL);
-	
+	alarm(10);
+	n=read(sp->sd,response,20);
+	alarm(0);
 	//proclog("recved %d bytes",n);
 	sclose(sp);
 
@@ -252,12 +259,13 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 			bind_flag);
 
 	//proclog_HEX(buffer,pkg_len);
-
-	if(writeall(sp->sd,buffer,pkg_len)==-1)
+	alarm(10);
+	if(write(sp->sd,buffer,pkg_len)!=pkg_len)
 	{
 		proclog("submit failed! %s",strerror(errno));
 		exit(0);
 	}
+	alarm(0);
 
 	return;
 }
@@ -272,7 +280,11 @@ static read_response()
 	int sbm_seq=0;
 
 	//message header
-	if((n=read(sp->sd,buffer,20))!=20)
+	alarm(10);
+	n=read(sp->sd,buffer,20);
+	alarm(0);
+
+	if(n!=20)
 	{
 		proclog("Read Header Error! return [%d]",n);
 		return;
@@ -284,7 +296,10 @@ static read_response()
 
 	//message body
 	memset(buffer,0,sizeof(buffer));
-	if((n=read(sp->sd,buffer,len-20))!=(len-20))
+	alarm(10);
+	n=read(sp->sd,buffer,len-20);
+	alarm(0);
+	if(n!=(len-20))
 	{
 		proclog("Read Body Error! return [%d]",n);
 		exit(0);
