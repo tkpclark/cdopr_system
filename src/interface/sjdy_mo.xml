@@ -1,0 +1,14 @@
+<configuration xmlns="http://logging.apache.org/log4php/">
+
+<appender name="myFileAppender" class="LoggerAppenderFile">
+<layout class="LoggerLayoutPattern">
+<param name="conversionPattern" value="%date{Y-m-d H:i:s.u}[%logger]: %message %l%n" />
+</layout>
+<param name="file" value="/home/tkp/cdopr/logs/interface/sjdy_mo.log" />
+</appender>
+
+<root>
+<level value="DEBUG" />
+<appender_ref ref="myFileAppender" />
+</root>
+</configuration>

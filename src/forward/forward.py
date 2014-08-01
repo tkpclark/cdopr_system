@@ -78,8 +78,8 @@ def f_mr(record,mrurl):
     #time.sleep(1)
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     report='DELIVRD' if record['report']=='1' else record['report']
-    url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s' \
-    %(mrurl,record['phone_number'],record['linkid'],report,nowtime)
+    url = '%s?spnumber=%s&msg=%s&mobile=%s&linkid=%s&status=%s&createtime=%s' \
+    %(mrurl,record['sp_number'],record['mo_message'],record['phone_number'],record['linkid'],report,nowtime)
     logging.info('(%s):%s',record['id'], url)
     forward_result,forward_resp = visit_url(url)
     forward_status = 2 if(forward_result == 1) else 7 
@@ -102,8 +102,8 @@ def f_mr_1(record,mrurl):
     #time.sleep(1)
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     report='DELIVRD' if record['report']=='1' else record['report']
-    url = '%s?mobile=%s&linkid=%s&status=%s&createtime=%s&prov=%s&area=%s' \
-    %(mrurl,record['phone_number'],record['linkid'],report,nowtime,record['province'],record['area'])
+    url = '%s?spnumber=%s&msg=%s&mobile=%s&linkid=%s&status=%s&createtime=%s&prov=%s&area=%s' \
+    %(mrurl,record['sp_number'],record['mo_message'],record['phone_number'],record['linkid'],report,nowtime,record['province'],record['area'])
     logging.info('(%s):%s',record['id'], url)
     forward_result,forward_resp = visit_url(url)
     forward_status = 2 if(forward_result == 1) else 7 

@@ -19,9 +19,15 @@ try{
 	$timeStamp     = trim(isset($_REQUEST['timeStamp'])?$_REQUEST['timeStamp']:'');
 	$resultCode         = trim(isset($_REQUEST['resultCode'])?$_REQUEST['resultCode']:'');
 	$resultDescription  = iconv('UTF-8', 'UTF-8',trim(isset($_REQUEST['resultDescription'])?$_REQUEST['resultDescription']:''));
+	$ditchId       = trim(isset($_REQUEST['ditchId'])?$_REQUEST['ditchId']:'');
 	
-	$log="paymentUser=".$paymentUser."&outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&resultCode=".$resultCode."&resultDescription=".$resultDescription."&callBackPath=".$callBackPath."&timeStamp=".$timeStamp;
 	
+	$log="ditchId=".$ditchId."&paymentUser=".$paymentUser."&outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&resultCode=".$resultCode."&resultDescription=".$resultDescription."&callBackPath=".$callBackPath."&timeStamp=".$timeStamp;
+
+	if(empty($ditchId)){
+		$ditchId='w001';
+	}
+
 	$phone = substr($paymentUser,0,7);
 	$sql = "select province from wraith_code_segment where code='$phone'";
 	$result_p = exsql($sql);
@@ -44,7 +50,7 @@ try{
 
 	if(!empty($paymentUser) && !empty($outTradeNo) && !empty($subject) && !empty($totalFee) && !empty($callBackPath) && !empty($timeStamp) && $resultCode!==null){
 		if(empty($province)){$province='未知';}
-		$sql="insert into wraith_wo_web(paymentUser,outTradeNo,subject,description,price,quantity,totalFee,callBackPath,timeStamp,resultCode,resultDescription,province) values('$paymentUser','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$callBackPath','$timeStamp','$resultCode','$resultDescription','$province')";
+		$sql="insert into wraith_wo_web(paymentUser,outTradeNo,subject,description,price,quantity,totalFee,callBackPath,timeStamp,resultCode,resultDescription,province,ditchId) values('$paymentUser','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$callBackPath','$timeStamp','$resultCode','$resultDescription','$province','$ditchId')";
 		if($result = exsql($sql)){
 				$insert_id = $mysqli->insert_id;
 				$curlPost = "paymentUser=".$paymentUser."&outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&resultCode=".$resultCode."&resultDescription=".$resultDescription."&timeStamp=".$timeStamp;
