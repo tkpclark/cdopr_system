@@ -7,11 +7,13 @@ import redis
 from Mydb import mysql
 import datetime
 
-#日月限一共分三组
-#每个省内用户的日月限
-#每个省的总量日月限
-#所有用户总量的日月限
-#这些限制都是针对某指令来设置的（cmd）
+#日月限一共分四种
+#每个省内用户的日月限（每个指令不同）
+#每个省的总量日月限（每个指令不同）
+#所有用户总量的日月限（每个指令不同）
+
+#不分指令的单用户日月限制
+
 class Visit_limit:
     __v_dict__ = []
     r = False
@@ -23,6 +25,83 @@ class Visit_limit:
         self.__v_dict__ = mysql.queryAll(sql)
         #print self.__v_dict__
     #def get_user_visit_count(self,phone_number,province,cmdID):
+    
+    
+    
+    
+    
+    
+    
+     
+    #设置不分指令的单用户日访问次数计数
+    def set_user_visit_count_daily(self,phone_number):
+         now = datetime.datetime.now()
+         day = now.strftime('%Y%m%d')
+         
+         
+         key = 'n1_%s_%s' % (phone_number,day)
+         #self.r.INCR(key)
+         if(self.r.exists(key)==False):
+             self.r.setex(key,86400,1)
+             return 1
+         else:
+             return self.r.incr(key)
+            
+    #获取不分指令的单用户日访问次数计数
+    def get_user_visit_count_daily(self,phone_number):
+        now = datetime.datetime.now()
+        day = now.strftime('%Y%m%d')
+        
+        
+        key = 'n1_%s_%s' % (phone_number,day)
+        #self.r.INCR(key)
+        if(self.r.exists(key)==False):
+            return 0
+        else:
+            return self.r.get(key)        
+      
+     #设置不分指令的单用户月访问次数计数
+    def set_user_visit_count_monthly(self,phone_number):
+        now = datetime.datetime.now()
+        month = now.strftime('%Y%m')
+        
+        
+        ###daily
+        key = 'n2_%s_%s' % (phone_number,month)
+        #self.r.INCR(key)
+        if(self.r.exists(key)==False):
+            self.r.setex(key,2764800,1)
+            return 1
+        else:
+            return self.r.incr(key)
+        
+    #获取不分指令的单用户月访问次数计数
+    def get_user_visit_count_monthly(self,phone_number):
+        now = datetime.datetime.now()
+        month = now.strftime('%Y%m')
+        
+        
+        ###daily
+        key = 'n2_%s_%s' % (phone_number,month)
+        #self.r.INCR(key)
+        if(self.r.exists(key)==False):
+            return 0
+        else:
+            return self.r.get(key)
+        
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     #设置所有省所有用户的总日访问次数计数，并返回计数结果
@@ -268,10 +347,12 @@ class Visit_limit:
     
     
     
+    #获取不分指令单用户访问门限值
+    def get_user_visit_limit(self):
+        return 20,200
     
     
-    
-    #获取数据库中设置的单用户门限值
+    #获取数据库中设置的某指令单用户门限值
     def get_cmd_prov_user_visit_limit(self,cmdID,province):        
         #exactly
         for record in self.__v_dict__:
@@ -331,6 +412,17 @@ class Visit_limit:
         if((int)(cmd_all_visit_count_monthly_limit) and \
            (int)(self.get_cmd_all_visit_count_monthly(cmdID)) >= (int)(cmd_all_visit_count_monthly_limit)):
             return ('6','总量超月限')
+        
+        
+        user_visit_count_daily_limit,user_visit_count_monthly_limit = self.get_user_visit_limit()
+        if((int)(user_visit_count_daily_limit) and \
+           (int)(self.get_user_visit_count_daily(phone_number)) >= (int)(user_visit_count_daily_limit)):
+            return ('7','用户超总日限')
+            
+        if((int)(user_visit_count_monthly_limit) and \
+           (int)(self.get_user_visit_count_monthly(phone_number)) >= (int)(user_visit_count_monthly_limit)):
+            return ('8','用户超总月限')   
+           
            
          
          
@@ -344,6 +436,8 @@ class Visit_limit:
         
         #once you got here, means that no any limit break ,then return false
         #set visit count
+        self.set_user_visit_count_daily(phone_number)
+        self.set_user_visit_count_monthly(phone_number)
         self.set_cmd_prov_user_visit_count_daily(cmdID, province, phone_number)
         self.set_cmd_prov_user_visit_count_monthly(cmdID, province, phone_number)
         self.set_cmd_prov_all_visit_count_daily(cmdID, province)
