@@ -286,7 +286,7 @@ class Visit_limit:
                  return (record['daily_limit'],record['monthly_limit'])
         
         #没设置则不限制
-        return (0,0);
+        return (0,0)
     
     
     #获取数据库中设置的省内用户的总门限值
@@ -306,7 +306,7 @@ class Visit_limit:
                 return (record['daily_limit'],record['monthly_limit'])
         
         #没设置则不限制
-        return (0,0);
+        return (0,0)
     
     
     
@@ -321,7 +321,7 @@ class Visit_limit:
                  return (record['daily_limit'],record['monthly_limit'])
         
         #没设置则不限制
-        return (0,0);
+        return (0,0)
     
     
     #获取数据库中设置的省内用户的转发总门限值
@@ -341,7 +341,7 @@ class Visit_limit:
                 return (record['daily_limit'],record['monthly_limit'])
         
         #没设置则不限制
-        return (0,0);
+        return (0,0)
     
     
     
@@ -349,7 +349,7 @@ class Visit_limit:
     
     #获取不分指令单用户访问门限值
     def get_user_visit_limit(self):
-        return 20,200
+        return (6000,100000) #相当于不限制
     
     
     #获取数据库中设置的某指令单用户门限值
@@ -369,7 +369,7 @@ class Visit_limit:
                 return (record['daily_limit'],record['monthly_limit'])
         
         #没设置则不限制
-        return (0,0);
+        return (6,10)
     
     
     

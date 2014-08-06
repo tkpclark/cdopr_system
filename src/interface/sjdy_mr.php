@@ -11,12 +11,12 @@ try{
 	$Status     = trim($_GET['RptStat']);//report
 	
 	if(!empty($Status) && !empty($linkid)){
-		if($Status=='DELIVRD')
+		if($Status=='DELIVRD'){
 			$report=1;
-		else
+		}else{
 			$report=2;
-
-		$sql="update wraith_message set report='$report',report_orig='$Status' where linkid=$linkid";
+		}
+		$sql="update wraith_message set report='".$report."',report_orig='".$Status."' where linkid='".$linkid."'";
 		//echo $sql;exit;
 		if($result = exsql($sql)){
 			$output = 'ok';
@@ -31,5 +31,5 @@ echo $output;
 //打印日志
 $logging = Logger::getLogger('sjdy_mr');
 Logger::configure('./sjdy_mr.xml');
-$logging->info($_SERVER["QUERY_STRING"].'-----'.$output);
+$logging->info($_SERVER["QUERY_STRING"].'-----'.$output.'--sql='.$sql);
 ?>

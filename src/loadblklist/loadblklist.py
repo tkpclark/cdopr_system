@@ -55,6 +55,6 @@ def loadcode():
     except Exception, e:
         print e   
 
-    print '成功黑名单信息！'
+    print '成功加载黑名单信息！'
 if __name__ == "__main__":
     loadcode()
