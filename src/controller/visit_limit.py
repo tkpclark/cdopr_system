@@ -368,7 +368,7 @@ class Visit_limit:
             if( (record['cmdID'] == cmdID) and (record['province'] == '默认') and (record['limit_type'] == '1')):
                 return (record['daily_limit'],record['monthly_limit'])
         
-        #没设置则不限制
+        #没设置则
         return (6,10)
     
     

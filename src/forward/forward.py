@@ -187,6 +187,15 @@ def main():
         for record in data:
             ########logging.debug(json.dumps(record))
             #logging.info("record:%s",record)
+            
+            
+            forward_status=''
+            forward_result = 0
+            forward_resp = ''
+            forward_url = ''
+            type = ''
+                    
+            
             for i in range(1):#just for jumping to the end
                 cmd_info = cmd.get_cmd_info(record['cmdID'])
                 
