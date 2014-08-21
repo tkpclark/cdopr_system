@@ -359,14 +359,18 @@ class Visit_limit:
             #print record['cmdID'],record['province']
             #print cmdID,province
             if( (record['cmdID'] == cmdID) and (record['province'] == province) and (record['limit_type'] == '1')):
-                 return (record['daily_limit'],record['monthly_limit'])
+                daily_limit = record['daily_limit'] if (record['daily_limit']!='0') else 6
+                monthly_limit = record['monthly_limit'] if (record['monthly_limit']!='0') else 10
+                return (daily_limit,monthly_limit)
             
         #default of a cmd
         for record in self.__v_dict__:
             #print record['cmdID'],record['province']
             #print cmdID,province
             if( (record['cmdID'] == cmdID) and (record['province'] == '默认') and (record['limit_type'] == '1')):
-                return (record['daily_limit'],record['monthly_limit'])
+                daily_limit = record['daily_limit'] if (record['daily_limit']!='0') else 6
+                monthly_limit = record['monthly_limit'] if (record['monthly_limit']!='0') else 10
+                return (daily_limit,monthly_limit)
         
         #没设置则
         return (6,10)
@@ -385,34 +389,42 @@ class Visit_limit:
         month = now.strftime('%Y%m')
         
         cmd_prov_user_visit_count_daily_limit,cmd_prov_user_visit_count_monthly_limit = self.get_cmd_prov_user_visit_limit(cmdID, province)
-        if( (int)(self.get_cmd_prov_user_visit_count_daily(cmdID, province,phone_number)) >= (int)(cmd_prov_user_visit_count_daily_limit)):
+        if((int)(cmd_prov_user_visit_count_daily_limit) and \
+           (int)(self.get_cmd_prov_user_visit_count_daily(cmdID, province,phone_number)) >= (int)(cmd_prov_user_visit_count_daily_limit)):
             return ('1','用户超日限')
             
-        if( (int)(self.get_cmd_prov_user_visit_count_monthly(cmdID, province, phone_number)) >= (int)(cmd_prov_user_visit_count_monthly_limit)):
+        if((int)(cmd_prov_user_visit_count_monthly_limit) and \
+           (int)(self.get_cmd_prov_user_visit_count_monthly(cmdID, province, phone_number)) >= (int)(cmd_prov_user_visit_count_monthly_limit)):
             return  ('2','用户超月限')
              
              
         cmd_prov_all_visit_count_daily_limit,cmd_prov_all_visit_count_monthly_limit = self.get_cmd_prov_all_visit_limit(cmdID, province)
-        if((int)(self.get_cmd_prov_all_visit_count_daily(cmdID, province)) >= (int)(cmd_prov_all_visit_count_daily_limit)):
+        if((int)(cmd_prov_all_visit_count_daily_limit) and \
+           (int)(self.get_cmd_prov_all_visit_count_daily(cmdID, province)) >= (int)(cmd_prov_all_visit_count_daily_limit)):
             return ('3','省总量超日限')
             
-        if( (int)(self.get_cmd_prov_all_visit_count_monthly(cmdID, province)) >= (int)(cmd_prov_all_visit_count_monthly_limit)):
+        if((int)(cmd_prov_all_visit_count_monthly_limit) and \
+           (int)(self.get_cmd_prov_all_visit_count_monthly(cmdID, province)) >= (int)(cmd_prov_all_visit_count_monthly_limit)):
             return ('4','省总量超月限')
             
             
         cmd_all_visit_count_daily_limit,cmd_all_visit_count_monthly_limit = self.get_cmd_all_visit_limit(cmdID)
-        if((int)(self.get_cmd_all_visit_count_daily(cmdID)) >= (int)(cmd_all_visit_count_daily_limit)):
+        if((int)(cmd_all_visit_count_daily_limit) and \
+           (int)(self.get_cmd_all_visit_count_daily(cmdID)) >= (int)(cmd_all_visit_count_daily_limit)):
             return ('5','总量超日限')
             
-        if( (int)(self.get_cmd_all_visit_count_monthly(cmdID)) >= (int)(cmd_all_visit_count_monthly_limit)):
+        if((int)(cmd_all_visit_count_monthly_limit) and \
+           (int)(self.get_cmd_all_visit_count_monthly(cmdID)) >= (int)(cmd_all_visit_count_monthly_limit)):
             return ('6','总量超月限')
         
         
         user_visit_count_daily_limit,user_visit_count_monthly_limit = self.get_user_visit_limit()
-        if( (int)(self.get_user_visit_count_daily(phone_number)) >= (int)(user_visit_count_daily_limit)):
+        if((int)(user_visit_count_daily_limit) and \
+           (int)(self.get_user_visit_count_daily(phone_number)) >= (int)(user_visit_count_daily_limit)):
             return ('7','用户超总日限')
             
-        if( (int)(self.get_user_visit_count_monthly(phone_number)) >= (int)(user_visit_count_monthly_limit)):
+        if((int)(user_visit_count_monthly_limit) and \
+           (int)(self.get_user_visit_count_monthly(phone_number)) >= (int)(user_visit_count_monthly_limit)):
             return ('8','用户超总月限')   
            
            

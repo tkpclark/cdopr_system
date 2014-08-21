@@ -14,7 +14,18 @@ try{
 	$log="unicomId=".$unicomId."outTradeNo=".$outTradeNo."&subject=".$subject."&status=".$status."&totalFee=".$totalFee."&appKey=".$appKey."&paymentTime=".$paymentTime;
 	
 	if(!empty($unicomId) && !empty($status) && !empty($outTradeNo)){
-		$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime' where unicomId='$unicomId'";
+
+		$sql = "select down_deduction from wraith_wo_deduction where province='默认' and name='wo_sdk'";
+		$result_dd = exsql($sql);
+		$deductionsd=mysqli_fetch_row($result_dd);
+		$deduction = $deductionsd[0];
+		$rand = rand(1,100);
+		if(empty($deduction) || $rand>=$deduction){
+			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime',forward_status='2' where unicomId='$unicomId'";
+		}else{
+			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime' where unicomId='$unicomId'";
+		}
+
 		if($result = exsql($sql)){
 			$output = 1;
 		}

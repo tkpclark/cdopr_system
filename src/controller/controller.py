@@ -155,7 +155,12 @@ def main():
                     mo_status='ok'
                     break
 
-
+                
+                ######是否177号段
+                if(record['phone_number'][0:3]=='177'):
+                    mo_status='号段禁止'
+                    break
+                
                 ########Frequency
                 if(frequency.rec_freq(record['phone_number'],record['motime'])==False):
                     mo_status = '频度过高'

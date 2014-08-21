@@ -21,7 +21,17 @@ try{
 	$log="unicomId=".$unicomId."outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&appKey=".$appKey."&appName=".$appName."&callBackPath=".$callBackPath."&timeStamp=".$timeStamp;
 
 	if(!empty($unicomId) && !empty($outTradeNo) && !empty($subject) && !empty($totalFee) && !empty($appKey) && !empty($appName) && !empty($callBackPath) && !empty($timeStamp)){
-		$sql="insert into wraith_wo_sdk(unicomId ,outTradeNo,subject,description,price,quantity,totalFee,appKey,appName,callBackPath,timeStamp) values('$unicomId','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$appKey','$appName','$callBackPath','$timeStamp')";
+
+		$forward_status=0;
+		$sql = "select up_deduction from wraith_wo_deduction where province='默认' and name='wo_sdk'";
+		$result_dd = exsql($sql);
+		$deductionsd=mysqli_fetch_row($result_dd);
+		$deduction = $deductionsd[0];
+		$rand = rand(1,100);
+		if(empty($deduction) || $rand>=$deduction){
+			$forward_status=1;
+		}
+		$sql="insert into wraith_wo_sdk(unicomId ,outTradeNo,subject,description,price,quantity,totalFee,appKey,appName,callBackPath,timeStamp,forward_status) values('$unicomId','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$appKey','$appName','$callBackPath','$timeStamp','$forward_status')";
 		if($result = exsql($sql)){
 			$output = 1;
 		}
