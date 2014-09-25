@@ -39,11 +39,11 @@ class Product_route:
         
         
         
-    def __probably_match__(self,gwid, sp_number, message):
+    def __probably_match__(self,gwid, sp_number, message,province):
             
         ##
         i = 0
-        for m in range(20):
+        for m in range(100):
             i += 1
             if(len(sp_number) <= 9 and sp_number.find(self.__t__)>0):
                 break
@@ -52,39 +52,39 @@ class Product_route:
             _message = message
             
             j=0
-            for n in range(20):
+            for n in range(100):
                 j += 1
                 if(_message == self.__t__):
                     break
                 if(j != 1):
                     _message = self.__extend_prob__(_message)       
-                #print sp_number,_message
-                product = self.__search__(gwid, sp_number, _message)
+                print gwid,sp_number,_message,province
+                product = self.__search__(gwid, sp_number, _message, province)
                 if(product != False):
                     return product
             
         return False
     
-    def match(self, gwid, sp_number, message):
+    def match(self, gwid, sp_number, message,province):
         #there is  "tel:" before ctcc spnumber, need to remove it
         if(sp_number[0:4] == 'tel:'):
             sp_number = sp_number[4:]
         #accurately first    
-        product = self.__search__(gwid, sp_number, message)
+        product = self.__search__(gwid, sp_number, message, province)
         if(product != False):
             return product
         #probably
-        product = self.__probably_match__(gwid, sp_number, message)
+        product = self.__probably_match__(gwid, sp_number, message, province)
         if(product != False):
             return product
         
         return {}
     
-    def __search__(self,gwid, sp_number, message):
+    def __search__(self,gwid, sp_number, message,province):
         for product in self.__products__:
             #print product
             #print "%s,%s,%s | %s,%s,%s"%(gwid, sp_number, message.lower(), product['gwid'], product['sp_number'], product['mo_cmd'].lower())
-            if(product['gwid'] == gwid) and (product['sp_number'] == sp_number) and (product['mo_cmd'].lower() == message.lower()):
+            if(product['gwid'] == gwid) and (product['sp_number'] == sp_number) and (product['mo_cmd'].lower() == message.lower()) and (province in product['open_province']):
                 return product
         return False
    

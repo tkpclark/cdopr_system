@@ -23,7 +23,8 @@ class Command:
         coalesce(t5.ID , 0) as serviceID,
         coalesce(t5.`name`, '') as service_name,
         coalesce(t5.sp_number ,'') as serv_spnumber,
-        coalesce(t5.mo_cmd,'') as serv_mocmd
+        coalesce(t5.mo_cmd,'') as serv_mocmd,
+        coalesce(t3.forward_138,'') as forward_138
         from mtrs_cmd t1
         left join mtrs_cp_product t3 on t1.cpProdID=t3.id
         left join mtrs_cp t2 on t3.cpID=t2.id

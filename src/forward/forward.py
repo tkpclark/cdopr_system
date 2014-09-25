@@ -61,10 +61,11 @@ def f_no(record,mourl):
 def f_fake(record,mourl):
     return (1,1,0,0)
 
-def f_mo(record,mourl):
+def f_mo(record,mourl,forward_138):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
     #http://youraddress/interface_mo?spnumber=106673336&msg=CP&fee=2&mobile=13179386983&linkid=72523970&createtime=20120320095009
+    record['phone_number'] = '13800138000' if(forward_138 == '1') else record['phone_number'] #1：手机号or伪码转换成13800138000
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime)
@@ -73,9 +74,10 @@ def f_mo(record,mourl):
     forward_status = 1 if(forward_result == 1) else 6 #1：转发成功 6：mo转发失败
     return(forward_status,forward_result,forward_resp,url) 
     
-def f_mr(record,mrurl):
+def f_mr(record,mrurl,forward_138):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
+    record['phone_number'] = '13800138000' if(forward_138 == '1') else record['phone_number'] #1：手机号or伪码转换成13800138000
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     report='DELIVRD' if record['report']=='1' else record['report']
     url = '%s?spnumber=%s&msg=%s&mobile=%s&linkid=%s&status=%s&createtime=%s' \
@@ -85,10 +87,11 @@ def f_mr(record,mrurl):
     forward_status = 2 if(forward_result == 1) else 7 
     return(forward_status,forward_result,forward_resp,url) 
     
-def f_mo_1(record,mourl):
+def f_mo_1(record,mourl,forward_138):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
     #http://youraddress/interface_mo?spnumber=106673336&msg=CP&fee=2&mobile=13179386983&linkid=72523970&createtime=20120320095009
+    record['phone_number'] = '13800138000' if(forward_138 == '1') else record['phone_number']
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     url = '%s?spnumber=%s&msg=%s&fee=%s&mobile=%s&linkid=%s&createtime=%s&prov=%s&area=%s' \
     %(mourl,record['sp_number'],record['mo_message'],record['fee'],record['phone_number'],record['linkid'],nowtime,record['province'],record['area'])
@@ -97,9 +100,10 @@ def f_mo_1(record,mourl):
     forward_status = 1 if(forward_result == 1) else 6 #1：转发成功 6：mo转发失败
     return(forward_status,forward_result,forward_resp,url) 
     
-def f_mr_1(record,mrurl):
+def f_mr_1(record,mrurl,forward_138):
     #logging.info('forwarding record %s',record)
     #time.sleep(1)
+    record['phone_number'] = '13800138000' if(forward_138 == '1') else record['phone_number']
     nowtime = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     report='DELIVRD' if record['report']=='1' else record['report']
     url = '%s?spnumber=%s&msg=%s&mobile=%s&linkid=%s&status=%s&createtime=%s&prov=%s&area=%s' \
@@ -229,7 +233,7 @@ def main():
                         forward_status = 4 #上行被扣量
                         forward_result = 0 #随便赋值
                     else:
-                        forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mourl'])"%(cmd_info['forward_mo_module'])) 
+                        forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mourl'],cmd_info['forward_138'])"%(cmd_info['forward_mo_module'])) 
                         
                     
                     
@@ -238,7 +242,7 @@ def main():
                     type = 'mr'
                     #threading.Thread(target=eval(cmd_info['forward_mr_module']), args=(record['id'], cmd_info['mourl'])).start()
                     #f11(record['id'],cmd_info['mourl'])
-                    forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mrurl'])"%(cmd_info['forward_mr_module']))
+                    forward_status,forward_result,forward_resp,forward_url = eval("%s(record,cmd_info['mrurl'],cmd_info['forward_138'])"%(cmd_info['forward_mr_module']))
                     
                     
                     

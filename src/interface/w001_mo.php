@@ -16,22 +16,44 @@ try{
 	$appName       = iconv('UTF-8', 'UTF-8',trim(isset($_POST['appName'])?$_POST['appName']:''));
 	$callBackPath  = trim(isset($_POST['callBackPath'])?$_POST['callBackPath']:'');
 	$timeStamp     = trim(isset($_POST['timeStamp'])?$_POST['timeStamp']:'');
+	$paymentUser   = trim(isset($_POST['paymentUser'])?$_POST['paymentUser']:'');
+	$ditchId       = trim(isset($_POST['ditchId'])?$_POST['ditchId']:'');
 
 
-	$log="unicomId=".$unicomId."outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&appKey=".$appKey."&appName=".$appName."&callBackPath=".$callBackPath."&timeStamp=".$timeStamp;
+	$log="unicomId=".$unicomId."outTradeNo=".$outTradeNo."&subject=".$subject."&description=".$description."&price=".$price."&quantity=".$quantity."&totalFee=".$totalFee."&appKey=".$appKey."&appName=".$appName."&callBackPath=".$callBackPath."&timeStamp=".$timeStamp."&paymentUser=".$paymentUser."&ditchId=".$ditchId;
+
+	
 
 	if(!empty($unicomId) && !empty($outTradeNo) && !empty($subject) && !empty($totalFee) && !empty($appKey) && !empty($appName) && !empty($callBackPath) && !empty($timeStamp)){
 
 		$forward_status=0;
-		$sql = "select up_deduction from wraith_wo_deduction where province='默认' and name='wo_sdk'";
-		$result_dd = exsql($sql);
-		$deductionsd=mysqli_fetch_row($result_dd);
-		$deduction = $deductionsd[0];
+		$phone = substr($paymentUser,0,7);
+		$sql = "select province from wraith_code_segment where code='$phone'";
+		$result_p = exsql($sql);
+		$provinces=mysqli_fetch_row($result_p);
+		$province = $provinces[0];
+		$deduction='';
+		if(!empty($province)){
+			$sql = "select up_deduction from wraith_wo_deduction where province='$province' and name='wo_sdk'";
+			$result_d = exsql($sql);
+			$deductions=mysqli_fetch_row($result_d);
+			$deduction = $deductions[0];
+			if($deduction == ''){
+				$sql = "select up_deduction from wraith_wo_deduction where province='默认' and name='wo_sdk'";
+				$result_dd = exsql($sql);
+				$deductionsd=mysqli_fetch_row($result_dd);
+				$deduction = $deductionsd[0];
+			}
+		}else{
+			$province='未知';
+		}
+
+
 		$rand = rand(1,100);
-		if(empty($deduction) || $rand>=$deduction){
+		if(!empty($deduction) && $rand>=$deduction){
 			$forward_status=1;
 		}
-		$sql="insert into wraith_wo_sdk(unicomId ,outTradeNo,subject,description,price,quantity,totalFee,appKey,appName,callBackPath,timeStamp,forward_status) values('$unicomId','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$appKey','$appName','$callBackPath','$timeStamp','$forward_status')";
+		$sql="insert into wraith_wo_sdk(unicomId ,outTradeNo,subject,description,price,quantity,totalFee,appKey,appName,callBackPath,timeStamp,forward_status,paymentUser,ditchId,province) values('$unicomId','$outTradeNo','$subject','$description','$price','$quantity','$totalFee','$appKey','$appName','$callBackPath','$timeStamp','$forward_status','$paymentUser','$ditchId','$province')";
 		if($result = exsql($sql)){
 			$output = 1;
 		}

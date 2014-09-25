@@ -19,8 +19,13 @@ try{
 		$result_dd = exsql($sql);
 		$deductionsd=mysqli_fetch_row($result_dd);
 		$deduction = $deductionsd[0];
+
+		$sql = "select forward_status from wraith_wo_sdk where unicomId='$unicomId'";
+		$result = exsql($sql);
+		$forward_status=mysqli_fetch_row($result);
+		$forward_status = $forward_status[0];
 		$rand = rand(1,100);
-		if(empty($deduction) || $rand>=$deduction){
+		if(!empty($deduction) && $rand>=$deduction && $forward_status==0){
 			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime',forward_status='2' where unicomId='$unicomId'";
 		}else{
 			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime' where unicomId='$unicomId'";
