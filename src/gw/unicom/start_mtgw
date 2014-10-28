@@ -1,2 +1,2 @@
 setsid mn.sh ./unimt 10667333.config &
-setsid mn.sh ./unimt 10655500302.config &
+setsid mn.sh ./unimt 10655570101.config &

@@ -52,7 +52,7 @@ def update_forward_info(message_id,forward_status,forward_result,forward_resp,fo
     #time.sleep(100)
     
 #用于不转发的情况
-def f_no(record,mourl):
+def f_no(record,mourl,forward_138):
     #logging.info('forwarding nothing %s',record)
     #time.sleep(1)
     return (3,0,0,0)
@@ -229,6 +229,7 @@ def main():
                     
                     #threading.Thread(target=eval(cmd_info['forward_mo_module']), args=(record['id'], cmd_info['mourl'])).start()
                     de = deduction.get_deduction(cmd_info['cp_productID'],record['province'])
+                    logging.info("phone_number:%s,cp_productID:%s,province:%s,de=%s",record['phone_number'],cmd_info['cp_productID'],record['province'],de)
                     if(in_po(de)): 
                         forward_status = 4 #上行被扣量
                         forward_result = 0 #随便赋值

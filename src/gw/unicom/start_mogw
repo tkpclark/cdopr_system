@@ -1,3 +1,3 @@
 killall -g tcpserver > /dev/null
 tcpserver -R -H -l 0 0 8801 ./unimo 10667333.config &
-tcpserver -R -H -l 0 0 9000 ./unimo_tr 10655500302.config &
+tcpserver -R -H -l 0 0 9000 ./unimo_mv86 10655570101.config &

@@ -25,15 +25,23 @@ try{
 		$forward_status=mysqli_fetch_row($result);
 		$forward_status = $forward_status[0];
 		$rand = rand(1,100);
-		if(!empty($deduction) && $rand>=$deduction && $forward_status==0){
-			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime',forward_status='2' where unicomId='$unicomId'";
-		}else{
-			$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime' where unicomId='$unicomId'";
-		}
+		$sql="select status from wraith_wo_sdk where unicomId='$unicomId'";
+		$status_ress = exsql($sql);
+		$status_res=mysqli_fetch_row($status_ress);
+		if($status_res!=false && empty($status_res[0])){
+			if(!empty($deduction) && $rand>=$deduction && $forward_status==0){
+				$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime',forward_status='2' where unicomId='$unicomId'";
+			}else{
+				$sql="update wraith_wo_sdk set status='$status',paymentTime='$paymentTime' where unicomId='$unicomId'";
+			}
 
-		if($result = exsql($sql)){
+			if($result = exsql($sql)){
+				
+			}
+		}else{
 			$output = 1;
 		}
+		
 	}
 	
 }catch(Exception $e) {

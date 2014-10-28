@@ -228,7 +228,7 @@ static sgip_read()
 				linkid,
 				gwid
 				);
-		//proclog(sql);
+		proclog(sql);
 		mysql_exec(&mysql,"set names utf8");
 		mysql_exec(&mysql, sql);
 

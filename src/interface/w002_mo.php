@@ -75,7 +75,7 @@ try{
 					$callBack=$data;
 					$forward_status=1;
 					$forward_mr_time=date('Y-m-d H:i:s',time());
-					if(trim($callBack)=='ok'){
+					if(strtoupper(trim($callBack))=='OK'){
 						$forward_mr_result=1;
 					}else{
 						$forward_mr_result=2;
