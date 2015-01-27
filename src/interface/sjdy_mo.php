@@ -23,10 +23,18 @@ try{
 		if(!isset($province) && !isset($province)){
 			throw new Exception ( '401');
 		}
-		$sql="insert into wraith_message(phone_number,mo_message,sp_number,linkid,fee,motime,province,area,gwid) values('$phone_number','$mo_message','$sp_number','$linkid','$fee','$motime','$province','$area','41')";
-		if($result = exsql($sql)){
-			$output = 'ok';
+		$sql="select * from wraith_message where linkid='$linkid' and gwid=41 union all select * from wraith_message_history where linkid='$linkid' and gwid=41 ";
+		$result1 = exsql($sql);
+		if(mysqli_num_rows($result1)>0){
+			$output = 'OK';
+		}else{
+			$sql="insert into wraith_message(phone_number,mo_message,sp_number,linkid,fee,motime,province,area,gwid) values('$phone_number','$mo_message','$sp_number','$linkid','$fee','$motime','$province','$area','41')";
+			if($result = exsql($sql)){
+				$output = 'ok';
+			}
 		}
+
+
 	}
 	
 }catch(Exception $e) {

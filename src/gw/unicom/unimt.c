@@ -22,7 +22,7 @@ skt_s *sp;
 
 char mdname[]="unimt";
 char logpath[128];
-char version[]="1.03";
+char version[]="1.04";
 
 static char dbip[32];
 static char dbname[32];
@@ -78,8 +78,6 @@ init()
 	       exit(0);
 	  }
 
-	
-	proclog("starting...\n");
 
 	
 }
@@ -107,7 +105,7 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 	strcpy(pp+37,password);
 	proclog( "login... ip:[%s:%d] name[%s] passwd[%s]",gateip,port,username,password);
 	
-	sp=(skt_s*)sopen();
+
 	if(sclient(sp,gateip,port)==-1) 
 	{
 		proclog("failed to connect to %s:%d,%s",gateip,port,strerror(errno));
@@ -182,7 +180,6 @@ static int sgip_unbind(char *nodeid,unsigned int seq)
 	n=read(sp->sd,response,20);
 	alarm(0);
 	//proclog("recved %d bytes",n);
-	sclose(sp);
 
 }
 
@@ -232,7 +229,7 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	//strcpy(pp+106,"0"); //
 	//*(pp+112)=(unsigned char)0;
 
-	*(pp+113)=(unsigned char)0;//0;	//引起MT消息的原因 0-MO点播引起的第一条MT消息；
+	*(pp+113)=(unsigned char)0;//0;	//锟斤拷锟斤拷MT锟斤拷息锟斤拷原锟斤拷 0-MO锟姐播锟斤拷锟斤拷牡锟揭伙拷锟組T锟斤拷息锟斤拷
 	*(pp+114)=(unsigned char)8;//
 	*(pp+147)=(unsigned char)1;//1;
 	*(pp+150)=(unsigned char)15;//
@@ -454,6 +451,7 @@ main(int argc, char **argv)
 		printf("file %s doesn't exist!\n",argv[1]);
 		exit(0);
 	}
+	sp=(skt_s*)sopen();
 	read_config(argv[1]);
 	proclog("starting...");
 	init();

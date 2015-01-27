@@ -22,7 +22,7 @@ skt_s *sp;
 
 char mdname[]="unimt_fee";
 char logpath[128];
-char version[]="1.01";
+char version[]="1.04";
 
 static char dbip[32];
 static char dbname[32];
@@ -79,9 +79,6 @@ init()
 	  }
 
 	
-	proclog("starting...\n");
-
-	
 }
 static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,char *password,unsigned int seq)
 {
@@ -107,7 +104,7 @@ static int sgip_bind(char *gateip,int port,unsigned int nodeId,char *username,ch
 	strcpy(pp+37,password);
 	proclog( "login... ip:[%s:%d] name[%s] passwd[%s]",gateip,port,username,password);
 	
-	sp=(skt_s*)sopen();
+
 	if(sclient(sp,gateip,port)==-1) 
 	{
 		proclog("failed to connect to %s:%d,%s",gateip,port,strerror(errno));
@@ -175,7 +172,6 @@ static int sgip_unbind(char *nodeid,unsigned int seq)
 	n=recv(sp->sd,response,20,MSG_WAITALL);
 	
 	//proclog("recved %d bytes",n);
-	sclose(sp);
 
 }
 
@@ -225,9 +221,9 @@ static void sgip_submit(SUBMIT_PKG *p_submit_pkg,int nodeId)
 	strcpy(pp+106,p_submit_pkg->GivenValue); //
 	*(pp+112)=p_submit_pkg->AgentFlag;
 
-	*(pp+113)=p_submit_pkg->MorelatetoMTFlag;//°üÔÂ»°µ¥ 	//ÒýÆðMTÏûÏ¢µÄÔ­Òò 0-MOµã²¥ÒýÆðµÄµÚÒ»ÌõMTÏûÏ¢£»
+	*(pp+113)=p_submit_pkg->MorelatetoMTFlag;//ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½ 	//ï¿½ï¿½ï¿½ï¿½MTï¿½ï¿½Ï¢ï¿½ï¿½Ô­ï¿½ï¿½ 0-MOï¿½ã²¥ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½MTï¿½ï¿½Ï¢ï¿½ï¿½
 	*(pp+114)=p_submit_pkg->Priority;//
-	*(pp+147)=p_submit_pkg->ReportFlag;//°üÔÂ»°µ¥
+	*(pp+147)=p_submit_pkg->ReportFlag;//ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½
 	*(pp+148)=p_submit_pkg->TP_pid;
 	*(pp+149)=p_submit_pkg->TP_udhi;
 	*(pp+150)=p_submit_pkg->MessageCoding;//
@@ -488,6 +484,7 @@ main(int argc, char **argv)
 		printf("file %s doesn't exist!\n",argv[1]);
 		exit(0);
 	}
+	sp=(skt_s*)sopen();
 	read_config(argv[1]);
 	proclog("starting...");
 	init();
